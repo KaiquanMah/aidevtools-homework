@@ -1,2 +1,2 @@
-# aidevtools-01-todo-django-application
-AIDevTools Homework 01 TODO Django Application
+# AI Dev Tools 2025 Homework
+* 01-todo - AIDevTools Homework 01 TODO Django Application
