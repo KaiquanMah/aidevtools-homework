@@ -63,11 +63,24 @@ What's the command you use for running tests in the terminal?
 **Answer:** python manage.py test - This is the standard command to run Django tests.
 
 ## Finally: Running the app
+Remember to pip install, migrate
+```
+pip install Django
+python manage.py migrate
+python manage.py test
+```
+
 Now the application is developed and tested. Run it:
 ```
-python manage.py runserver
+python manage.py runserver 8000 &
 ```
-Since we asked AI to test everything, it should just work. If it doesn't, iterate with AI until it works.
+After running
+```
+kill %1
+```
+Since we asked AI to test everything, it should just work. If it doesn't, iterate with until it works.
+
+
 
 ## Screenshots of the Django app
 ### Homepage
