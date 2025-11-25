@@ -105,3 +105,11 @@ Since we asked AI to test everything, it should just work. If it doesn't, iterat
 <img width="881" height="243" alt="image" src="https://github.com/user-attachments/assets/187aac6e-7031-4358-8af0-a77decd52223" />
 <img width="1260" height="457" alt="image" src="https://github.com/user-attachments/assets/927c74cf-83a0-49c7-a5f0-f63cb564a6a9" />
 
+
+
+
+## References
+- Original lecture
+  - https://github.com/DataTalksClub/ai-dev-tools-zoomcamp/tree/main/01-overview?utm_source=DataTalks&utm_campaign=7d74cdd47f-EMAIL_ai-dev-tools-zoomcamp-2025-module-1&utm_medium=email&utm_term=0_97178021aa-7d74cdd47f-477708574&ct=t(EMAIL_ai-dev-tools-zoomcamp-2025-module-1)
+- Homework instructions
+  - https://github.com/DataTalksClub/ai-dev-tools-zoomcamp/blob/main/cohorts/2025/01-overview/homework.md?utm_source=DataTalks&utm_campaign=7d74cdd47f-EMAIL_ai-dev-tools-zoomcamp-2025-module-1&utm_medium=email&utm_term=0_97178021aa-7d74cdd47f-477708574&ct=t(EMAIL_ai-dev-tools-zoomcamp-2025-module-1)
