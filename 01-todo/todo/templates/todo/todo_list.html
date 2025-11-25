@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="text-align: center; margin-bottom: 20px;">
+    <a href="{% url 'todo_create' %}" class="button btn-primary">Add New TODO</a>
+</div>
+
+{% if todos %}
+    {% for todo in todos %}
+        <div class="todo-item {% if todo.completed %}completed{% endif %}">
+            <div class="todo-info">
+                <div class="todo-title">{{ todo.title }}</div>
+                {% if todo.description %}
+                    <div class="todo-description">{{ todo.description }}</div>
+                {% endif %}
+                {% if todo.due_date %}
+                    <div class="todo-date">Due: {{ todo.due_date|date:"M d, Y H:i" }}</div>
+                {% endif %}
+                <div class="todo-date">Created: {{ todo.created_at|date:"M d, Y H:i" }}</div>
+            </div>
+            <div class="todo-actions">
+                <a href="{% url 'todo_toggle_completed' todo.pk %}" class="button {% if todo.completed %}btn-warning{% else %}btn-success{% endif %}">
+                    {% if todo.completed %}Undo{% else %}Complete{% endif %}
+                </a>
+                <a href="{% url 'todo_update' todo.pk %}" class="button btn-primary">Edit</a>
+                <a href="{% url 'todo_delete' todo.pk %}" class="button btn-danger">Delete</a>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <div class="empty-list">
+        <p>No TODOs yet. <a href="{% url 'todo_create' %}">Add one</a>!</p>
+    </div>
+{% endif %}
+{% endblock %}
