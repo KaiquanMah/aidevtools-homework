@@ -68,3 +68,27 @@ Now the application is developed and tested. Run it:
 python manage.py runserver
 ```
 Since we asked AI to test everything, it should just work. If it doesn't, iterate with AI until it works.
+
+## Screenshots of the Django app
+### Homepage
+<img width="1272" height="334" alt="image" src="https://github.com/user-attachments/assets/b179d94f-c111-42eb-a627-27a80ae1a6fa" />
+
+
+### Add TODO
+<img width="813" height="643" alt="image" src="https://github.com/user-attachments/assets/79c34077-6a19-4a21-bd3a-1f1ee734cec6" />
+<img width="1257" height="361" alt="image" src="https://github.com/user-attachments/assets/d030997a-80cb-42d5-ae1f-cb4682eb3ff7" />
+
+
+### Complete Item
+<img width="1267" height="458" alt="image" src="https://github.com/user-attachments/assets/3b3b4140-3687-44ec-a0b4-0f72ac539b4f" />
+
+
+### Edit Item
+<img width="808" height="624" alt="image" src="https://github.com/user-attachments/assets/5896f6c4-7006-4867-88d1-b2f444881b8c" />
+
+
+### Delete Item
+<img width="804" height="526" alt="image" src="https://github.com/user-attachments/assets/2ad00125-9933-4944-9381-0fc095a6130c" />
+<img width="881" height="243" alt="image" src="https://github.com/user-attachments/assets/187aac6e-7031-4358-8af0-a77decd52223" />
+<img width="1260" height="457" alt="image" src="https://github.com/user-attachments/assets/927c74cf-83a0-49c7-a5f0-f63cb564a6a9" />
+
