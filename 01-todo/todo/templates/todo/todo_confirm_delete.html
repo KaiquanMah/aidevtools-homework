@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Confirm Deletion</h2>
+
+<p>Are you sure you want to delete the TODO "{{ todo.title }}"?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <div class="form-actions">
+        <button type="submit" class="button btn-danger">Yes, Delete</button>
+        <a href="{% url 'todo_list' %}" class="button btn-primary">Cancel</a>
+    </div>
+</form>
+{% endblock %}
