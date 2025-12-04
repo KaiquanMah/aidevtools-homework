@@ -18,7 +18,7 @@
 3. **Test real-time collaboration:**
    - ✅ **Code Sync:** Type in one window → see it appear in the other
    - ✅ **Language Sync:** Change language in one window → see it change in the other
-   - ✅ **User Presence:** Both users shown in "Connected Users" list
+   - ✅ **User Presence:** Both users shown in "Connected Users" list with random funky names (e.g., "Funky Monkey", "Happy Tiger")
 
 ### Method 2: Different Browsers
 

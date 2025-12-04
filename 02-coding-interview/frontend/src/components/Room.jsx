@@ -12,13 +12,21 @@ function Room() {
   const [connected, setConnected] = useState(false);
   const [code, setCode] = useState('// Start coding here\nfunction hello() {\n  console.log("Hello World!");\n}\nhello();');
   const [language, setLanguage] = useState('javascript');
+  const [users, setUsers] = useState([]);
   const socketRef = useRef(null);
 
   const { executeCode, output, isRunning, error, pyodideLoaded } = useCodeExecutor(language);
 
   useEffect(() => {
     // Connect to WebSocket
-    socketRef.current = io('http://localhost:8000');
+    socketRef.current = io('http://localhost:8000', {
+      transports: ['websocket'],
+      reconnectionAttempts: 5,
+    });
+
+    socketRef.current.onAny((event, ...args) => {
+      console.log(`[Socket Event] ${event}`, args);
+    });
 
     socketRef.current.on('connect', () => {
       console.log('Connected to server');
@@ -26,8 +34,9 @@ function Room() {
       socketRef.current.emit('join_room', { roomId });
     });
 
-    socketRef.current.on('user_joined', (data) => {
-      console.log('User joined:', data);
+    socketRef.current.on('user_list_update', (data) => {
+      console.log('User list updated:', data.users);
+      setUsers(data.users);
     });
 
     socketRef.current.on('code_update', (data) => {
@@ -116,7 +125,7 @@ function Room() {
           <OutputPanel output={output} error={error} onClear={handleClearOutput} />
         </div>
         <div className="sidebar">
-          <UserList />
+          <UserList users={users} />
         </div>
       </div>
     </div>
