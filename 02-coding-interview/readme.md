@@ -241,8 +241,15 @@ Note: you can also follow the same path as in the videos and make it in 3 steps:
 
 What's the initial prompt you gave to AI to start the implementation? Copy and paste it in the homework form.
 ```
-Enter here later
+@02-coding-interview  please think step by step to topup README.md. What instructions can be added to this readme.md file to help windsurf keep referring back to this file for coding instructions / guidelines???? what coding guidelines can be added?
+
+
+@02-coding-interview. pls think step by step the plan to create the solution, then top up the feature implementation order subsection.
+
+pls read readme.md inside @02-coding-interview  folder. Then think step by step how to implement the code in @02-coding-interview , starting from phase 1.
+Also is there a way to install things in a separate environment, so it does not mess with my computer? Create a Docker development environment first, then implement the project.
 ```
+
 
 ## Question 2: Integration Tests
 
@@ -251,9 +258,18 @@ Write integration tests that check the interaction between client and server wor
 Also it's a good idea to ask it to start creating a `TESTS.md` file with all the commands for running and testing your application.
 
 What's the terminal command you use for executing tests?
+
+**Backend and Integration Test Command**
+```bash
+docker-compose -f docker-compose.dev.yml exec dev python3 -m pytest backend/
 ```
-enter here later
+> **Note**: Currently tests REST API endpoints. WebSocket integration tests to be added.
+
+**Frontend Test Command**
+```bash
+docker-compose -f docker-compose.dev.yml exec dev sh -c "cd frontend && npm test"
 ```
+> **Note**: Frontend tests not yet configured (returns placeholder message). Will be added in future phase.
 
 
 ## Question 3: Running Both Client and Server

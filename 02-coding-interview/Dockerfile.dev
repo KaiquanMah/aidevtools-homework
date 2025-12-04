@@ -1,0 +1,29 @@
+# Development Docker Environment
+FROM node:18-alpine
+
+# Install Python and pip
+RUN apk add --no-cache python3 py3-pip
+
+# Set working directory
+WORKDIR /app
+
+# Create Python virtual environment first
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Install Python dependencies in virtual environment
+# Copy requirements file
+COPY backend/requirements.txt /tmp/requirements.txt
+
+# Install Python dependencies in virtual environment
+RUN pip install -r /tmp/requirements.txt && \
+    pip install pytest pytest-asyncio httpx
+
+# Install Node.js dependencies globally for project creation
+RUN npm install -g create-vite
+
+# Expose ports for frontend and backend
+EXPOSE 3000 8000
+
+# Command to start development shell
+CMD ["/bin/sh"]
