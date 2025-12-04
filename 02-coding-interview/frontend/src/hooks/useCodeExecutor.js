@@ -14,7 +14,7 @@ export const useCodeExecutor = (language) => {
                 try {
                     const { loadPyodide: loadPyodideFunc } = await import('pyodide');
                     pyodideRef.current = await loadPyodideFunc({
-                        indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.24.1/full/',
+                        indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.29.0/full/',
                     });
                     setPyodideLoaded(true);
                 } catch (err) {
