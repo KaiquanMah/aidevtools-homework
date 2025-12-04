@@ -3,13 +3,18 @@ import { useParams } from 'react-router-dom';
 import { io } from 'socket.io-client';
 import CodeEditor from './CodeEditor';
 import UserList from './UserList';
+import OutputPanel from './OutputPanel';
+import { useCodeExecutor } from '../hooks/useCodeExecutor';
 import './Room.css';
 
 function Room() {
   const { roomId } = useParams();
   const [connected, setConnected] = useState(false);
-  const [code, setCode] = useState('// Start coding here\n');
+  const [code, setCode] = useState('// Start coding here\nfunction hello() {\n  console.log("Hello World!");\n}\nhello();');
+  const [language, setLanguage] = useState('javascript');
   const socketRef = useRef(null);
+
+  const { executeCode, output, isRunning, error, pyodideLoaded } = useCodeExecutor(language);
 
   useEffect(() => {
     // Connect to WebSocket
@@ -29,6 +34,10 @@ function Room() {
       setCode(data.code);
     });
 
+    socketRef.current.on('language_change', (data) => {
+      setLanguage(data.language);
+    });
+
     return () => {
       socketRef.current.disconnect();
     };
@@ -39,17 +48,72 @@ function Room() {
     socketRef.current.emit('code_change', { roomId, code: newCode });
   };
 
+  const handleLanguageChange = (e) => {
+    const newLanguage = e.target.value;
+    setLanguage(newLanguage);
+    socketRef.current.emit('language_change', { roomId, language: newLanguage });
+
+    // Update default code based on language
+    if (newLanguage === 'python') {
+      setCode('# Start coding here\nprint("Hello World!")');
+    } else {
+      setCode('// Start coding here\nconsole.log("Hello World!");');
+    }
+  };
+
+  const handleRunCode = () => {
+    executeCode(code);
+  };
+
+  const handleClearOutput = () => {
+    // Output clearing is handled by the hook
+  };
+
+  const isReady = language === 'javascript' || pyodideLoaded;
+
   return (
     <div className="room-container">
       <div className="header">
-        <h2>Room: {roomId}</h2>
-        <span className={`status ${connected ? 'connected' : 'disconnected'}`}>
-          {connected ? 'Connected' : 'Connecting...'}
-        </span>
+        <div className="header-left">
+          <h2>Room: {roomId}</h2>
+          <span className={`status ${connected ? 'connected' : 'disconnected'}`}>
+            {connected ? '● Connected' : '○ Connecting...'}
+          </span>
+        </div>
+        <div className="header-right">
+          <label htmlFor="language-select">Language: </label>
+          <select
+            id="language-select"
+            value={language}
+            onChange={handleLanguageChange}
+            className="language-selector"
+          >
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+          </select>
+          <button
+            onClick={handleRunCode}
+            disabled={isRunning || !isReady}
+            className="run-code-btn"
+            title={!isReady ? 'Loading Python runtime...' : 'Run code (Ctrl+Enter)'}
+          >
+            {isRunning ? (
+              <>
+                <span className="spinner"></span>
+                Running...
+              </>
+            ) : (
+              <>
+                ▶ Run
+              </>
+            )}
+          </button>
+        </div>
       </div>
       <div className="content">
         <div className="editor-panel">
-          <CodeEditor code={code} onCodeChange={handleCodeChange} />
+          <CodeEditor code={code} onCodeChange={handleCodeChange} language={language} />
+          <OutputPanel output={output} error={error} onClear={handleClearOutput} />
         </div>
         <div className="sidebar">
           <UserList />

@@ -26,3 +26,12 @@ async def code_change(sid, data):
     if room_id and code is not None:
         # Broadcast the code change to others in the room
         await sio.emit('code_update', {'code': code}, room=room_id, skip_sid=sid)
+
+@sio.event
+async def language_change(sid, data):
+    room_id = data.get('roomId')
+    language = data.get('language')
+    if room_id and language:
+        # Broadcast the language change to others in the room
+        await sio.emit('language_change', {'language': language}, room=room_id, skip_sid=sid)
+

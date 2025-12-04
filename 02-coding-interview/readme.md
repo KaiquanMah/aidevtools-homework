@@ -287,7 +287,7 @@ Let's now add support for syntax highlighting for JavaScript and Python.
 
 Which library did AI use for it?
 ```
-enter here later
+Monaco Editor (@monaco-editor/react)
 ```
 
 
@@ -299,7 +299,7 @@ For security reasons, we don't want to execute code directly on the server. Inst
 
 Which library did AI use for compiling Python to WASM?
 ```
-enter here later
+Pyodide
 ```
 
 

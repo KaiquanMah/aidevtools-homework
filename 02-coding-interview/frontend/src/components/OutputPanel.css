@@ -1,0 +1,92 @@
+.output-panel {
+    background: #1e1e1e;
+    border-top: 1px solid #3e3e42;
+    padding: 1rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.output-header h4 {
+    margin: 0;
+    color: #cccccc;
+    font-size: 0.9rem;
+}
+
+.clear-output-btn {
+    background: #3c3c3c;
+    color: #cccccc;
+    border: 1px solid #3e3e42;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.clear-output-btn:hover {
+    background: #505050;
+}
+
+.output-content {
+    background: #0e0e0e;
+    color: #cccccc;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.85rem;
+    white-space: pre-wrap;
+    min-height: 60px;
+}
+
+.output-content.error {
+    color: #f48771;
+}
+
+.output-content.empty {
+    color: #858585;
+    font-style: italic;
+}
+
+.run-code-btn {
+    background: #0e639c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.run-code-btn:hover:not(:disabled) {
+    background: #1177bb;
+}
+
+.run-code-btn:disabled {
+    background: #3c3c3c;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.run-code-btn .spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid transparent;
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
