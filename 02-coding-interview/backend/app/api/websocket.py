@@ -39,7 +39,7 @@ async def disconnect(sid):
 async def join_room(sid, data):
     room_id = data.get('roomId')
     if room_id:
-        sio.enter_room(sid, room_id)
+        await sio.enter_room(sid, room_id)
         
         # Assign random name
         name = generate_random_name()
