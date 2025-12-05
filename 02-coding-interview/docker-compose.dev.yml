@@ -17,3 +17,4 @@ services:
       - PYTHONPATH=/app
     stdin_open: true
     tty: true
+    command: /bin/bash /app/entrypoint.sh
