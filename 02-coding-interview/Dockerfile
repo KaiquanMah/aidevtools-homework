@@ -35,6 +35,8 @@ RUN echo 'server { \
         root /app/frontend/dist; \
         index index.html index.htm; \
         try_files $uri $uri/ /index.html; \
+        add_header Cross-Origin-Opener-Policy same-origin; \
+        add_header Cross-Origin-Embedder-Policy require-corp; \
     } \
     location /api { \
         proxy_pass http://127.0.0.1:8000; \

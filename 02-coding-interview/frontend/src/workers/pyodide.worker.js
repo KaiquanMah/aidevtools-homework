@@ -6,7 +6,7 @@ let pyodide = null;
 async function initPyodide() {
     if (!pyodide) {
         pyodide = await loadPyodide({
-            indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.29.0/full/',
+            indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.26.1/full/',
         });
         // Redirect stdout
         await pyodide.runPythonAsync(`
