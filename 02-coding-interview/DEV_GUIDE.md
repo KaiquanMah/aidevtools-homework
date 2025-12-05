@@ -259,3 +259,17 @@ Ports and Protocol (TCP, HTTP)
       * Why it breaks Pyodide: WebAssembly (WASM) and Python rely heavily on JIT for performance. Without it, the engine struggles, hangs, and eventually the tab crashes (STATUS_ACCESS_VIOLATION).
       * However our app requirement is to use WASM to run code in the client and not on the server, so we need to accept this limitation for our current prototype, and use/cater for only Chrome browser for now.
 
+
+## Code to backup docker images to Docker Hub
+Tag the development image as 'dev'
+```
+docker tag 02-coding-interview-dev:latest kaiquanmah0/aidevtools-w2-codinginterview:dev
+```
+
+Tag the production image as 'latest' or 'prod'
+```
+docker tag 02-coding-interview-app:latest kaiquanmah0/aidevtools-w2-codinginterview:prod
+```
+
+
+
