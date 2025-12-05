@@ -4,26 +4,41 @@ export const useCodeExecutor = (language) => {
     const [output, setOutput] = useState('');
     const [isRunning, setIsRunning] = useState(false);
     const [error, setError] = useState(null);
-    const pyodideRef = useRef(null);
+    const workerRef = useRef(null);
     const [pyodideLoaded, setPyodideLoaded] = useState(false);
 
-    // Load Pyodide on mount
+    // Initialize Worker
     useEffect(() => {
-        const loadPyodide = async () => {
-            if (language === 'python' && !pyodideRef.current) {
-                try {
-                    const { loadPyodide: loadPyodideFunc } = await import('pyodide');
-                    pyodideRef.current = await loadPyodideFunc({
-                        indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.29.0/full/',
-                    });
-                    setPyodideLoaded(true);
-                } catch (err) {
-                    console.error('Failed to load Pyodide:', err);
-                    setError('Failed to load Python runtime');
-                }
+        if (language === 'python' && !workerRef.current) {
+            try {
+                workerRef.current = new Worker(new URL('../workers/pyodide.worker.js', import.meta.url), {
+                    type: 'module'
+                });
+                setPyodideLoaded(true); // Worker loads async, but we assume it's ready to accept messages
+
+                workerRef.current.onmessage = (event) => {
+                    const { type, output: workerOutput, error: workerError } = event.data;
+                    setIsRunning(false);
+
+                    if (type === 'success') {
+                        setOutput(workerOutput || 'Code executed successfully (no output)');
+                    } else if (type === 'error') {
+                        setError(workerError);
+                        setOutput(`Error: ${workerError}`);
+                    }
+                };
+            } catch (err) {
+                console.error('Failed to initialize Pyodide worker:', err);
+                setError('Failed to initialize Python runtime');
+            }
+        }
+
+        return () => {
+            if (workerRef.current) {
+                workerRef.current.terminate();
+                workerRef.current = null;
             }
         };
-        loadPyodide();
     }, [language]);
 
     const executeCode = async (code) => {
@@ -33,11 +48,10 @@ export const useCodeExecutor = (language) => {
 
         try {
             if (language === 'javascript') {
-                // Execute JavaScript
+                // Execute JavaScript (Main Thread - Safe enough for simple JS)
                 const capturedOutput = [];
                 const originalConsoleLog = console.log;
 
-                // Override console.log to capture output
                 console.log = (...args) => {
                     capturedOutput.push(args.map(arg =>
                         typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
@@ -45,7 +59,6 @@ export const useCodeExecutor = (language) => {
                 };
 
                 try {
-                    // Execute with timeout
                     const result = await Promise.race([
                         new Promise((resolve) => {
                             const fn = new Function(code);
@@ -57,7 +70,6 @@ export const useCodeExecutor = (language) => {
                         )
                     ]);
 
-                    // Restore console.log
                     console.log = originalConsoleLog;
 
                     if (capturedOutput.length > 0) {
@@ -71,42 +83,41 @@ export const useCodeExecutor = (language) => {
                     console.log = originalConsoleLog;
                     throw err;
                 }
+                setIsRunning(false);
             } else if (language === 'python') {
-                // Execute Python with Pyodide
-                if (!pyodideRef.current) {
-                    throw new Error('Python runtime not loaded. Please wait...');
+                // Execute Python via Web Worker
+                if (!workerRef.current) {
+                    throw new Error('Python runtime not initialized');
                 }
 
-                // Redirect stdout
-                await pyodideRef.current.runPythonAsync(`
-import sys
-import io
-sys.stdout = io.StringIO()
-`);
+                // Send code to worker
+                workerRef.current.postMessage({ type: 'run', code });
 
-                // Execute code with timeout
-                const result = await Promise.race([
-                    pyodideRef.current.runPythonAsync(code),
-                    new Promise((_, reject) =>
-                        setTimeout(() => reject(new Error('Execution timeout (5s)')), 5000)
-                    )
-                ]);
+                // Timeout handling for worker
+                setTimeout(() => {
+                    if (isRunning) {
+                        // If still running after 10s, terminate and restart
+                        workerRef.current.terminate();
+                        workerRef.current = new Worker(new URL('../workers/pyodide.worker.js', import.meta.url), {
+                            type: 'module'
+                        });
+                        // Re-attach listener
+                        workerRef.current.onmessage = (event) => {
+                            const { type, output: workerOutput, error: workerError } = event.data;
+                            setIsRunning(false);
+                            if (type === 'success') setOutput(workerOutput);
+                            else if (type === 'error') { setError(workerError); setOutput(`Error: ${workerError}`); }
+                        };
 
-                // Get stdout
-                const stdout = await pyodideRef.current.runPythonAsync('sys.stdout.getvalue()');
-
-                if (stdout) {
-                    setOutput(stdout);
-                } else if (result !== undefined && result !== null) {
-                    setOutput(String(result));
-                } else {
-                    setOutput('Code executed successfully (no output)');
-                }
+                        setIsRunning(false);
+                        setError('Execution timeout (10s)');
+                        setOutput('Error: Execution timeout (10s) - Worker terminated');
+                    }
+                }, 10000);
             }
         } catch (err) {
             setError(err.message || 'Execution error');
             setOutput(`Error: ${err.message}`);
-        } finally {
             setIsRunning(false);
         }
     };
