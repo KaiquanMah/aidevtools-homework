@@ -1,11 +1,15 @@
 """WebSocket integration tests - testing real client-server communication.
 
-These tests require the FastAPI server to be running on http://localhost:8000.
+These tests require the FastAPI server to be running.
 Run with: pytest backend/tests/test_websocket.py -v
 """
 import pytest
 import asyncio
 import socketio
+import os
+
+# Get server URL from environment or use default
+SERVER_URL = os.getenv('TEST_SERVER_URL', 'http://127.0.0.1:8000')
 
 @pytest.mark.asyncio
 async def test_websocket_basic_connection():
@@ -14,11 +18,11 @@ async def test_websocket_basic_connection():
     connected = False
     
     try:
-        await sio.connect('http://localhost:8000')
+        await sio.connect(SERVER_URL)
         connected = sio.connected
         await sio.disconnect()
-    except Exception as e:
-        pytest.skip(f"Server not available: {e}")
+    except (ConnectionError, OSError, socketio.exceptions.ConnectionError) as e:
+        pytest.skip(f"Server not available at {SERVER_URL}: {e}")
     
     assert connected, "Client should successfully connect to WebSocket server"
 
@@ -28,7 +32,7 @@ async def test_websocket_room_join():
     sio = socketio.AsyncClient()
     
     try:
-        await sio.connect('http://localhost:8000')
+        await sio.connect(SERVER_URL)
         
         # Emit join_room event
         await sio.emit('join_room', {'roomId': 'test-room-456'})
@@ -41,8 +45,8 @@ async def test_websocket_room_join():
         # If we get here without exception, room join succeeded
         assert True
         
-    except Exception as e:
-        pytest.skip(f"Server not available: {e}")
+    except (ConnectionError, OSError, socketio.exceptions.ConnectionError) as e:
+        pytest.skip(f"Server not available at {SERVER_URL}: {e}")
 
 @pytest.mark.asyncio
 async def test_websocket_code_sync_between_clients():
@@ -60,8 +64,8 @@ async def test_websocket_code_sync_between_clients():
     
     try:
         # Connect both clients
-        await client1.connect('http://localhost:8000')
-        await client2.connect('http://localhost:8000')
+        await client1.connect(SERVER_URL)
+        await client2.connect(SERVER_URL)
         
         # Join same room
         room_id = 'sync-test-room'
@@ -79,8 +83,8 @@ async def test_websocket_code_sync_between_clients():
         
         assert received_data.get('code') == test_code, "Code should sync to other client"
         
-    except (OSError, ConnectionError, TimeoutError) as e:
-        pytest.skip(f"Server not available or connection issue: {e}")
+    except (OSError, ConnectionError, socketio.exceptions.ConnectionError) as e:
+        pytest.skip(f"Server not available at {SERVER_URL}: {e}")
     except asyncio.TimeoutError:
         pytest.fail("Timeout: Client 2 did not receive code update")
     finally:
@@ -104,8 +108,8 @@ async def test_websocket_language_sync():
         lang_received.set()
     
     try:
-        await client1.connect('http://localhost:8000')
-        await client2.connect('http://localhost:8000')
+        await client1.connect(SERVER_URL)
+        await client2.connect(SERVER_URL)
         
         room_id = 'lang-test-room'
         await client1.emit('join_room', {'roomId': room_id})
@@ -121,8 +125,8 @@ async def test_websocket_language_sync():
         
         assert received_data.get('language') == 'python', "Language should sync to other client"
         
-    except (OSError, ConnectionError, TimeoutError) as e:
-        pytest.skip(f"Server not available: {e}")
+    except (OSError, ConnectionError, socketio.exceptions.ConnectionError) as e:
+        pytest.skip(f"Server not available at {SERVER_URL}: {e}")
     except asyncio.TimeoutError:
         pytest.fail("Timeout: Client 2 did not receive language change")
     finally:

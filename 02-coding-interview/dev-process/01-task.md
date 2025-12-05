@@ -1,0 +1,33 @@
+# End-to-End Coding Interview Application Tasks
+
+- [x] Phase 1: Basic Frontend + Backend Setup <!-- id: 0 -->
+    - [x] Initialize Frontend (React + Vite) <!-- id: 1 -->
+    - [x] Initialize Backend (FastAPI) <!-- id: 2 -->
+    - [x] Establish Communication (WebSocket) <!-- id: 3 -->
+    - [x] Basic UI Components (Code Editor, Room Management) <!-- id: 4 -->
+- [x] Phase 2: Integration Tests + TESTS.md <!-- id: 5 -->
+    - [x] Testing Setup (Jest, Pytest) <!-- id: 6 -->
+    - [x] Integration Tests (WebSocket, API) <!-- id: 7 -->
+    - [x] Create TESTS.md <!-- id: 8 -->
+- [x] Phase 3: Concurrent Development Setup <!-- id: 9 -->
+    - [x] Install Concurrently <!-- id: 10 -->
+    - [x] Configure Scripts (`npm run dev`) <!-- id: 11 -->
+- [x] Phase 4: Syntax Highlighting <!-- id: 12 -->
+    - [x] Choose and Install Library (e.g., Monaco Editor) <!-- id: 13 -->
+    - [x] Implementation (JS, Python support) <!-- id: 14 -->
+- [x] Phase 5: WASM Code Execution <!-- id: 15 -->
+    - [x] Security Setup (Pyodide/Brython) <!-- id: 16 -->
+    - [x] Implementation (Browser-based execution) <!-- id: 17 -->
+    - [x] Safety Measures <!-- id: 18 -->
+    - [x] User List with Random Names <!-- id: 27 -->
+- [x] Phase 6: Docker Containerization <!-- id: 19 -->
+    - [x] Create Dockerfile (Multi-stage) <!-- id: 20 -->
+    - [x] Configuration (Ports, Env Vars) <!-- id: 21 -->
+    - [x] Testing Container <!-- id: 22 -->
+    - [x] Real-time Code Sync (Browser Tabs) <!-- id: 28 -->
+- [/] Phase 7: Cloud Deployment <!-- id: 23 -->
+    - [x] Choose Platform <!-- id: 24 -->
+    - [x] Deployment Setup <!-- id: 25 -->
+    - [x] Production Testing <!-- id: 26 -->
+        - Works in Chrome.
+        - Known Issue: Edge may crash if "Enhanced Security Mode" is enabled (disables JIT).

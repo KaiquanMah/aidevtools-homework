@@ -19,22 +19,22 @@ docker-compose -f docker-compose.dev.yml exec dev python3 -m pytest backend/ -v
 **WebSocket Tests (6 tests):**
 - ✅ Event handlers registered (connect, disconnect, join_room, code_change, language_change)
 - ✅ Event handlers are callable
-- ✅ Basic WebSocket connection
-- ✅ Room joining
-- ⏭️ Code sync between clients (requires running server)
-- ⏭️ Language sync between clients (requires running server)
+- ⏭️ Basic WebSocket connection (skipped - requires running server)
+- ⏭️ Room joining (skipped - requires running server)
+- ⏭️ Code sync between clients (skipped - requires running server)
+- ⏭️ Language sync between clients (skipped - requires running server)
 
-**App Structure Tests (3 tests):**
-- ✅ FastAPI app structure
-- ✅ Middleware configuration
-- ✅ Basic pytest functionality
+**Note:** WebSocket integration tests require the FastAPI server to be running. They will automatically skip if the server is not available. To run these tests with a live server, start the backend separately before running pytest.
 
 ### Running Specific Tests
 ```bash
+# Run all backend tests (8 passed, 4 skipped without server)
+docker-compose -f docker-compose.dev.yml exec dev python3 -m pytest backend/ -v
+
 # Run specific test file
 docker-compose -f docker-compose.dev.yml exec dev python3 -m pytest backend/tests/test_integration.py -v
 
-# Run WebSocket tests
+# Run WebSocket tests (will skip if server not running)
 docker-compose -f docker-compose.dev.yml exec dev python3 -m pytest backend/tests/test_websocket.py -v
 ```
 
@@ -140,3 +140,5 @@ Does this mean i need to restart the svc every time i start the container in doc
 
 
 
+# UI tests on 2025.12.05
+* to add
