@@ -58,6 +58,72 @@ docker-compose -f docker-compose.dev.yml exec dev python3 -m pytest backend/test
 - **Real-time**: WebSocket for live code collaboration
 - **Container**: Single development container with Node.js + Python
 
+* Architecture Consideration
+  * We do not have any database? YES, no database
+    * Data Storage: In-Memory Python Dictionaries
+      * Instead of a database, we use in-memory data structures:
+        ```python
+        # Store room state: room_id -> list of {sid, name}
+        rooms = {}
+
+        # Store user state: sid -> room_id
+        sid_to_room = {}
+        ```
+        Example of what's stored:
+        ```python
+        rooms = {
+            'room123': [
+                {'sid': 'abc123', 'name': 'Happy Panda'},
+                {'sid': 'def456', 'name': 'Cool Tiger'}
+            ]
+        }
+
+        sid_to_room = {
+            'abc123': 'room123',
+            'def456': 'room123'
+        }
+        ```
+  * How does FastAPI work?
+    * **FastAPI provides the HTTP server (for REST endpoints like /api/health)**
+    * **Socket.IO handles WebSocket connections** (for real-time features)
+    * **Data lives in RAM (Python dictionaries)** while the server is running
+    * When a user joins a room:
+      ```python
+        @sio.event
+        async def join_room(sid, data):
+            room_id = data.get('roomId')
+            name = generate_random_name()
+            
+            # Store in memory
+            rooms[room_id].append({'sid': sid, 'name': name})
+            sid_to_room[sid] = room_id
+      ```
+    * When a user leaves a room:
+      ```python
+        @sio.event
+        async def disconnect(sid):
+            # Remove from memory
+            rooms[room_id] = [u for u in rooms[room_id] if u['sid'] != sid]
+            del sid_to_room[sid]
+      ```
+  * Why This Works for a Coding Interview App:
+    * Temporary sessions: Interview rooms are temporary anyway
+    * Simple: No database setup/maintenance needed
+    * Fast: In-memory access is extremely fast
+    * Prototype-friendly: Perfect for demos and learning
+  * If We Wanted Persistence, We'd Add:
+    * Redis - For session storage
+    * PostgreSQL/MongoDB - For user accounts, interview history
+    * SQLAlchemy - FastAPI's ORM for database operations
+  * But for this project, in-memory storage is sufficient because:
+    * Rooms are temporary
+    * No need to save interview history
+    * Simpler deployment (no database to manage)
+
+
+
+
+
 ## Development Workflow
 
 1. Make code changes (hot-reload enabled for both frontend and backend)
