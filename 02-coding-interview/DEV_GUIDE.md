@@ -176,4 +176,20 @@ Ports and Protocol (TCP, HTTP)
     * The **number of consecutive failures before** attempting to **restart the instance**
 
 
+## Test Webpage and Troubleshoot Deployment
+* 'Javascript' session - open 2 tabs in Chrome OR Edge
+  * Update code, click on run, output is shown
+  * 2 users are shown
+  * Code updates from 1 user's tab is synced to another user's tab
+* 'Python' session - open 2 tabs in Chrome
+  * Either dont update code or update code, click on run - Chrome browser tab runs successfully
+  * 2 users are shown
+  * Code updates from 1 user's tab is synced to another user's tab
+* **'Python' session - open 2 tabs in Edge**
+  * **Either dont update code or update code, click on run - Edge browser tab crashes IMMEDIATELY OR AFTER 15 SECONDS (with the running button still spinning)**
+  * Why 'python run' leads to a crash in the Edge browser tab?
+    * Since the code works in Chrome, the code (Web Worker, Headers, Pyodide) is correct. The crash in Edge is might be due to "Enhanced Security Mode".
+      * What it does: It disables JIT (Just-In-Time) compilation for security.
+      * Why it breaks Pyodide: WebAssembly (WASM) and Python rely heavily on JIT for performance. Without it, the engine struggles, hangs, and eventually the tab crashes (STATUS_ACCESS_VIOLATION).
+      * However our app requirement is to use WASM to run code in the client and not on the server, so we need to accept this limitation for our current prototype, and use/cater for only Chrome browser for now.
 
