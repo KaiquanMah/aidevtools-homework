@@ -262,11 +262,14 @@ Ports and Protocol (TCP, HTTP)
 
 ## Code to backup docker images to Docker Hub
 Tag the development image as 'dev'
+* This docker image was built from Dockerfile.dev
 ```
 docker tag 02-coding-interview-dev:latest kaiquanmah0/aidevtools-w2-codinginterview:dev
 ```
 
 Tag the production image as 'latest' or 'prod'
+* This docker image was built from Dockerfile.prod
+* 'Dockerfile' is identical to 'Dockerfile.prod'
 ```
 docker tag 02-coding-interview-app:latest kaiquanmah0/aidevtools-w2-codinginterview:prod
 ```
