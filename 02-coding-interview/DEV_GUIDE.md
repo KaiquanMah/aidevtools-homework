@@ -274,5 +274,10 @@ Tag the production image as 'latest' or 'prod'
 docker tag 02-coding-interview-app:latest kaiquanmah0/aidevtools-w2-codinginterview:prod
 ```
 
+Push the 2 docker images to Docker Hub
+```
+docker push kaiquanmah0/aidevtools-w2-codinginterview:dev
+docker push kaiquanmah0/aidevtools-w2-codinginterview:prod
+```
 
 
