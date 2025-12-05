@@ -141,4 +141,4 @@ Does this mean i need to restart the svc every time i start the container in doc
 
 
 # UI tests on 2025.12.05
-* to add
+* Refer to the recorded UI test walkthrough uploaded onto YouTube: https://www.youtube.com/watch?v=vDIiVPlT-ao
