@@ -79,17 +79,23 @@
 }
 
 .editor-panel {
-  flex: 1;
+  flex: 4;
+  /* 80% width */
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
 .sidebar {
-  width: 250px;
-  border-right: 1px solid #ddd;
+  flex: 1;
+  /* 20% width */
+  min-width: 200px;
+  border-left: 1px solid #3e3e42;
+  /* Changed to left border matching theme */
   padding: 20px;
   overflow-y: auto;
+  background: #252526;
+  /* Match header background */
 }
 
 .main-content {

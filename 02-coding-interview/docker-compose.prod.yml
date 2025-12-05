@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    ports:
+      - "8080:80" # Map host port 8080 to container port 80 (Nginx)
+    environment:
+      - NODE_ENV=production

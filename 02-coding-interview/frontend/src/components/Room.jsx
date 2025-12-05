@@ -19,7 +19,11 @@ function Room() {
 
   useEffect(() => {
     // Connect to WebSocket
-    socketRef.current = io('http://localhost:8000', {
+    // In production, we connect to the same origin (Nginx proxies /socket.io)
+    // In dev, Vite proxies /socket.io to backend
+    const socketUrl = import.meta.env.PROD ? '/' : 'http://localhost:8000';
+
+    socketRef.current = io(socketUrl, {
       transports: ['websocket'],
       reconnectionAttempts: 5,
     });

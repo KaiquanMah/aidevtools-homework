@@ -1,65 +1,83 @@
-.room-create {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-.room-create h2 {
-  color: #333;
-  margin-bottom: 30px;
-}
-
-.create-section {
-  margin-bottom: 40px;
-}
-
-.join-section h3 {
-  color: #666;
-  margin-bottom: 20px;
-}
-
-.input-group {
+.room-create-container {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  background-color: #1e1e1e;
+  /* Match app theme */
+  color: #d4d4d4;
 }
 
-.room-input {
-  flex: 1;
-  padding: 12px;
-  border: 2px solid #ddd;
+.room-create-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.actions {
+  background: #252526;
+  padding: 2rem;
   border-radius: 8px;
-  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 400px;
 }
 
-.room-input:focus {
-  outline: none;
-  border-color: #007bff;
-}
-
-.btn {
+.create-btn {
+  background-color: #007acc;
+  color: white;
   padding: 12px 24px;
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 4px;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
-.btn-primary {
-  background-color: #007bff;
+.create-btn:hover {
+  background-color: #0062a3;
+}
+
+.divider {
+  color: #888;
+  font-weight: bold;
+}
+
+.join-form {
+  display: flex;
+  gap: 10px;
+}
+
+.join-form input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #3e3e42;
+  border-radius: 4px;
+  background: #3c3c3c;
   color: white;
+  font-size: 1rem;
 }
 
-.btn-primary:hover {
-  background-color: #0056b3;
+.join-form input:focus {
+  outline: none;
+  border-color: #007acc;
 }
 
-.btn-secondary {
-  background-color: #6c757d;
+.join-btn {
+  background-color: #2d2d2d;
   color: white;
+  padding: 10px 20px;
+  border: 1px solid #3e3e42;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
-.btn-secondary:hover {
-  background-color: #545b62;
+.join-btn:hover {
+  background-color: #3e3e42;
 }
