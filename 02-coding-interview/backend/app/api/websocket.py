@@ -66,7 +66,12 @@ async def code_change(sid, data):
     code = data.get('code')
     if room_id and code is not None:
         # Broadcast the code change to others in the room
-        await sio.emit('code_update', {'code': code}, room=room_id, skip_sid=sid)
+        # NOTE: room-based emit doesn't work with our Socket.IO setup,
+        # so we emit to each user's SID individually
+        if room_id in rooms:
+            for user in rooms[room_id]:
+                if user['sid'] != sid:  # Skip sender
+                    await sio.emit('code_update', {'code': code}, to=user['sid'])
 
 @sio.event
 async def language_change(sid, data):
@@ -74,5 +79,8 @@ async def language_change(sid, data):
     language = data.get('language')
     if room_id and language:
         # Broadcast the language change to others in the room
-        await sio.emit('language_change', {'language': language}, room=room_id, skip_sid=sid)
+        if room_id in rooms:
+            for user in rooms[room_id]:
+                if user['sid'] != sid:  # Skip sender
+                    await sio.emit('language_change', {'language': language}, to=user['sid'])
 

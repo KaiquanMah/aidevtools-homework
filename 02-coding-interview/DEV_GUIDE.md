@@ -69,3 +69,19 @@ docker-compose -f docker-compose.dev.yml exec dev python3 -m pytest backend/test
 ```bash
 docker-compose -f docker-compose.dev.yml down
 ```
+
+## UI Fixes
+Before going to phase 7, are the UI fixes automatically reused for both containers?
+
+* Yes, absolutely!
+* The UI fixes are in the source code (CSS files), so they apply to both environments, but in slightly different ways:
+
+1. Development Container (.dev):
+   * Automatic: Because we use "volumes" (syncing your folder to the container), the dev container sees the changes instantly. You don't need to do anything; if you open localhost:3000, the fixes are already there.
+
+2. Production Container (.prod):
+   * Baked In: This container copies the files when you build it. Since I ran docker-compose build after making the changes, the fixes are now baked into that image too.
+
+* So yes, both are fixed! The source of truth is your code, and both containers use that same code.
+
+
