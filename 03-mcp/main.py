@@ -1,5 +1,16 @@
 from fastmcp import FastMCP
 import requests
+from search import setup_search
+
+#######################
+# q6
+#######################
+# Initialize search index
+# Note: In a real production app, you might want to do this lazily or async,
+# but for this homework, initializing at startup is fine.
+index = setup_search()
+#######################
+
 
 mcp = FastMCP("Demo 🚀")
 
@@ -27,6 +38,28 @@ def _scrape_web_page(url: str) -> str:
     jina_url = f"https://r.jina.ai/{url}"
     response = requests.get(jina_url)
     return response.text
+#######################
+
+#######################
+# q6
+#######################
+@mcp.tool
+def search(query: str) -> str:
+    """Search the knowledge base for a query."""
+    return _search(query)
+
+def _search(query: str) -> str:
+    results = index.search(
+        query=query,
+        boost_dict={"content": 1},
+        num_results=5
+    )
+
+    output = []
+    for result in results:
+        output.append(f"Header: {result['filename']}\nContent: {result['content']}\n")
+    
+    return "\n".join(output)
 #######################
 
 

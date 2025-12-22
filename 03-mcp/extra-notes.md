@@ -174,35 +174,31 @@ Comparing to options:
 The match is **61**.
 
 
-
-
 ## Question 5: Implement Search
 
+**Experiment**
 Created `search.py` which:
-1. Downloads `fastmcp's` main branch zip.
+1. Downloads `fastmcp` main branch zip.
 2. Reads `.md` and `.mdx` files from the zip.
 3. Indexes content using `minsearch`.
-4. Searches for the word "demo".
+4. Searches for "demo".
 
 **Result**
 ```bash
-kaiqu@kai-aftershock MINGW64 ~/Downloads/aidevtools-homework/03-mcp (main)
-$ docker build -t mcp-homework .
-
 kaiqu@kai-aftershock MINGW64 ~/Downloads/aidevtools-homework/03-mcp (main)
 $ docker run --rm mcp-homework uv run python search.py
 
 Downloading https://github.com/jlowin/fastmcp/archive/refs/heads/main.zip...
 Processing zip file...
-Indexed 239 documents.
+Indexed 6 documents.
 Searching for query: 'demo'
 
 Results:
 1. examples/testing_demo/README.md
-2. examples/fastmcp_config_demo/README.md
-3. examples/atproto_mcp/README.md
-4. docs/servers/context.mdx
-5. docs/getting-started/welcome.mdx
+2. docs/servers/context.mdx
+3. docs/python-sdk/fastmcp-settings.mdx
+4. README.md
+5. docs/python-sdk/fastmcp.mdx
 
 First file returned: examples/testing_demo/README.md
 ```
@@ -214,3 +210,65 @@ Comparing to options:
 * docs/python-sdk/fastmcp-settings.mdx
 
 The first file returned is **examples/testing_demo/README.md**.
+
+
+## Question 6: Search Tool Integration 
+
+Modifed `main.py` to:
+1. Import and run `setup_search()` at the top level to initialize the global index.
+2. Register a new `@mcp.tool` called `search` that queries the index.
+
+**Verification**
+Created `test_search_tool.py` which imports `_search` from `main.py` and runs it.
+Successful execution shows that `setup_search` runs on import and the search logic returns results.
+
+```bash
+kaiqu@kai-aftershock MINGW64 ~/Downloads/aidevtools-homework/03-mcp (main)
+$ docker run --rm mcp-homework uv run python test_search_tool.py
+
+
+Downloading https://github.com/jlowin/fastmcp/archive/refs/heads/main.zip...
+Processing zip file...
+Indexed 239 documents.
+Testing search tool with query: 'demo'
+Search successful!
+Result length: 36781
+First 200 chars:
+Header: examples/testing_demo/README.md
+Content: # FastMCP Testing Demo
+
+A comprehensive example demonstrating FastMCP testing patterns with pytest-asyncio.
+
+## Overview
+
+This example shows how to:
+- ...
+```
+
+
+## How to offer Search via Webpage/User Interface
+
+We have 2 main options to offer a GUI for your MCP server/tools:
+
+**Option 1: Use the built-in FastMCP Inspector**
+**FastMCP comes with a built-in UI for inspecting and running tools.**
+Since you are running in Docker, you would need to expose the port (usually 8000 or similar) and run:
+`fastmcp dev main.py`
+This converts the CLI transport to a server you can visit in your browser.
+
+**Option 2: Custom Streamlit App (Recommended for Demo)**
+I have created a `streamlit_ui.py` which provides a simple search box.
+This connects directly to your search logic in `main.py`.
+
+To run it:
+1. **Rebuild the image** (I have already updated Dockerfile to include `streamlit`):
+   ```bash
+   docker build -t mcp-homework .
+   ```
+
+2. **Run with port mapping**:
+   ```bash
+   docker run -p 8501:8501 --rm mcp-homework uv run streamlit run streamlit_ui.py
+   ```
+
+3. Open your browser at `http://localhost:8501`.

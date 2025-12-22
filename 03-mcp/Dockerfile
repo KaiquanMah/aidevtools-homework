@@ -18,10 +18,10 @@ COPY . /app
 RUN uv init
 
 # Install dependencies
-RUN uv add fastmcp requests minsearch pandas scikit-learn
+RUN uv add fastmcp requests minsearch pandas scikit-learn streamlit
 
-# Expose port (if needed, though MCP usually runs over stdio)
-# EXPOSE 8000
+# Expose port for Streamlit
+EXPOSE 8501
 
 # Default command
 CMD ["uv", "run", "python", "main.py"]
