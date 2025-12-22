@@ -124,6 +124,7 @@ What's the answer?
 * 261
 
 Select the closest answer if you don't get the exact match.
+* Q4 answer: 61 (using case-insensitive matching)
 
 
 ## Question 5: Implement Search (2 points)
@@ -144,6 +145,8 @@ What's the first file returned that you get with the query "demo"?
 * docs/servers/context.mdx
 * examples/testing_demo/README.md
 * docs/python-sdk/fastmcp-settings.mdx
+
+Q5 answer: examples/testing_demo/README.md
 
 
 ## Question 6: Search Tool (ungraded)

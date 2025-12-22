@@ -144,3 +144,73 @@ Comparing to options:
 * 19184
 * 29184
 The closest option is **29,184**.
+
+
+## Question 4: Integrate the Tool
+
+Created `count_data.py` which:
+1. Uses `scrape_web_page` to fetch `https://datatalks.club/`.
+2. Counts occurrences of the word "data".
+
+**Result**
+```bash
+kaiqu@kai-aftershock MINGW64 ~/Downloads/aidevtools-homework/03-mcp (main)
+$ docker build -t mcp-homework .
+
+kaiqu@kai-aftershock MINGW64 ~/Downloads/aidevtools-homework/03-mcp (main)
+$ docker run --rm mcp-homework uv run python count_data.py
+
+Scraping URL: https://datatalks.club/
+Count of 'data' (case-insensitive): 61
+Count of 'data' (exact match): 50
+```
+
+Comparing to options:
+* 61
+* 111
+* 161
+* 261
+
+The match is **61**.
+
+
+
+
+## Question 5: Implement Search
+
+Created `search.py` which:
+1. Downloads `fastmcp's` main branch zip.
+2. Reads `.md` and `.mdx` files from the zip.
+3. Indexes content using `minsearch`.
+4. Searches for the word "demo".
+
+**Result**
+```bash
+kaiqu@kai-aftershock MINGW64 ~/Downloads/aidevtools-homework/03-mcp (main)
+$ docker build -t mcp-homework .
+
+kaiqu@kai-aftershock MINGW64 ~/Downloads/aidevtools-homework/03-mcp (main)
+$ docker run --rm mcp-homework uv run python search.py
+
+Downloading https://github.com/jlowin/fastmcp/archive/refs/heads/main.zip...
+Processing zip file...
+Indexed 239 documents.
+Searching for query: 'demo'
+
+Results:
+1. examples/testing_demo/README.md
+2. examples/fastmcp_config_demo/README.md
+3. examples/atproto_mcp/README.md
+4. docs/servers/context.mdx
+5. docs/getting-started/welcome.mdx
+
+First file returned: examples/testing_demo/README.md
+```
+
+Comparing to options:
+* README.md
+* docs/servers/context.mdx
+* examples/testing_demo/README.md
+* docs/python-sdk/fastmcp-settings.mdx
+
+The first file returned is **examples/testing_demo/README.md**.

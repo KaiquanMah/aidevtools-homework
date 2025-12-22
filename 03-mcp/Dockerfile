@@ -18,7 +18,7 @@ COPY . /app
 RUN uv init
 
 # Install dependencies
-RUN uv add fastmcp requests
+RUN uv add fastmcp requests minsearch pandas scikit-learn
 
 # Expose port (if needed, though MCP usually runs over stdio)
 # EXPOSE 8000
