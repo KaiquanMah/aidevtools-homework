@@ -351,11 +351,11 @@ WASM = WebAssembly
 
 
 Which library did we use for compiling Python to WASM?
-1. **`pyodide`** version 0.26.4 (npm package) - Python runtime compiled to WebAssembly
+* **`pyodide`** version 0.26.4 (npm package) - Python runtime compiled to WebAssembly
   * For Python execution and native JavaScript execution for JS code
   * Pyodide is a Python distribution that runs in the browser. It is a self-contained Python distribution that can be used to run Python code in the browser.
-2. **Web Workers** - To run Pyodide in a background thread
-  * This fixed the issue of blocking the main thread during Python execution
+  * **Web Workers** - To run Pyodide in a background thread
+      * This fixed the issue of blocking the main thread during Python execution
 
 
 **How it works:**
@@ -411,6 +411,9 @@ Now let's containerize our application. Ask AI to help you create a Dockerfile f
 
 What's the BASE IMAGE you used for your Dockerfile?
 * We used a **multi-stage build** with 2 different base images.
+* (1) node:18-alpine (lightweight Node.js 18 on Alpine Linux) to build the frontend.
+* (2) python:3.11-slim (Debian-based Python 3.11) to run the backend and serve the compiled frontend static files.
+
 
 **Stage 1 - Frontend Builder:**
 ```dockerfile
