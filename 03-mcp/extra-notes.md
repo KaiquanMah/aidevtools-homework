@@ -67,3 +67,80 @@ $ docker run --rm mcp-homework
 [12/22/25 03:41:03] INFO     Starting MCP server 'Demo 🚀' with   server.py:2527
                              transport 'stdio'
 ```
+
+
+## Question 3: Web Scrape Tool
+
+**Implementation**
+* To **get/convert content of any webpage to Markdown**, add `r.jina.ai` in front of the address. For example: `https://r.jina.ai/https://datatalks.club`
+* This uses the `Jina reader`
+* So we implemented `scrape_web_page` in `main.py` using `requests` to fetch `https://r.jina.ai/{url}`.
+* To facilitate testing, we refactored the logic into `_scrape_web_page` so it can be **imported and tested without the FastMCP decorator interference.**
+
+**Testing**
+Created `test_scrape.py` to scrape `https://github.com/alexeygrigorev/minsearch`.
+
+**How to run the test in Docker (if no local Python)**
+Use the Docker container to run the test script `test_scrape.py`
+
+1.  **Rebuild the image** (to ensure `test_scrape.py` is inside):
+    ```bash
+    docker build -t mcp-homework .
+    ```
+
+2.  **Run the script** using `uv run` inside the container:
+    ```bash
+    docker run --rm mcp-homework uv run python test_scrape.py
+    ```
+
+
+**Result**
+```bash
+kaiqu@kai-aftershock MINGW64 ~/Downloads/aidevtools-homework/03-mcp (main)
+$ docker build -t mcp-homework .
+[+] Building 14.2s (14/14) FINISHED                                                                          docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                                         0.0s
+ => => transferring dockerfile: 787B                                                                                         0.0s 
+ => [internal] load metadata for docker.io/library/python:3.12-slim                                                          3.1s 
+ => [internal] load metadata for ghcr.io/astral-sh/uv:latest                                                                 1.1s 
+ => [auth] library/python:pull token for registry-1.docker.io                                                                0.0s
+ => [internal] load .dockerignore                                                                                            0.0s
+ => => transferring context: 2B                                                                                              0.0s 
+ => FROM ghcr.io/astral-sh/uv:latest@sha256:5713fa8217f92b80223bc83aac7db36ec80a84437dbc0d04bbc659cae030d8c9                 0.0s 
+ => => resolve ghcr.io/astral-sh/uv:latest@sha256:5713fa8217f92b80223bc83aac7db36ec80a84437dbc0d04bbc659cae030d8c9           0.0s 
+ => [stage-0 1/6] FROM docker.io/library/python:3.12-slim@sha256:fa48eefe2146644c2308b909d6bb7651a768178f84fc9550dcd495e4d6  0.0s 
+ => => resolve docker.io/library/python:3.12-slim@sha256:fa48eefe2146644c2308b909d6bb7651a768178f84fc9550dcd495e4d6d84d01    0.0s
+ => [internal] load build context                                                                                            0.0s 
+ => => transferring context: 11.01kB                                                                                         0.0s 
+ => CACHED [stage-0 2/6] COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv                                                 0.0s 
+ => CACHED [stage-0 3/6] WORKDIR /app                                                                                        0.0s 
+ => [stage-0 4/6] COPY . /app                                                                                                0.0s 
+ => [stage-0 5/6] RUN uv init                                                                                                0.8s 
+ => [stage-0 6/6] RUN uv add fastmcp requests                                                                                3.9s 
+ => exporting to image                                                                                                       6.1s 
+ => => exporting layers                                                                                                      4.1s 
+ => => exporting manifest sha256:7b97902251dea87ecdc70847b8b601b76bde6bfb17ee82adabdfc78a6d734adc                            0.0s 
+ => => exporting config sha256:b42e71d50df9a9163838e5d52850e8b69136e349fa3a5bc807dbf560b75de867                              0.0s 
+ => => exporting attestation manifest sha256:03127c64a2f69ec073596a46b2322a164d3ba9992e4590cf3c0291f3327f976c                0.0s 
+ => => exporting manifest list sha256:31cfef3b585ba32cd923ade71243e683794e8285e84736adc12bf758f5dbce14                       0.0s 
+ => => naming to docker.io/library/mcp-homework:latest                                                                       0.0s 
+ => => unpacking to docker.io/library/mcp-homework:latest                                                                    1.9s 
+
+
+
+kaiqu@kai-aftershock MINGW64 ~/Downloads/aidevtools-homework/03-mcp (main)
+$ docker run --rm mcp-homework uv run python test_scrape.py
+Starting test_scrape...
+Scraping URL: https://github.com/alexeygrigorev/minsearch
+Content type: <class 'str'>
+Content length: 31361
+First 100 chars: Title: GitHub - alexeygrigorev/minsearch: Minimalistic text search engine that uses sklearn and pand
+```
+
+The content length returned was **31,361** characters.
+Comparing to options:
+* 1184
+* 9184
+* 19184
+* 29184
+The closest option is **29,184**.

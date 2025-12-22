@@ -91,6 +91,8 @@ Test it to retrieve the content of `https://github.com/alexeygrigorev/minsearch`
 * 29184
 
 Select the closest answer if you don't get the exact match.
+* Q3 answer: 29,184 (closest option)
+  * The content length returned was **31,361** characters.
 
 
 ## Question 4: Integrate the Tool
