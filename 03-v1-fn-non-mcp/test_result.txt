@@ -1,0 +1,5 @@
+Starting test_scrape...
+Scraping URL: https://github.com/alexeygrigorev/minsearch
+Content type: <class 'str'>
+Content length: 31361
+First 100 chars: Title: GitHub - alexeygrigorev/minsearch: Minimalistic text search engine that uses sklearn and pand

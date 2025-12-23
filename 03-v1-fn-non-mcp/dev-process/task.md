@@ -1,0 +1,32 @@
+# 03-MCP Homework Tasks
+
+- [ ] Environment Setup
+    - [x] Create `Dockerfile` with `uv` support <!-- id: 15 -->
+    - [x] Build Docker image <!-- id: 16 -->
+    - [x] Initialize project in `03-mcp` (inside Docker or mapped) <!-- id: 0 -->
+    - [x] Add `fastmcp`, `requests`, `minsearch` dependencies <!-- id: 1 -->
+- [x] Question 1 & 2: Setup & Transport
+    - [x] Check `uv.lock` for `fastmcp` wheel hash <!-- id: 2 -->
+    - [x] Implement `main.py` with basic `fastmcp` server <!-- id: 3 -->
+    - [x] Run server and identify transport <!-- id: 4 -->
+- [x] Question 3: Web Scrape Tool
+    - [x] Implement `scrape_web_page` using Jina reader <!-- id: 5 -->
+    - [x] Create `test_scrape.py` to verify character count of target URL <!-- id: 6 -->
+- [x] Question 4: Integration
+    - [x] Integrate scraping tool into `main.py` <!-- id: 7 -->
+    - [x] Use the tool to count "data" occurrences on target site <!-- id: 8 -->
+- [x] Question 5: Search Implementation
+    - [x] Download `fastmcp` repo zip <!-- id: 9 -->
+    - [x] Create `search.py` for zip processing and indexing <!-- id: 10 -->
+    - [x] Implement search function and finding top 5 results <!-- id: 11 -->
+    - [x] Test search for query "demo" and identify first file <!-- id: 12 -->
+- [x] Question 6: Search Tool Integration
+    - [x] Import `setup_search` in `main.py` <!-- id: 13 -->
+    - [x] Initialize global `index` <!-- id: 14 -->
+    - [x] Register `search` tool with `@mcp.tool` <!-- id: 17 -->
+    - [x] Verify search tool functionality <!-- id: 18 -->
+
+- [x] Search GUI Options
+    - [x] Create `streamlit_ui.py` demo <!-- id: 20 -->
+    - [x] Update `Dockerfile` to support streamlit and fastmcp dev (Node.js) <!-- id: 21 -->
+    - [x] Document GUI options in `extra-notes.md` <!-- id: 22 -->
