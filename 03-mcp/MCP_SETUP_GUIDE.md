@@ -110,6 +110,9 @@ docker run --rm -i mcp-homework uv run python main.py
   }
 }
 ```
+<img width="1421" height="640" alt="image-custom-mcp-tools-discovered" src="https://github.com/user-attachments/assets/ea890cbb-37b2-418a-8a84-3ef05c743cab" />
+
+
 
 4. **How it works:**
    - Antigravity calls `run_mcp_server.bat`
@@ -122,6 +125,10 @@ docker run --rm -i mcp-homework uv run python main.py
 > - Slightly slower startup (Docker container initialization)
 > - Each tool call starts a new container (unless you use a persistent container)
 > - The search index will re-download on each startup (can be optimized with volumes)
+
+
+
+
 
 ### Method 2: Manual File Configuration (Alternative)
 
