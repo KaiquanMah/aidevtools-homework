@@ -40,15 +40,19 @@ This is the easiest way to configure your MCP server in Antigravity IDE:
 
 1. **Open Antigravity IDE** and start an Agent chat session OR reuse a current Agent chat session
 
-<img width="1911" height="1036" alt="image-antigravity-mcp-server-button" src="https://github.com/user-attachments/assets/c9bca5f0-c379-4dd0-aa1a-9353ab63ba96" />
 
 2. **Access MCP Settings:**
    - Click the **"..."** menu in the agent side panel
+     <img width="1911" height="1036" alt="image-antigravity-mcp-server-button" src="https://github.com/user-attachments/assets/c9bca5f0-c379-4dd0-aa1a-9353ab63ba96" />
    - Select **"MCP Servers"**
    - Choose **"Manage MCP Servers"**
+     <img width="1914" height="1031" alt="image-manage-mcp-servers" src="https://github.com/user-attachments/assets/43f7c727-1e0a-4a92-9667-2579cdff19dd" />
+
+
 
 3. **Add Your Server:**
    - Click **"View raw config"** to open `mcp_config.json`
+     <img width="1417" height="680" alt="image-view-raw-config" src="https://github.com/user-attachments/assets/6f4165e8-27b9-46bb-b464-e9abd0724c30" />
    - Add your server configuration:
 
 ```json
