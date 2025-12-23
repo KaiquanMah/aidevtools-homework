@@ -53,6 +53,8 @@ This is the easiest way to configure your MCP server in Antigravity IDE:
 3. **Add Your Server:**
    - Click **"View raw config"** to open `mcp_config.json`
      <img width="1417" height="680" alt="image-view-raw-config" src="https://github.com/user-attachments/assets/6f4165e8-27b9-46bb-b464-e9abd0724c30" />
+     <img width="427" height="909" alt="image-custom-mcp" src="https://github.com/user-attachments/assets/541c4b30-e89f-48b6-8907-693fd55b3315" />
+
    - Add your server configuration:
 
 ```json
