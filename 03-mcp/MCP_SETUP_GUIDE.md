@@ -46,7 +46,7 @@ This is the easiest way to configure your MCP server in Antigravity IDE:
      <img width="1911" height="1036" alt="image-antigravity-mcp-server-button" src="https://github.com/user-attachments/assets/c9bca5f0-c379-4dd0-aa1a-9353ab63ba96" />
    - Select **"MCP Servers"**
    - Choose **"Manage MCP Servers"**
-     <img width="1914" height="1031" alt="image-manage-mcp-servers" src="https://github.com/user-attachments/assets/43f7c727-1e0a-4a92-9667-2579cdff19dd" />
+     <img width="1914" height="1031" alt="image-manage-mcp-servers" src="https://github.com/user-attachments/assets/736d56be-ff66-4fa6-967e-c4d08d4e5d67" />
 
 
 
