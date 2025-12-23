@@ -78,6 +78,51 @@ This is the easiest way to configure your MCP server in Antigravity IDE:
    - Save the configuration file
    - Restart the agent session (or reload Antigravity IDE)
 
+> [!CAUTION]
+> **Common Error**: `exec: "uv": executable file not found in %PATH%`
+> 
+> This happens because `uv` is not installed on your local machine. See **Method 1B (Docker Wrapper)** below for a solution that doesn't require installing `uv` locally.
+
+### Method 1B: Using Docker Wrapper (No Local Installation Required)
+
+If you don't want to install `uv` locally, you can use a wrapper script that runs the MCP server inside Docker:
+
+1. **Create a wrapper script** `run_mcp_server.bat` in your `03-mcp` folder:
+
+```batch
+@echo off
+docker run --rm -i mcp-homework uv run python main.py
+```
+
+2. **Make it executable** (Windows):
+   - Right-click the file → Properties → ensure it's not blocked
+
+3. **Update MCP Configuration:**
+   Use this configuration instead:
+
+```json
+{
+  "mcpServers": {
+    "homework-search": {
+      "command": "c:/Users/kaiqu/Downloads/aidevtools-homework/03-mcp/run_mcp_server.bat",
+      "args": []
+    }
+  }
+}
+```
+
+4. **How it works:**
+   - Antigravity calls `run_mcp_server.bat`
+   - The script starts your Docker container with `-i` (interactive stdin)
+   - MCP communication happens via Docker's stdin/stdout
+   - No local Python/uv installation needed!
+
+> [!IMPORTANT]
+> **Limitations of Docker Method:**
+> - Slightly slower startup (Docker container initialization)
+> - Each tool call starts a new container (unless you use a persistent container)
+> - The search index will re-download on each startup (can be optimized with volumes)
+
 ### Method 2: Manual File Configuration (Alternative)
 
 If you prefer to edit the file directly:
