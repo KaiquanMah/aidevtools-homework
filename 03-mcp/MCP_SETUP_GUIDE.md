@@ -163,6 +163,43 @@ Antigravity will:
 3. Receive the response via stdout
 4. Display the results
 
+Working in Antigravity IDE
+* User Prompt
+   ```
+   use @mcp:homework-search: to find how many times the word 'data' appears
+   ```
+* Antigravity Response
+   ```
+   I can see you've configured the MCP server homework-search and want to test it! However, I need to clarify something important:
+
+   I cannot directly use your MCP server because:
+   - The MCP server you configured is running on your local machine
+   - I (the AI) am running on Google's servers
+   - MCP servers are only accessible to the local Antigravity IDE client, not to me directly
+
+   What's happening:
+   - When you configure an MCP server in Antigravity, it becomes available as a tool for the IDE to use
+   - The IDE can then choose to call those tools and show you the results
+   - But I don't have direct access to execute those tools myself
+   
+   How to test your MCP server:
+   - You can verify it's working by checking the MCP Servers panel:
+   - Click "..." → "MCP Servers"
+   - Look for homework-search
+   - Check if it shows as "Connected" or if there are any errors
+   
+   Alternative - What I CAN do:
+   - Since I don't have access to your MCP server, but I can help you:
+   - Test the search function directly by running your test scripts
+   - Explain how the MCP protocol works when Antigravity calls your tools
+   - Help you debug any connection issues
+   
+   Would you like me to:
+   - Help you verify the MCP server is running correctly?
+   - Explain what you should see when it's working?
+   - Create a test script to validate the MCP connection?
+   ```
+
 ---
 
 ## Troubleshooting
