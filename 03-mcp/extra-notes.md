@@ -382,10 +382,15 @@ Indexed 239 documents.
   * use localhost instead
     * So from your browser, you need to use localhost (or 127.0.0.1) to connect to your local machine
 
+Screenshots from searching the 'https://github.com/jlowin/fastmcp/archive/refs/heads/main.zip' repo
 <img width="1908" height="1080" alt="Search-From-RepoZip-in-StreamlitUI" src="https://github.com/user-attachments/assets/f6d38e9a-410d-4833-a432-e9036d420ac0" />
 <img width="1857" height="962" alt="file1" src="https://github.com/user-attachments/assets/999880e1-4ae4-42f7-b3e1-bf84d8acd5e7" />
 <img width="1860" height="963" alt="file2" src="https://github.com/user-attachments/assets/726a1376-4041-44be-b290-49dd789c5f99" />
 <img width="1853" height="952" alt="file3" src="https://github.com/user-attachments/assets/e406cfca-ac28-4e40-8d1c-5614a3e9c933" />
+
+Screenshots from searching the 'https://github.com/feature-engine/feature_engine/archive/refs/heads/main.zip' repo
+<img width="1906" height="1080" alt="search-from-feature-engine" src="https://github.com/user-attachments/assets/a1b1c161-b8a4-4662-b482-c3e4500ffbef" />
+<img width="1348" height="956" alt="file1-feature-engine" src="https://github.com/user-attachments/assets/40bf341f-4c32-4c02-ae8a-56325b5d130c" />
 
 
 
