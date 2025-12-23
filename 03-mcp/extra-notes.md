@@ -388,11 +388,13 @@ Screenshots from searching the 'https://github.com/jlowin/fastmcp/archive/refs/h
 <img width="1860" height="963" alt="file2" src="https://github.com/user-attachments/assets/726a1376-4041-44be-b290-49dd789c5f99" />
 <img width="1853" height="952" alt="file3" src="https://github.com/user-attachments/assets/e406cfca-ac28-4e40-8d1c-5614a3e9c933" />
 
+---
 Screenshots from searching the 'https://github.com/feature-engine/feature_engine/archive/refs/heads/main.zip' repo
 <img width="1906" height="1080" alt="search-from-feature-engine" src="https://github.com/user-attachments/assets/a1b1c161-b8a4-4662-b482-c3e4500ffbef" />
 <img width="1348" height="956" alt="file1-feature-engine" src="https://github.com/user-attachments/assets/40bf341f-4c32-4c02-ae8a-56325b5d130c" />
 
 
+---
 
 Workings to check and stop docker container if was started by antigravity in the backend:
 ```bash
