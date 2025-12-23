@@ -376,6 +376,13 @@ Indexed 239 documents.
   Stopping...
 ```
 
+* Then visit http://localhost:8501
+  * 0.0.0.0 is not a valid address to access from your browser
+    * 0.0.0.0 is a special address that means "bind to all network interfaces" - it's used by the server to listen on all IPs
+  * use localhost instead
+    * So from your browser, you need to use localhost (or 127.0.0.1) to connect to your local machine
+
+
 
 Workings to check and stop docker container if was started by antigravity in the backend:
 ```bash

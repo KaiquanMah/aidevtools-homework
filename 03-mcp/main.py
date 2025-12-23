@@ -48,8 +48,15 @@ def search(query: str) -> str:
     """Search the knowledge base for a query."""
     return _search(query)
 
-def _search(query: str, num_results: int = 5) -> str:
-    results = index.search(
+def _search(query: str, num_results: int = 5, repo_url: str = None) -> str:
+    # If repo_url is provided, create a new index for that repo
+    # Otherwise, use the global index
+    if repo_url:
+        search_index = setup_search(url=repo_url)
+    else:
+        search_index = index
+    
+    results = search_index.search(
         query=query,
         boost_dict={"content": 1},
         num_results=num_results

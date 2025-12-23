@@ -4,9 +4,9 @@ import io
 import os
 from minsearch import Index
 
-def setup_search():
+def setup_search(url = "https://github.com/jlowin/fastmcp/archive/refs/heads/main.zip"):
     # 1. Download zip
-    url = "https://github.com/jlowin/fastmcp/archive/refs/heads/main.zip"
+    # url = "https://github.com/jlowin/fastmcp/archive/refs/heads/main.zip"
     print(f"Downloading {url}...")
     response = requests.get(url)
     response.raise_for_status()
