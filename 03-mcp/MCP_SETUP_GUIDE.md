@@ -110,7 +110,6 @@ docker run --rm -i mcp-homework uv run python main.py
   }
 }
 ```
-<img width="1421" height="640" alt="image-custom-mcp-tools-discovered" src="https://github.com/user-attachments/assets/ea890cbb-37b2-418a-8a84-3ef05c743cab" />
 
 
 
@@ -148,6 +147,8 @@ Use the same JSON configuration as above.
 In Antigravity IDE, you should see:
 - A notification that MCP servers are connected
 - Your tools (`add`, `scrape_web_page`, `search`) available in the tool list
+<img width="1421" height="640" alt="image-custom-mcp-tools-discovered" src="https://github.com/user-attachments/assets/ea890cbb-37b2-418a-8a84-3ef05c743cab" />
+
 
 ### Step 5: Test the MCP Server
 
