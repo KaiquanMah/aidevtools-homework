@@ -2,17 +2,18 @@ import requests
 import zipfile
 import io
 import os
+import sys
 from minsearch import Index
 
-def setup_search():
+def setup_search(url = "https://github.com/jlowin/fastmcp/archive/refs/heads/main.zip"):
     # 1. Download zip
-    url = "https://github.com/jlowin/fastmcp/archive/refs/heads/main.zip"
-    print(f"Downloading {url}...")
+    # url = "https://github.com/jlowin/fastmcp/archive/refs/heads/main.zip"
+    print(f"Downloading {url}...", file=sys.stderr)
     response = requests.get(url)
     response.raise_for_status()
     
     # 2. Iterate and read files
-    print("Processing zip file...")
+    print("Processing zip file...", file=sys.stderr)
     documents = []
     
     with zipfile.ZipFile(io.BytesIO(response.content)) as z:
@@ -44,9 +45,9 @@ def setup_search():
                     "content": content
                 })
             except Exception as e:
-                print(f"Skipping {file_info.filename}: {e}")
+                print(f"Skipping {file_info.filename}: {e}", file=sys.stderr)
                 
-    print(f"Indexed {len(documents)} documents.")
+    print(f"Indexed {len(documents)} documents.", file=sys.stderr)
 
     # 4. Index with minsearch
     #    teach the indez
@@ -65,7 +66,7 @@ def run_search_demo():
     index = setup_search()
     
     query = "demo"
-    print(f"Searching for query: '{query}'")
+    print(f"Searching for query: '{query}'", file=sys.stderr)
     
     # 5. Retrieve 5 most relevant
     results = index.search(
@@ -74,12 +75,12 @@ def run_search_demo():
         num_results=5
     )
     
-    print("\nResults:")
+    print("\nResults:", file=sys.stderr)
     for i, result in enumerate(results):
-        print(f"{i+1}. {result['filename']}")
+        print(f"{i+1}. {result['filename']}", file=sys.stderr)
         
     if results:
-        print(f"\nFirst file returned: {results[0]['filename']}")
+        print(f"\nFirst file returned: {results[0]['filename']}", file=sys.stderr)
 
 if __name__ == "__main__":
     run_search_demo()
