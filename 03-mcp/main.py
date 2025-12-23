@@ -48,16 +48,16 @@ def search(query: str) -> str:
     """Search the knowledge base for a query."""
     return _search(query)
 
-def _search(query: str) -> str:
+def _search(query: str, num_results: int = 5) -> str:
     results = index.search(
         query=query,
         boost_dict={"content": 1},
-        num_results=5
+        num_results=num_results
     )
 
     output = []
-    for result in results:
-        output.append(f"Header: {result['filename']}\nContent: {result['content']}\n")
+    for i, result in enumerate(results):
+        output.append(f"## File {i+1}: {result['filename']}\nContent: {result['content']}\n## ================================\n\n")
     
     return "\n".join(output)
 #######################

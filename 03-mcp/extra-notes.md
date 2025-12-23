@@ -251,10 +251,59 @@ This example shows how to:
 We have 2 main options to offer a GUI for your MCP server/tools:
 
 **Option 1: Use the built-in FastMCP Inspector**
-**FastMCP comes with a built-in UI for inspecting and running tools.**
-Since you are running in Docker, you would need to expose the port (usually 8000 or similar) and run:
-`fastmcp dev main.py`
-This converts the CLI transport to a server you can visit in your browser.
+FastMCP comes with a built-in UI for inspecting and running tools. This is a powerful development tool that lets you test your MCP server visually. 
+
+> [!IMPORTANT]
+> **Node.js Requirement**: The FastMCP Inspector UI is a web application that `fastmcp dev` launches using `npx`. For this to work inside the Docker container, I have updated the `Dockerfile` to install Node.js and npm.
+
+#### What to do BEFORE running `fastmcp dev main.py`:
+1.  **Ensure ports are available**: The Inspector uses two ports by default: `8000` for the UI and `8001` for the server proxy. Make sure nothing else is using these on your machine.
+2.  **Prepare the Docker command**: Since you are inside a container, you MUST map these ports to your host so you can see the UI in your browser.
+3.  **Command Template**:
+    ```bash
+    docker run -it -p 8000:8000 -p 8001:8001 --rm mcp-homework uv run fastmcp dev main.py --ui-port 8000 --server-port 8001
+    ```
+    *Note: We use `-it` to keep it interactive so you can see the logs and stop it with `Ctrl+C`.*
+
+#### What to do AFTER running the command:
+1.  **Wait for the "Ready" message**: The terminal will show something like `Inspector UI: http://127.0.0.1:8000`.
+2.  **Open your Browser**: Go to `http://localhost:8000` (on your host machine).
+3.  **Explore Tools**:
+    *   Click on the **Tools** tab.
+    *   You should see `add`, `scrape_web_page`, and `search`.
+    *   You can fill in the input boxes (e.g., a URL for scrape) and click **Call Tool** to see the result immediately.
+4.  **Debugging**: If a tool fails, check the Docker terminal output for Python tracebacks.
+
+Workings
+```bash
+kaiqu@kai-aftershock MINGW64 ~/Downloads/aidevtools-homework/03-mcp (main)
+$ docker run -it -p 8000:8000 -p 8001:8001 --rm mcp-homework uv run fastmcp dev main.py --ui-port 8000 --server-port 8001
+
+
+Downloading https://github.com/jlowin/fastmcp/archive/refs/heads/main.zip...
+Processing zip file...
+Indexed 239 documents.
+Need to install the following packages:
+  @modelcontextprotocol/inspector@0.18.0
+Ok to proceed? (y) y
+npm WARN EBADENGINE Unsupported engine {
+npm WARN EBADENGINE   package: '@modelcontextprotocol/inspector@0.18.0',
+npm WARN EBADENGINE   required: { node: '>=22.7.5' },
+npm WARN EBADENGINE   current: { node: 'v20.19.2', npm: '9.2.0' }
+npm WARN EBADENGINE }
+npm WARN deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+Starting MCP inspector...
+⚙️ Proxy server listening on localhost:8001
+🔑 Session token: a3...91
+   Use this token to authenticate requests or set DANGEROUSLY_OMIT_AUTH=true to disable auth
+
+🚀 MCP Inspector is up and running at:
+   http://localhost:8000/?MCP_PROXY_PORT=8001&MCP_PROXY_AUTH_TOKEN=a3...91
+
+🌐 Opening browser...
+```
+
+
 
 **Option 2: Custom Streamlit App (Recommended for Demo)**
 I have created a `streamlit_ui.py` which provides a simple search box.
@@ -263,12 +312,83 @@ This connects directly to your search logic in `main.py`.
 To run it:
 1. **Rebuild the image** (I have already updated Dockerfile to include `streamlit`):
    ```bash
-   docker build -t mcp-homework .
+   docker build --no-cache -t mcp-homework .
    ```
 
-2. **Run with port mapping**:
+2. **Run with port mapping AND local address**:
    ```bash
-   docker run -p 8501:8501 --rm mcp-homework uv run streamlit run streamlit_ui.py
+   docker run -p 8501:8501 --rm mcp-homework uv run streamlit run streamlit_ui.py --server.address=0.0.0.0
    ```
 
 3. Open your browser at `http://localhost:8501`.
+
+Workings
+```bash
+kaiqu@kai-aftershock MINGW64 ~/Downloads/aidevtools-homework/03-mcp (main)
+$ docker build --no-cache -t mcp-homework .
+
+[+] Building 256.9s (15/15) FINISHED                                                          docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                                          0.0s
+ => => transferring dockerfile: 983B                                                                          0.0s 
+ => [internal] load metadata for docker.io/library/python:3.12-slim                                           1.6s 
+ => [internal] load metadata for ghcr.io/astral-sh/uv:latest                                                  0.8s 
+ => [auth] library/python:pull token for registry-1.docker.io                                                 0.0s 
+ => [internal] load .dockerignore                                                                             0.0s
+ => => transferring context: 2B                                                                               0.0s 
+ => [internal] load build context                                                                             0.0s 
+ => => transferring context: 2.15kB                                                                           0.0s 
+ => CACHED FROM ghcr.io/astral-sh/uv:latest@sha256:5713fa8217f92b80223bc83aac7db36ec80a84437dbc0d04bbc659cae  0.0s 
+ => => resolve ghcr.io/astral-sh/uv:latest@sha256:5713fa8217f92b80223bc83aac7db36ec80a84437dbc0d04bbc659cae0  0.0s 
+ => CACHED [stage-0 1/7] FROM docker.io/library/python:3.12-slim@sha256:fa48eefe2146644c2308b909d6bb7651a768  0.0s 
+ => => resolve docker.io/library/python:3.12-slim@sha256:fa48eefe2146644c2308b909d6bb7651a768178f84fc9550dcd  0.0s 
+ => [stage-0 2/7] COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/uv                                         0.3s 
+ => [stage-0 3/7] RUN apt-get update && apt-get install -y     curl     nodejs     npm     && rm -rf /var/  166.7s
+ => [stage-0 4/7] WORKDIR /app                                                                                0.4s
+ => [stage-0 5/7] COPY . /app                                                                                 0.1s
+ => [stage-0 6/7] RUN uv init                                                                                 0.6s
+ => [stage-0 7/7] RUN uv add fastmcp requests minsearch pandas scikit-learn streamlit                        15.0s
+ => exporting to image                                                                                       72.3s
+ => => exporting layers                                                                                      49.8s
+ => => exporting manifest sha256:4da42fcabbe598f393742e50d29e4e3402ddc3d3cdb7ba5a5e07d0320739e7cd             0.0s
+ => => exporting config sha256:5158dc1415836274f52d8e2e0caa698e703f219264ca5b927edab0555cdb0c09               0.0s
+ => => exporting attestation manifest sha256:45a5fa619b3ba968c5beb32ea983e1e36696e6347b3bca9e51fa87aa35d25c6  0.0s
+ => => exporting manifest list sha256:f754c7eb61e91b060d746b2e722cea8f548a05f20e8000981f5508ca1602b7af        0.0s 
+ => => naming to docker.io/library/mcp-homework:latest                                                        0.0s 
+ => => unpacking to docker.io/library/mcp-homework:latest                                                    22.3s 
+
+
+
+
+
+kaiqu@kai-aftershock MINGW64 ~/Downloads/aidevtools-homework/03-mcp (main)
+$ docker run -p 8501:8501 --rm mcp-homework uv run streamlit run streamlit_ui.py --server.address=0.0.0.0
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  URL: http://0.0.0.0:8501
+
+Downloading https://github.com/jlowin/fastmcp/archive/refs/heads/main.zip...
+Processing zip file...
+Indexed 239 documents.
+  Stopping...
+```
+
+
+Workings to check and stop docker container if was started by antigravity in the backend:
+```bash
+kaiqu@kai-aftershock MINGW64 ~/Downloads/aidevtools-homework (main)
+$ docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+a47e34497efd   mcp-homework   "uv run streamlit ru…"   42 seconds ago   Up 43 seconds   0.0.0.0:8501->8501/tcp, [:
+
+:]:8501->8501/tcp   elastic_wu
+
+
+
+kaiqu@kai-aftershock MINGW64 ~/Downloads/aidevtools-homework (main)
+$ docker stop elastic_wu
+Error response from daemon: No such container: elastic_wu
+```
