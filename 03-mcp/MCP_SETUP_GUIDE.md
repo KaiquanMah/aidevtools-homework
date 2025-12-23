@@ -38,7 +38,9 @@ The Streamlit UI bypasses MCP by importing functions directly. To use **real MCP
 
 This is the easiest way to configure your MCP server in Antigravity IDE:
 
-1. **Open Antigravity IDE** and start an Agent session (this current chat)
+1. **Open Antigravity IDE** and start an Agent chat session OR reuse a current Agent chat session
+
+<img width="1911" height="1036" alt="image-antigravity-mcp-server-button" src="https://github.com/user-attachments/assets/c9bca5f0-c379-4dd0-aa1a-9353ab63ba96" />
 
 2. **Access MCP Settings:**
    - Click the **"..."** menu in the agent side panel
