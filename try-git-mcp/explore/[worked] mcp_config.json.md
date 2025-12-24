@@ -12,8 +12,7 @@
       "serverUrl": "https://gitmcp.io/feature-engine/feature_engine"
     },
     "kai_docs": {
-      "type": "sse",
-      "url": "https://gitmcp.io/kaiquanmah/training"
+      "serverUrl": "https://gitmcp.io/kaiquanmah/training"
     }
   }
 }
@@ -31,10 +30,10 @@
     },
     "feature_engine_docs": {
       // approach1 WORKS - serverUrl only
-      "serverUrl": "https://gitmcp.io/feature-engine/feature_engine"
+      // "serverUrl": "https://gitmcp.io/feature-engine/feature_engine"
       // approach2 FAILS - sse type (server-sent event) AND url
-      // "type": "sse",
-      // "url": "https://gitmcp.io/feature-engine/feature_engine"
+      "type": "sse",
+      "url": "https://gitmcp.io/feature-engine/feature_engine"
     },
     "kai_docs": {
       "type": "sse",
