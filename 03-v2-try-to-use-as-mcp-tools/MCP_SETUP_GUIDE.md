@@ -64,7 +64,7 @@ This is the easiest way to configure your MCP server in Antigravity IDE:
       "command": "uv",
       "args": [
         "--directory",
-        "c:/Users/kaiqu/Downloads/aidevtools-homework/03-mcp",
+        "c:/Users/kaiqu/Downloads/aidevtools-homework/03-v2-try-to-use-as-mcp-tools",
         "run",
         "python",
         "main.py"
@@ -87,7 +87,7 @@ This is the easiest way to configure your MCP server in Antigravity IDE:
 
 If you don't want to install `uv` locally, you can use a wrapper script that runs the MCP server inside Docker:
 
-1. **Create a wrapper script** `run_mcp_server.bat` in your `03-mcp` folder:
+1. **Create a wrapper script** `run_mcp_server.bat` in your `03-v2-try-to-use-as-mcp-tools` folder:
 
 ```batch
 @echo off
@@ -104,7 +104,7 @@ docker run --rm -i mcp-homework uv run python main.py
 {
   "mcpServers": {
     "homework-search": {
-      "command": "c:/Users/kaiqu/Downloads/aidevtools-homework/03-mcp/run_mcp_server.bat",
+      "command": "c:/Users/kaiqu/Downloads/aidevtools-homework/03-v2-try-to-use-as-mcp-tools/run_mcp_server.bat",
       "args": []
     }
   }
@@ -208,7 +208,7 @@ Working in Antigravity IDE
 **Check:**
 - Is `uv` installed and in PATH?
 - Is the path in the config correct?
-- Try running manually: `uv --directory c:/Users/kaiqu/Downloads/aidevtools-homework/03-mcp run python main.py`
+- Try running manually: `uv --directory c:/Users/kaiqu/Downloads/aidevtools-homework/03-v2-try-to-use-as-mcp-tools run python main.py`
 
 ### Tools Not Showing Up
 **Check:**
