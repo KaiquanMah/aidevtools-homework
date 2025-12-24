@@ -1,32 +1,38 @@
-# 03-MCP Homework Tasks
+# Task: Diagnose and Fix MCP Server Integration
 
-- [ ] Environment Setup
-    - [x] Create `Dockerfile` with `uv` support <!-- id: 15 -->
-    - [x] Build Docker image <!-- id: 16 -->
-    - [x] Initialize project in `03-mcp` (inside Docker or mapped) <!-- id: 0 -->
-    - [x] Add `fastmcp`, `requests`, `minsearch` dependencies <!-- id: 1 -->
-- [x] Question 1 & 2: Setup & Transport
-    - [x] Check `uv.lock` for `fastmcp` wheel hash <!-- id: 2 -->
-    - [x] Implement `main.py` with basic `fastmcp` server <!-- id: 3 -->
-    - [x] Run server and identify transport <!-- id: 4 -->
-- [x] Question 3: Web Scrape Tool
-    - [x] Implement `scrape_web_page` using Jina reader <!-- id: 5 -->
-    - [x] Create `test_scrape.py` to verify character count of target URL <!-- id: 6 -->
-- [x] Question 4: Integration
-    - [x] Integrate scraping tool into `main.py` <!-- id: 7 -->
-    - [x] Use the tool to count "data" occurrences on target site <!-- id: 8 -->
-- [x] Question 5: Search Implementation
-    - [x] Download `fastmcp` repo zip <!-- id: 9 -->
-    - [x] Create `search.py` for zip processing and indexing <!-- id: 10 -->
-    - [x] Implement search function and finding top 5 results <!-- id: 11 -->
-    - [x] Test search for query "demo" and identify first file <!-- id: 12 -->
-- [x] Question 6: Search Tool Integration
-    - [x] Import `setup_search` in `main.py` <!-- id: 13 -->
-    - [x] Initialize global `index` <!-- id: 14 -->
-    - [x] Register `search` tool with `@mcp.tool` <!-- id: 17 -->
-    - [x] Verify search tool functionality <!-- id: 18 -->
+## Understanding the Problem
+- [x] Analyze the current MCP setup in 03-v2-try-to-use-as-mcp-tools
+- [x] Identify why Antigravity gave an incorrect response about MCP availability
+- [x] Understand the difference between the two projects (03-mcp vs 03-v2-try-to-use-as-mcp-tools)
 
-- [x] Search GUI Options
-    - [x] Create `streamlit_ui.py` demo <!-- id: 20 -->
-    - [x] Update `Dockerfile` to support streamlit and fastmcp dev (Node.js) <!-- id: 21 -->
-    - [x] Document GUI options in `extra-notes.md` <!-- id: 22 -->
+## Root Cause Analysis
+- [x] Review the MCP configuration in mcp_config.json
+- [x] Verify Docker image build and availability (mcp-homework image exists)
+- [x] Check the run_mcp_server.bat wrapper script
+- [x] Understand MCP protocol communication flow
+
+## Solution Implementation
+- [x] Document the correct way to use MCP tools in Antigravity
+- [x] Create a troubleshooting guide
+- [x] Provide step-by-step verification steps
+- [/] Test the MCP server connection
+
+## Documentation
+- [x] Create comprehensive analysis document (mcp_diagnosis.md)
+- [x] Create implementation plan (implementation_plan.md)
+- [x] Create prompt reference guide (PROMPTS_FOR_ANTIGRAVITY.md)
+- [x] Create verification scripts (verify_mcp_setup.bat and .sh)
+- [ ] Provide clear next steps for the user
+
+## Verification
+- [x] Run verification script to test Docker setup
+- [x] Confirm Docker image exists (mcp-homework found)
+- [x] Request user to test prompts in Antigravity IDE
+- [x] Successfully called `add` tool (returned `8`)
+- [x] Successfully called `search` tool (returned documents)
+- [x] Resolution: EOF error was caused by startup delay and stdout contamination.
+
+## Final Status
+- [x] Lazy indexing implemented
+- [x] stdout contamination removed
+- [x] connection error resolved

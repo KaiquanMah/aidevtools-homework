@@ -13,6 +13,11 @@ RUN apt-get update && apt-get install -y \
 # Set working directory
 WORKDIR /app
 
+# Environment variables to silence specific tools and enable unbuffered output
+ENV FASTMCP_NO_BANNER=true \
+    UV_QUIET=1 \
+    PYTHONUNBUFFERED=1
+
 # Copy the current directory contents into the container at /app
 COPY . /app
 

@@ -53,13 +53,16 @@ echo.
 
 REM Step 4: Test the wrapper script
 echo Step 4: Testing the MCP server startup...
-echo    Starting server for 3 seconds to verify it works...
+echo    Starting server for 15 seconds to verify it works...
 echo    (You should see the FastMCP welcome screen)
 echo.
 
 REM Start the server and stop it after a few seconds
 start /B docker run --rm -i mcp-homework uv run python main.py
-timeout /t 3 /nobreak >nul
+@REM old
+@REM timeout /t 3 /nobreak >nul
+@REM new - below
+%SystemRoot%\System32\timeout.exe /t 15 /nobreak >nul
 taskkill /F /IM docker.exe >nul 2>&1
 
 echo.

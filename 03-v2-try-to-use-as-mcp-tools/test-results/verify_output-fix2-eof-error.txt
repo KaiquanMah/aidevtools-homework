@@ -1,0 +1,39 @@
+==========================================
+MCP Server Verification Script
+==========================================
+
+Step 1: Checking if Docker is available...
+✅ Docker is installed
+Docker version 28.5.2, build ecc6942
+
+Step 2: Checking if Docker daemon is running...
+✅ Docker daemon is running
+
+Step 3: Checking if mcp-homework Docker image exists...
+✅ mcp-homework image found
+mcp-homework              latest    a4ae24d01b3a   51 minutes ago   2.45GB
+
+Step 4: Testing the MCP server startup...
+   Starting server for 3 seconds to verify it works...
+   (You should see the FastMCP welcome screen)
+
+
+✅ Server started successfully (timed out as expected)
+
+==========================================
+Verification Summary
+==========================================
+
+If all checks passed, your MCP server is ready to use!
+
+Next steps:
+1. Verify MCP configuration in Antigravity IDE:
+   - Click '...' → 'MCP Servers' → 'Manage MCP Servers'
+   - Check that 'homework-search' is listed and connected
+
+2. Test with a simple prompt in Antigravity:
+   'Please use the add tool from the homework-search MCP server to add 5 and 3.'
+
+3. Test the search tool:
+   'Please use the search tool from the homework-search MCP server to find information about "demo".'
+

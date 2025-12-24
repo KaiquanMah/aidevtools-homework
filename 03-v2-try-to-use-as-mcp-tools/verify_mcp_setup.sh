@@ -50,12 +50,16 @@ echo ""
 
 # Step 4: Test the wrapper script
 echo "Step 4: Testing the MCP server startup..."
-echo "   Starting server for 3 seconds to verify it works..."
+echo "   Starting server for 15 seconds to verify it works..."
 echo "   (You should see the FastMCP welcome screen)"
 echo ""
 
-# Run the server in background and capture output
-timeout 3s docker run --rm -i mcp-homework uv run python main.py 2>&1 | head -n 30
+# # Run the server in background and capture output
+# timeout 3s docker run --rm -i mcp-homework uv run python main.py 2>&1 | head -n 30
+# Fix: Use pipefail so that the exit code of 'timeout' (124) is preserved
+# also removed 'head' to prevent buffering issues
+set -o pipefail
+timeout 15s docker run --rm -i mcp-homework uv run python main.py 2>&1
 
 if [ $? -eq 124 ]; then
     echo ""

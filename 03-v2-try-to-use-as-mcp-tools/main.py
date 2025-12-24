@@ -1,14 +1,23 @@
 from fastmcp import FastMCP
 import requests
+import os
+import sys
 from search import setup_search
+
+# Ensure FastMCP doesn't print the welcome banner to stdout
+os.environ["FASTMCP_NO_BANNER"] = "true"
 
 #######################
 # q6
 #######################
-# Initialize search index
-# Note: In a real production app, you might want to do this lazily or async,
-# but for this homework, initializing at startup is fine.
-index = setup_search()
+# Initialize search index lazily
+_index = None
+
+def get_index():
+    global _index
+    if _index is None:
+        _index = setup_search()
+    return _index
 #######################
 
 
@@ -49,6 +58,7 @@ def search(query: str) -> str:
     return _search(query)
 
 def _search(query: str, num_results: int = 5) -> str:
+    index = get_index()
     results = index.search(
         query=query,
         boost_dict={"content": 1},
