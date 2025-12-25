@@ -138,7 +138,7 @@ MCP Inspector
 * transport type - streamable HTTP
 * URL
 * authentication - <CONTEXT7_API_KEY>
-connect
+* connect
 <img width="905" height="943" alt="connect-context7" src="https://github.com/user-attachments/assets/54aecb8e-d628-42be-962c-69892d37426e" />
 
 * List tools
