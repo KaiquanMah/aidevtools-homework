@@ -131,3 +131,29 @@ In networking, the "Host" usually refers to the machine or interface where a ser
 2. Confirm the MCP Inspector UI loads.
 
 
+## Verification Screenshots
+Go to the localhost URL - http://localhost:6274/?MCP_PROXY_AUTH_TOKEN=30a5b63dbb3bacbf1bacc23814add99dcf9fac4ce377ef84deca422e28f0cdde
+
+MCP Inspector
+* transport type - streamable HTTP
+* URL
+* authentication - <CONTEXT7_API_KEY>
+connect
+<img width="905" height="943" alt="connect-context7" src="https://github.com/user-attachments/assets/54aecb8e-d628-42be-962c-69892d37426e" />
+
+* List tools
+* click on `resolve-library-id` tool
+* libraryName - feature-engine
+* Run tool
+* Search for the right `context7 library ID`
+<img width="1912" height="950" alt="list-tools-n-find-library" src="https://github.com/user-attachments/assets/e1786e3a-7f73-4ac2-9bdd-b0921e70f521" />
+<img width="1836" height="942" alt="feature-engine-context7-id" src="https://github.com/user-attachments/assets/df758d61-dc57-4606-b77f-eab275ede28c" />
+
+
+* click on `get-library-docs` tool
+* context7CompatibleLibraryID - `context7 library ID`
+* mode - code
+* topic - <what you want to search for>
+<img width="1865" height="942" alt="get-library-docs-tool" src="https://github.com/user-attachments/assets/3571f180-a760-4867-b3ef-304d5ede4689" />
+<img width="1871" height="951" alt="imputation-fns" src="https://github.com/user-attachments/assets/509a93ce-6d7a-4030-b136-4bac8cd0a746" />
+
