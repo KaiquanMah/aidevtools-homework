@@ -1,5 +1,11 @@
 # Run MCP Inspector locally using Docker Container
-* Reference: https://github.com/modelcontextprotocol/inspector?tab=readme-ov-file#docker-container
+* Reference
+  * https://github.com/modelcontextprotocol/inspector?tab=readme-ov-file#docker-container
+* Additional Readings
+  * https://github.com/alexeygrigorev/toyaikit/tree/main
+  * MCP client class and basic fns - https://github.com/alexeygrigorev/toyaikit/blob/main/toyaikit/mcp/client.py
+  * Context7 - add to IDE server as 'MCP Server' https://context7.com/docs/usage
+
 
 
 ```bash
