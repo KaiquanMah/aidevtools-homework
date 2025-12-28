@@ -1,0 +1,26 @@
+{
+    "title": "Partitive Case Basics",
+    "content": "The partitive case is unique to Finnish. It is used for:\n1. Numbers (except 1) -> kaksi autoa (two cars)\n2. Uncountable nouns -> minä juon kahvia (I drink coffee)\n3. Negative sentences -> minulla ei ole autoa (I don't have a car)\n\n**Ending:**\nUsually -a / -ä or -ta / -tä.",
+    "exercises": [
+        {
+            "question": "Choose the correct form: 'Kaksi ______' (auto).",
+            "options": [
+                "auto",
+                "autot",
+                "autoa",
+                "autossa"
+            ],
+            "correct_answer": "autoa"
+        },
+        {
+            "question": "Why use partitive in 'Minä juon vettä' (I drink water)?",
+            "options": [
+                "Because it's a negative sentence",
+                "Because water is uncountable",
+                "Because it's plural",
+                "No reason"
+            ],
+            "correct_answer": "Because water is uncountable"
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "title": "To be (olla) - verb",
+    "content": "The verb 'olla' (to be) is the most important verb.\n\n**Conjugation (Present Tense):**\n- minä olen = I am\n- sinä olet = You are\n- hän on = He/She is\n- me olemme = We are\n- te olette = You (plural/formal) are\n- he ovat = They are\n\n**Negative:**\n- minä en ole = I am not\n- sinä et ole = You are not\n- hän ei ole = He/She is not",
+    "exercises": [
+        {
+            "question": "Conjugate 'olla' for 'minä' (I).",
+            "options": [
+                "olet",
+                "olen",
+                "on",
+                "ovat"
+            ],
+            "correct_answer": "olen"
+        },
+        {
+            "question": "Translate: 'Hän on'",
+            "options": [
+                "I am",
+                "You are",
+                "He/She is",
+                "They are"
+            ],
+            "correct_answer": "He/She is"
+        },
+        {
+            "question": "Fill in the blank: Me ______.",
+            "options": [
+                "ole",
+                "olemme",
+                "olette",
+                "ovat"
+            ],
+            "correct_answer": "olemme"
+        }
+    ]
+}

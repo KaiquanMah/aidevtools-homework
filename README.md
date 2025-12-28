@@ -8,3 +8,4 @@
 | 03-v0-lesson-context7     | Week 03 - Explore MCP Inspector in (GitHub Codespace and Local) as part of the lesson's exercise, and connect to Context7 MCP Server to retrieve latest repo documentation |
 | 03-v2-try-to-use-as-mcp-tools     | Extra - Homework 03 v2 - Try to use as MCP tools in Antigravity IDE |
 | try-git-mcp     | Extra - Try Git MCP |
+| project     | Project - Finnish Language Learning Website |

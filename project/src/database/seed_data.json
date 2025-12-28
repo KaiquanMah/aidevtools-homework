@@ -1,0 +1,1854 @@
+[
+    {
+        "level": "0",
+        "lessons": [
+            {
+                "title": "Alphabet & Pronunciation",
+                "order": 1,
+                "content": "The Finnish alphabet is similar to English but includes the letters Å, Ä, and Ö. \n\n**The Finnish Alphabet (29 letters):**\nA B C D E F G H I J K L M N O P Q R S T U V W X Y Z Å Ä Ö\n\n**Finnish Vowels (8 total):**\na, e, i, o, u, y, ä, ö\n\n**Vowel Harmony:**\n- Back vowels: a, o, u\n- Front vowels: ä, ö, y\n- Neutral vowels: e, i (can appear with either group)\n- Finnish words generally contain EITHER back OR front vowels, not both!\n\n**Double Letters:**\n- Double vowels (aa, ee, ii, oo, uu, yy, ää, öö) are pronounced twice as long\n- Double consonants (kk, pp, tt, ll, mm, nn, ss) have a longer pause/stop\n\n**Diphthongs (two vowels, one syllable):**\nai, ei, oi, ui, äi, öi, au, ou, eu, äy, öy, ie, uo, yö\n\n**Basic Vocabulary:**\n- kissa = cat\n- koira = dog\n- talo = house\n- bussi = bus\n- auto = car\n- päivä = day\n- yö = night\n\n Vowels are very clear and can be short or long. Double vowels (aa, ee, ii...) are pronounced twice as long.\n\nDouble consonants (kk, pp, tt) are also pronounced with a longer pause/stop.",
+                "exercises": [
+                    {
+                        "question": "Which of these is a Finnish vowel?",
+                        "options": [
+                            "b",
+                            "z",
+                            "ä",
+                            "x"
+                        ],
+                        "correct_answer": "ä"
+                    },
+                    {
+                        "question": "Double vowels (e.g., 'aa') are pronounced:",
+                        "options": [
+                            "Shorter",
+                            "Twice as long",
+                            "Silent",
+                            "Softly"
+                        ],
+                        "correct_answer": "Twice as long"
+                    },
+                    {
+                        "question": "How many vowels does Finnish have?",
+                        "options": [
+                            "5",
+                            "6",
+                            "8",
+                            "10"
+                        ],
+                        "correct_answer": "8"
+                    },
+                    {
+                        "question": "Which letters are unique to the Finnish alphabet (not in English)?",
+                        "options": [
+                            "X, Y, Z",
+                            "Å, Ä, Ö",
+                            "Q, W, X",
+                            "A, E, I"
+                        ],
+                        "correct_answer": "Å, Ä, Ö"
+                    },
+                    {
+                        "question": "Which are the 'back vowels' in Finnish?",
+                        "options": [
+                            "ä, ö, y",
+                            "a, o, u",
+                            "e, i",
+                            "a, e, i"
+                        ],
+                        "correct_answer": "a, o, u"
+                    },
+                    {
+                        "question": "Which are the 'front vowels' in Finnish?",
+                        "options": [
+                            "a, o, u",
+                            "ä, ö, y",
+                            "e, i",
+                            "a, ä, e"
+                        ],
+                        "correct_answer": "ä, ö, y"
+                    },
+                    {
+                        "question": "Which vowels are 'neutral' and can appear with either group?",
+                        "options": [
+                            "a, o",
+                            "ä, ö",
+                            "e, i",
+                            "u, y"
+                        ],
+                        "correct_answer": "e, i"
+                    },
+                    {
+                        "question": "According to vowel harmony, which word is correctly formed?",
+                        "options": [
+                            "tälo",
+                            "talo",
+                            "talö",
+                            "tälö"
+                        ],
+                        "correct_answer": "talo"
+                    },
+                    {
+                        "question": "What does 'kissa' mean?",
+                        "options": [
+                            "Dog",
+                            "Cat",
+                            "House",
+                            "Bus"
+                        ],
+                        "correct_answer": "Cat"
+                    },
+                    {
+                        "question": "What does 'koira' mean?",
+                        "options": [
+                            "Cat",
+                            "House",
+                            "Dog",
+                            "Car"
+                        ],
+                        "correct_answer": "Dog"
+                    },
+                    {
+                        "question": "What does 'talo' mean?",
+                        "options": [
+                            "Cat",
+                            "Dog",
+                            "House",
+                            "Day"
+                        ],
+                        "correct_answer": "House"
+                    },
+                    {
+                        "question": "What does 'bussi' mean?",
+                        "options": [
+                            "Car",
+                            "Train",
+                            "Plane",
+                            "Bus"
+                        ],
+                        "correct_answer": "Bus"
+                    },
+                    {
+                        "question": "How is 'kk' in 'kukka' (flower) pronounced?",
+                        "options": [
+                            "Like a single 'k'",
+                            "With a longer pause/stop",
+                            "Silently",
+                            "Very quickly"
+                        ],
+                        "correct_answer": "With a longer pause/stop"
+                    },
+                    {
+                        "question": "The word 'päivä' (day) contains which type of vowels?",
+                        "options": [
+                            "Back vowels",
+                            "Front vowels",
+                            "Only neutral vowels",
+                            "Mixed back and front"
+                        ],
+                        "correct_answer": "Front vowels"
+                    },
+                    {
+                        "question": "The word 'auto' (car) contains which type of vowels?",
+                        "options": [
+                            "Front vowels",
+                            "Back vowels",
+                            "Only neutral vowels",
+                            "No vowels"
+                        ],
+                        "correct_answer": "Back vowels"
+                    },
+                    {
+                        "question": "Which word has a double consonant?",
+                        "options": [
+                            "kisa",
+                            "kissa",
+                            "koira",
+                            "talo"
+                        ],
+                        "correct_answer": "kissa"
+                    },
+                    {
+                        "question": "Which word has a double vowel?",
+                        "options": [
+                            "talo",
+                            "bussi",
+                            "sauna",
+                            "koira"
+                        ],
+                        "correct_answer": "sauna"
+                    },
+                    {
+                        "question": "'yö' is an example of a:",
+                        "options": [
+                            "Double consonant",
+                            "Diphthong",
+                            "Back vowel word",
+                            "Silent letter"
+                        ],
+                        "correct_answer": "Diphthong"
+                    },
+                    {
+                        "question": "Which is a Finnish diphthong?",
+                        "options": [
+                            "aa",
+                            "kk",
+                            "ai",
+                            "ss"
+                        ],
+                        "correct_answer": "ai"
+                    },
+                    {
+                        "question": "In Finnish, stress (emphasis) is usually on which syllable?",
+                        "options": [
+                            "The last syllable",
+                            "The first syllable",
+                            "The middle syllable",
+                            "It varies"
+                        ],
+                        "correct_answer": "The first syllable"
+                    },
+                    {
+                        "question": "How many letters are in the Finnish alphabet?",
+                        "options": [
+                            "26",
+                            "27",
+                            "28",
+                            "29"
+                        ],
+                        "correct_answer": "29"
+                    },
+                    {
+                        "question": "Which word follows vowel harmony correctly?",
+                        "options": [
+                            "pöytä",
+                            "poytä",
+                            "pöyta",
+                            "poyta"
+                        ],
+                        "correct_answer": "pöytä"
+                    },
+                    {
+                        "question": "What is the difference between 'tuli' and 'tuuli'?",
+                        "options": [
+                            "They mean the same thing",
+                            "'tuuli' has a longer 'u' sound",
+                            "'tuli' is louder",
+                            "There is no difference"
+                        ],
+                        "correct_answer": "'tuuli' has a longer 'u' sound"
+                    },
+                    {
+                        "question": "'tuli' means 'fire'. What does 'tuuli' (with double u) mean?",
+                        "options": [
+                            "Fire",
+                            "Wind",
+                            "Water",
+                            "Earth"
+                        ],
+                        "correct_answer": "Wind"
+                    },
+                    {
+                        "question": "Which letter is borrowed from Swedish and rarely used in Finnish words?",
+                        "options": [
+                            "Ä",
+                            "Ö",
+                            "Å",
+                            "Y"
+                        ],
+                        "correct_answer": "Å"
+                    },
+                    {
+                        "question": "The Finnish 'y' sounds most like:",
+                        "options": [
+                            "English 'y' in 'yes'",
+                            "German 'ü' (rounded lips, say 'ee')",
+                            "English 'i' in 'bit'",
+                            "English 'oo' in 'food'"
+                        ],
+                        "correct_answer": "German 'ü' (rounded lips, say 'ee')"
+                    },
+                    {
+                        "question": "Choose the word that has ONLY back vowels:",
+                        "options": [
+                            "käsi",
+                            "auto",
+                            "päivä",
+                            "työ"
+                        ],
+                        "correct_answer": "auto"
+                    },
+                    {
+                        "question": "Choose the word that has ONLY front vowels:",
+                        "options": [
+                            "koira",
+                            "talo",
+                            "pöytä",
+                            "sauna"
+                        ],
+                        "correct_answer": "pöytä"
+                    },
+                    {
+                        "question": "What does 'yö' mean?",
+                        "options": [
+                            "Day",
+                            "Night",
+                            "Morning",
+                            "Evening"
+                        ],
+                        "correct_answer": "Night"
+                    },
+                    {
+                        "question": "Which pair shows the difference double letters can make?",
+                        "options": [
+                            "kissa/koira (both animals)",
+                            "tuli/tuuli (fire/wind)",
+                            "talo/auto (house/car)",
+                            "päivä/yö (day/night)"
+                        ],
+                        "correct_answer": "tuli/tuuli (fire/wind)"
+                    },
+                    {
+                        "question": "If a word has 'ä' in it, which vowel can it NOT contain?",
+                        "options": [
+                            "e",
+                            "i",
+                            "a",
+                            "y"
+                        ],
+                        "correct_answer": "a"
+                    },
+                    {
+                        "question": "The Finnish letter 'A' sounds like:",
+                        "options": [
+                            "'a' in English 'cat'",
+                            "'a' in English 'father' or 'car'",
+                            "'a' in English 'cake'",
+                            "'a' in English 'about'"
+                        ],
+                        "correct_answer": "'a' in English 'father' or 'car'",
+                        "explanation": "Finnish 'A' is an open back vowel, like 'ah' in 'father'. It's never like 'cat' or 'cake'."
+                    },
+                    {
+                        "question": "Which English word has a vowel sound closest to Finnish 'A'?",
+                        "options": [
+                            "hat",
+                            "car",
+                            "cake",
+                            "about"
+                        ],
+                        "correct_answer": "car",
+                        "explanation": "The 'a' in 'car' (British) or 'father' is closest to Finnish 'A'."
+                    },
+                    {
+                        "question": "In 'auto' (car), how is the 'A' pronounced?",
+                        "options": [
+                            "Like 'a' in 'cat'",
+                            "Like 'ah' in 'father'",
+                            "Like 'ay' in 'say'",
+                            "Silently"
+                        ],
+                        "correct_answer": "Like 'ah' in 'father'",
+                        "explanation": "In 'auto', the 'A' is pronounced like 'ah' in 'father'. It's never like 'cat' or 'about'."
+                    },
+                    {
+                        "question": "In 'auto' (car), how is the 'A' pronounced?",
+                        "options": [
+                            "Like 'a' in 'cat'",
+                            "Like 'ah' in 'father'",
+                            "Like 'ay' in 'say'",
+                            "Silently"
+                        ],
+                        "correct_answer": "Like 'ah' in 'father'",
+                        "explanation": "'auto' = OW-to, with the 'a' being the open 'ah' sound."
+                    },
+                    {
+                        "question": "Example words with 'A': Which is correctly described?",
+                        "options": [
+                            "'talo' (house) - A sounds like 'cat'",
+                            "'maa' (land) - A sounds like 'father', held long",
+                            "'sauna' - A sounds like 'cake'",
+                            "'auto' - A is silent"
+                        ],
+                        "correct_answer": "'maa' (land) - A sounds like 'father', held long",
+                        "explanation": "'maa' has double 'aa', so the 'ah' sound is held twice as long."
+                    },
+                    {
+                        "question": "The Finnish letter 'B' is:",
+                        "options": [
+                            "Very common in Finnish words",
+                            "Mostly found in loanwords and foreign names",
+                            "Pronounced differently than English 'B'",
+                            "Always silent"
+                        ],
+                        "correct_answer": "Mostly found in loanwords and foreign names",
+                        "explanation": "'B' is rare in native Finnish. You'll see it in words like 'bussi' (bus), 'banaani' (banana)."
+                    },
+                    {
+                        "question": "How is 'B' in 'bussi' (bus) pronounced?",
+                        "options": [
+                            "Like English 'B' in 'bus'",
+                            "Like 'P'",
+                            "Like 'V'",
+                            "Silently"
+                        ],
+                        "correct_answer": "Like English 'B' in 'bus'",
+                        "explanation": "Finnish 'B' sounds the same as English 'B' - a voiced bilabial stop."
+                    },
+                    {
+                        "question": "Which word contains the letter 'B'?",
+                        "options": [
+                            "pallo (ball)",
+                            "bussi (bus)",
+                            "talo (house)",
+                            "koira (dog)"
+                        ],
+                        "correct_answer": "bussi (bus)",
+                        "explanation": "'bussi' is a loanword from Swedish/English and contains 'B'."
+                    },
+                    {
+                        "question": "In native Finnish words, 'B' is often replaced by:",
+                        "options": [
+                            "V",
+                            "P",
+                            "D",
+                            "G"
+                        ],
+                        "correct_answer": "P",
+                        "explanation": "Native Finnish uses 'P' where other languages might use 'B'. Loanwords may keep 'B'."
+                    },
+                    {
+                        "question": "The Finnish letter 'C' is:",
+                        "options": [
+                            "Very common in Finnish",
+                            "Only used in loanwords and foreign names",
+                            "Pronounced like 'ch'",
+                            "A vowel"
+                        ],
+                        "correct_answer": "Only used in loanwords and foreign names",
+                        "explanation": "'C' doesn't exist in native Finnish words. It appears in names like 'Caesar' or loanwords."
+                    },
+                    {
+                        "question": "How is 'C' typically pronounced in Finnish loanwords?",
+                        "options": [
+                            "Always like 'S'",
+                            "Always like 'K'",
+                            "Like 'S' before e/i, like 'K' before a/o/u (following source language)",
+                            "Always like 'CH'"
+                        ],
+                        "correct_answer": "Like 'S' before e/i, like 'K' before a/o/u (following source language)",
+                        "explanation": "Finnish usually follows the source language pronunciation, or the word is respelled (e.g., 'kahvi' not 'coffee')."
+                    },
+                    {
+                        "question": "The Finnish word for 'coffee' is:",
+                        "options": [
+                            "coffee",
+                            "coffea",
+                            "kahvi",
+                            "caffi"
+                        ],
+                        "correct_answer": "kahvi",
+                        "explanation": "Finnish adapts foreign words to Finnish spelling: 'coffee' → 'kahvi' (with K, not C)."
+                    },
+                    {
+                        "question": "Where might you see 'C' in Finnish text?",
+                        "options": [
+                            "Common everyday words",
+                            "Foreign names, some loanwords, scientific terms",
+                            "All words starting with /k/ sound",
+                            "Never - it doesn't exist in Finnish"
+                        ],
+                        "correct_answer": "Foreign names, some loanwords, scientific terms",
+                        "explanation": "'C' appears in foreign names (Christina), some loanwords, and scientific terminology."
+                    },
+                    {
+                        "question": "The Finnish letter 'D' is:",
+                        "options": [
+                            "Very common in all Finnish words",
+                            "Rare in native words, but appears in some grammatical forms and loanwords",
+                            "Pronounced like 'T'",
+                            "Always silent"
+                        ],
+                        "correct_answer": "Rare in native words, but appears in some grammatical forms and loanwords",
+                        "explanation": "'D' appears in consonant gradation (t→d) and loanwords, but not in basic native vocabulary."
+                    },
+                    {
+                        "question": "How is Finnish 'D' pronounced?",
+                        "options": [
+                            "Like English 'D' in 'dog'",
+                            "Like 'TH' in 'the'",
+                            "Like 'T'",
+                            "Silently"
+                        ],
+                        "correct_answer": "Like English 'D' in 'dog'",
+                        "explanation": "Finnish 'D' is a voiced dental/alveolar stop, similar to English 'D'."
+                    },
+                    {
+                        "question": "'D' appears in Finnish through:",
+                        "options": [
+                            "Only loanwords",
+                            "Consonant gradation (e.g., 't' becomes 'd' in some forms)",
+                            "Only at the start of words",
+                            "It never appears in Finnish"
+                        ],
+                        "correct_answer": "Consonant gradation (e.g., 't' becomes 'd' in some forms)",
+                        "explanation": "Example: 'sata' (hundred) → 'sadan' (of hundred). The 't' becomes 'd' in certain forms."
+                    },
+                    {
+                        "question": "In the word 'radio', how is 'D' pronounced?",
+                        "options": [
+                            "Like English 'D'",
+                            "Like 'T'",
+                            "Silently",
+                            "Like 'R'"
+                        ],
+                        "correct_answer": "Like English 'D'",
+                        "explanation": "'radio' is a loanword where 'D' is pronounced as in the source language."
+                    },
+                    {
+                        "question": "The Finnish letter 'E' sounds like:",
+                        "options": [
+                            "'e' in English 'he' or 'me'",
+                            "'e' in English 'bed' or 'set'",
+                            "'a' in English 'cake'",
+                            "'i' in English 'it'"
+                        ],
+                        "correct_answer": "'e' in English 'bed' or 'set'",
+                        "explanation": "Finnish 'E' is a mid front vowel, like the short 'e' in 'bed', 'set', or 'pet'."
+                    },
+                    {
+                        "question": "Finnish 'E' is a:",
+                        "options": [
+                            "Back vowel",
+                            "Front vowel",
+                            "Neutral vowel (can appear with either back or front vowels)",
+                            "Not a vowel"
+                        ],
+                        "correct_answer": "Neutral vowel (can appear with either back or front vowels)",
+                        "explanation": "'E' (along with 'I') is neutral and can appear in words with back OR front vowels."
+                    },
+                    {
+                        "question": "In 'hei' (hello), how is 'E' pronounced?",
+                        "options": [
+                            "Like 'ee' in 'see'",
+                            "Like 'e' in 'bed' (as part of diphthong 'ei')",
+                            "Silently",
+                            "Like 'a' in 'cake'"
+                        ],
+                        "correct_answer": "Like 'e' in 'bed' (as part of diphthong 'ei')",
+                        "explanation": "'ei' is a diphthong where 'e' glides to 'i', sounding like 'ay' in 'day'."
+                    },
+                    {
+                        "question": "In 'perhe' (family), how is each 'E' pronounced?",
+                        "options": [
+                            "Both like 'ee' in 'see'",
+                            "Both like 'e' in 'bed'",
+                            "First silent, second like 'ay'",
+                            "Both silent"
+                        ],
+                        "correct_answer": "Both like 'e' in 'bed'",
+                        "explanation": "'perhe' = PER-he, with both 'e' sounds like in 'bed'."
+                    },
+                    {
+                        "question": "The Finnish letter 'F' is:",
+                        "options": [
+                            "Common in native Finnish words",
+                            "Only found in loanwords and foreign names",
+                            "Pronounced like 'V'",
+                            "A vowel"
+                        ],
+                        "correct_answer": "Only found in loanwords and foreign names",
+                        "explanation": "'F' doesn't exist in native Finnish. It appears in loanwords like 'fokus', 'filosofia'."
+                    },
+                    {
+                        "question": "How is Finnish 'F' pronounced?",
+                        "options": [
+                            "Like English 'F' in 'fish'",
+                            "Like 'P'",
+                            "Like 'V'",
+                            "Silently"
+                        ],
+                        "correct_answer": "Like English 'F' in 'fish'",
+                        "explanation": "Finnish 'F' sounds like English 'F' - a voiceless labiodental fricative."
+                    },
+                    {
+                        "question": "Some older or more Finnish-adapted words replace 'F' with:",
+                        "options": [
+                            "P",
+                            "B",
+                            "V",
+                            "H"
+                        ],
+                        "correct_answer": "V",
+                        "explanation": "Some adapted loanwords use 'V' instead of 'F': 'professori' but also 'televisio' (not 'fone')."
+                    },
+                    {
+                        "question": "Which word contains 'F'?",
+                        "options": [
+                            "kahvi (coffee)",
+                            "puhelin (phone)",
+                            "filmi (film)",
+                            "valo (light)"
+                        ],
+                        "correct_answer": "filmi (film)",
+                        "explanation": "'filmi' is a loanword that kept the 'F'. Native words don't use 'F'."
+                    },
+                    {
+                        "question": "The Finnish letter 'G' is:",
+                        "options": [
+                            "Very common in Finnish",
+                            "Mostly found in loanwords and the combination 'ng'",
+                            "Pronounced like 'K'",
+                            "Always silent"
+                        ],
+                        "correct_answer": "Mostly found in loanwords and the combination 'ng'",
+                        "explanation": "'G' alone is rare. It appears in loanwords and importantly in 'ng' (as in 'kengät')."
+                    },
+                    {
+                        "question": "How is 'G' pronounced in loanwords like 'gramma'?",
+                        "options": [
+                            "Like English hard 'G' in 'go'",
+                            "Like 'K'",
+                            "Like 'J' in 'job'",
+                            "Silently"
+                        ],
+                        "correct_answer": "Like English hard 'G' in 'go'",
+                        "explanation": "In loanwords, 'G' is typically pronounced as a voiced velar stop, like English 'G'."
+                    },
+                    {
+                        "question": "How is 'ng' pronounced in 'kengät' (shoes)?",
+                        "options": [
+                            "Like 'ng' in 'finger' (with hard 'g' after)",
+                            "Like 'ng' in 'singer' (no hard 'g', just the nasal)",
+                            "Like 'n' only",
+                            "Like 'nk'"
+                        ],
+                        "correct_answer": "Like 'ng' in 'singer' (no hard 'g', just the nasal)",
+                        "explanation": "Finnish 'ng' is a velar nasal [ŋ], like in 'singer' - without a hard 'g' after it."
+                    },
+                    {
+                        "question": "The 'ng' combination in Finnish represents:",
+                        "options": [
+                            "Two separate sounds",
+                            "One sound - the velar nasal [ŋ] held longer",
+                            "A silent combination",
+                            "The same as 'nk'"
+                        ],
+                        "correct_answer": "One sound - the velar nasal [ŋ] held longer",
+                        "explanation": "'ng' in Finnish is the long version of the velar nasal, while 'nk' is short nasal + k."
+                    },
+                    {
+                        "question": "The Finnish letter 'H' is:",
+                        "options": [
+                            "Often silent like in some English words",
+                            "Always pronounced, even in the middle or end of syllables",
+                            "Pronounced like 'CH' in 'loch'",
+                            "Only pronounced at the start of words"
+                        ],
+                        "correct_answer": "Always pronounced, even in the middle or end of syllables",
+                        "explanation": "Finnish 'H' is ALWAYS audible, unlike English where it can be silent (hour, honest)."
+                    },
+                    {
+                        "question": "How is 'H' in 'kahvi' (coffee) pronounced?",
+                        "options": [
+                            "Silently (like 'hour')",
+                            "Clearly audible, like a soft exhale",
+                            "Like 'K'",
+                            "Like 'CH' in 'church'"
+                        ],
+                        "correct_answer": "Clearly audible, like a soft exhale",
+                        "explanation": "'kahvi' = KAH-vi, with a clear 'H' sound between the vowels."
+                    },
+                    {
+                        "question": "In 'vihko' (notebook), where is the 'H'?",
+                        "options": [
+                            "At the start - pronounced",
+                            "In the middle - silent",
+                            "In the middle - pronounced",
+                            "At the end - silent"
+                        ],
+                        "correct_answer": "In the middle - pronounced",
+                        "explanation": "'vihko' = VIH-ko. The 'H' in the middle is clearly pronounced."
+                    },
+                    {
+                        "question": "Finnish 'H' sounds like:",
+                        "options": [
+                            "English 'H' in 'hello'",
+                            "Scottish 'CH' in 'loch'",
+                            "Silent",
+                            "English 'G' in 'go'"
+                        ],
+                        "correct_answer": "English 'H' in 'hello'",
+                        "explanation": "Finnish 'H' is a voiceless glottal fricative, like English 'H', but always pronounced."
+                    },
+                    {
+                        "question": "Which statement about Finnish 'H' is TRUE?",
+                        "options": [
+                            "'H' is silent before consonants",
+                            "'H' can appear at the end of a syllable and is still pronounced",
+                            "'H' only appears at the start of words",
+                            "'H' sounds like 'F'"
+                        ],
+                        "correct_answer": "'H' can appear at the end of a syllable and is still pronounced",
+                        "explanation": "Example: 'vihko' (vih-ko), 'lahti' (lah-ti) - 'H' is pronounced in all positions."
+                    },
+                    {
+                        "question": "The Finnish letter 'I' sounds like:",
+                        "options": [
+                            "'i' in English 'bit' or 'sit'",
+                            "'i' in English 'kite' or 'bike'",
+                            "'ee' in English 'see' or 'feet'",
+                            "'i' in English 'bird'"
+                        ],
+                        "correct_answer": "'ee' in English 'see' or 'feet'",
+                        "explanation": "Finnish 'I' is a close front vowel, like 'ee' in 'see'. It's never like 'i' in 'bit'."
+                    },
+                    {
+                        "question": "Finnish 'I' is classified as:",
+                        "options": [
+                            "A back vowel",
+                            "A front vowel",
+                            "A neutral vowel (can appear with back or front vowels)",
+                            "Not a vowel"
+                        ],
+                        "correct_answer": "A neutral vowel (can appear with back or front vowels)",
+                        "explanation": "'I' is neutral - it can appear in words with back vowels (koira) or front vowels (tie)."
+                    },
+                    {
+                        "question": "In 'kissa' (cat), how is 'I' pronounced?",
+                        "options": [
+                            "Like 'i' in 'bit'",
+                            "Like 'ee' in 'see'",
+                            "Like 'i' in 'bike'",
+                            "Silently"
+                        ],
+                        "correct_answer": "Like 'ee' in 'see'",
+                        "explanation": "'kissa' = KIS-sa, with 'I' pronounced as a clear 'ee' sound."
+                    },
+                    {
+                        "question": "In 'viisi' (five), how is 'II' pronounced?",
+                        "options": [
+                            "Like a short 'ee'",
+                            "Like a long 'ee' held twice as long",
+                            "Like 'eye'",
+                            "As two separate syllables"
+                        ],
+                        "correct_answer": "Like a long 'ee' held twice as long",
+                        "explanation": "'viisi' = VEE-see, with the double 'ii' held for twice the normal length."
+                    },
+                    {
+                        "question": "The Finnish letter 'J' sounds like:",
+                        "options": [
+                            "'j' in English 'job' or 'jump'",
+                            "'y' in English 'yes' or 'yellow'",
+                            "'s' in English 'measure'",
+                            "'ch' in English 'church'"
+                        ],
+                        "correct_answer": "'y' in English 'yes' or 'yellow'",
+                        "explanation": "Finnish 'J' = English 'Y' consonant sound. 'Ja' sounds like 'ya'."
+                    },
+                    {
+                        "question": "How is 'ja' (and) pronounced?",
+                        "options": [
+                            "Like 'ja' in 'jar'",
+                            "Like 'ya' in 'yard'",
+                            "Like 'sha'",
+                            "Like 'cha'"
+                        ],
+                        "correct_answer": "Like 'ya' in 'yard'",
+                        "explanation": "'ja' = 'ya'. Finnish 'J' always sounds like English 'Y'."
+                    },
+                    {
+                        "question": "In 'joki' (river), how is 'J' pronounced?",
+                        "options": [
+                            "Like 'J' in 'joke'",
+                            "Like 'Y' in 'yoke'",
+                            "Like 'G' in 'go'",
+                            "Silently"
+                        ],
+                        "correct_answer": "Like 'Y' in 'yoke'",
+                        "explanation": "'joki' sounds like 'YO-ki'. The 'J' is always a 'Y' sound."
+                    },
+                    {
+                        "question": "The name 'Jussi' is pronounced:",
+                        "options": [
+                            "JUS-si (like 'justice')",
+                            "YUS-si (with 'Y' sound)",
+                            "HOOS-si",
+                            "ZHOO-si"
+                        ],
+                        "correct_answer": "YUS-si (with 'Y' sound)",
+                        "explanation": "'Jussi' = 'YUS-si'. Remember: Finnish J = English Y."
+                    },
+                    {
+                        "question": "The Finnish letter 'K' is pronounced:",
+                        "options": [
+                            "With a puff of air (aspirated) like English 'K' in 'kite'",
+                            "Without a puff of air (unaspirated) like 'K' in 'sky'",
+                            "Like 'CH'",
+                            "Silently before 'N'"
+                        ],
+                        "correct_answer": "Without a puff of air (unaspirated) like 'K' in 'sky'",
+                        "explanation": "Finnish 'K' is unaspirated - no puff of air. Like the 'K' sound in English 'sky'."
+                    },
+                    {
+                        "question": "To practice Finnish 'K', you should:",
+                        "options": [
+                            "Say English 'K' with extra force",
+                            "Say 'sky' and notice the 'K' has no puff of air",
+                            "Say 'K' like 'G'",
+                            "Add an 'H' sound after it"
+                        ],
+                        "correct_answer": "Say 'sky' and notice the 'K' has no puff of air",
+                        "explanation": "Put your hand in front of your mouth: 'kite' = puff of air, 'sky' = no puff. Finnish K = 'sky'."
+                    },
+                    {
+                        "question": "How is 'KK' in 'kukka' (flower) pronounced?",
+                        "options": [
+                            "Like a single 'K'",
+                            "With a longer pause/closure before releasing",
+                            "Like 'G'",
+                            "Silently"
+                        ],
+                        "correct_answer": "With a longer pause/closure before releasing",
+                        "explanation": "Double 'KK' means the closure (tongue against palate) is held longer before release."
+                    },
+                    {
+                        "question": "'K' is one of the most common consonants in Finnish. TRUE or FALSE?",
+                        "options": [
+                            "TRUE - K is very common",
+                            "FALSE - K is rare",
+                            "K doesn't exist in Finnish",
+                            "K is only in loanwords"
+                        ],
+                        "correct_answer": "TRUE - K is very common",
+                        "explanation": "'K' is extremely common in Finnish words: koira, kissa, kaksi, kolme, kiitos..."
+                    },
+                    {
+                        "question": "The Finnish letter 'L' sounds like:",
+                        "options": [
+                            "English 'L' in 'light' (clear L)",
+                            "English 'L' in 'full' (dark L)",
+                            "Like 'R'",
+                            "Like 'W'"
+                        ],
+                        "correct_answer": "English 'L' in 'light' (clear L)",
+                        "explanation": "Finnish 'L' is always a 'clear L' (tip of tongue touches ridge behind teeth), never 'dark L'."
+                    },
+                    {
+                        "question": "Unlike English, Finnish 'L' is:",
+                        "options": [
+                            "Always 'dark' (back of tongue raised)",
+                            "Always 'clear' (tongue tip only, no back raising)",
+                            "Silent at the end of words",
+                            "Pronounced like 'R'"
+                        ],
+                        "correct_answer": "Always 'clear' (tongue tip only, no back raising)",
+                        "explanation": "English has 'dark L' at end of syllables (full, milk). Finnish L is always clear like in 'light'."
+                    },
+                    {
+                        "question": "In 'pallo' (ball), how is 'LL' pronounced?",
+                        "options": [
+                            "Like a single 'L'",
+                            "As a longer 'L' sound held twice as long",
+                            "Silently",
+                            "Like 'Y'"
+                        ],
+                        "correct_answer": "As a longer 'L' sound held twice as long",
+                        "explanation": "'LL' is simply held longer than single 'L'. 'pallo' = PAL-lo."
+                    },
+                    {
+                        "question": "How is 'L' in 'talo' (house) pronounced?",
+                        "options": [
+                            "Like dark L in 'full'",
+                            "Like clear L in 'light'",
+                            "Silently",
+                            "Like 'R'"
+                        ],
+                        "correct_answer": "Like clear L in 'light'",
+                        "explanation": "'talo' = TA-lo, with a clear 'L' sound (tongue tip at ridge, tongue body low)."
+                    },
+                    {
+                        "question": "The Finnish letter 'M' sounds like:",
+                        "options": [
+                            "Different from English 'M'",
+                            "Same as English 'M' in 'mom'",
+                            "Like 'N'",
+                            "Like 'B'"
+                        ],
+                        "correct_answer": "Same as English 'M' in 'mom'",
+                        "explanation": "Finnish 'M' is identical to English 'M' - a bilabial nasal consonant."
+                    },
+                    {
+                        "question": "In 'mummo' (grandma), how is 'MM' pronounced?",
+                        "options": [
+                            "Like a single 'M'",
+                            "As a longer 'M' sound (humming held longer)",
+                            "Silently",
+                            "Like 'NN'"
+                        ],
+                        "correct_answer": "As a longer 'M' sound (humming held longer)",
+                        "explanation": "'mummo' = MUM-mo, with the 'MM' humming sound held for twice the normal length."
+                    },
+                    {
+                        "question": "In 'minä' (I), how is 'M' pronounced?",
+                        "options": [
+                            "Like English 'M' in 'me'",
+                            "Like 'N'",
+                            "Silently",
+                            "Like 'B'"
+                        ],
+                        "correct_answer": "Like English 'M' in 'me'",
+                        "explanation": "'minä' = MI-nä, with a normal 'M' sound at the start."
+                    },
+                    {
+                        "question": "The difference between 'M' and 'MM' is:",
+                        "options": [
+                            "The sound quality",
+                            "The length/duration",
+                            "M is voiced, MM is voiceless",
+                            "There is no difference"
+                        ],
+                        "correct_answer": "The length/duration",
+                        "explanation": "'MM' is simply 'M' held for approximately twice the duration. Same sound, different length."
+                    },
+                    {
+                        "question": "The Finnish letter 'N' sounds like:",
+                        "options": [
+                            "Different from English 'N'",
+                            "Same as English 'N' in 'no'",
+                            "Like 'M'",
+                            "Like 'NG'"
+                        ],
+                        "correct_answer": "Same as English 'N' in 'no'",
+                        "explanation": "Finnish 'N' is an alveolar nasal, same as English 'N'."
+                    },
+                    {
+                        "question": "In 'anna' (give), how is 'NN' pronounced?",
+                        "options": [
+                            "Like a single 'N'",
+                            "As a longer 'N' sound held twice as long",
+                            "Like 'M'",
+                            "Silently"
+                        ],
+                        "correct_answer": "As a longer 'N' sound held twice as long",
+                        "explanation": "'anna' = AN-na, with 'NN' held for twice the normal duration."
+                    },
+                    {
+                        "question": "'NK' in 'kenkä' (shoe) is pronounced:",
+                        "options": [
+                            "Like English 'NK' in 'think'",
+                            "Like 'NG' sound + 'K' (longer nasal before K)",
+                            "Like just 'N'",
+                            "Like just 'K'"
+                        ],
+                        "correct_answer": "Like 'NG' sound + 'K' (longer nasal before K)",
+                        "explanation": "'NK' = the 'ng' nasal sound (as in 'sing') held before releasing to 'K'."
+                    },
+                    {
+                        "question": "The difference between 'N' and 'NN' affects:",
+                        "options": [
+                            "Only spelling, not pronunciation",
+                            "The meaning of words (length matters!)",
+                            "Only formal writing",
+                            "Nothing important"
+                        ],
+                        "correct_answer": "The meaning of words (length matters!)",
+                        "explanation": "Example: 'kani' (rabbit) vs. 'kanni' (not a word, but length difference matters in Finnish)."
+                    },
+                    {
+                        "question": "The Finnish letter 'O' sounds like:",
+                        "options": [
+                            "'o' in English 'hot' (American)",
+                            "'o' in English 'go' or 'no'",
+                            "'o' in British English 'or' or 'more' (pure, rounded)",
+                            "'oo' in English 'food'"
+                        ],
+                        "correct_answer": "'o' in British English 'or' or 'more' (pure, rounded)",
+                        "explanation": "Finnish 'O' is a rounded back vowel, like British 'o' in 'or'. It's a pure sound, not a diphthong."
+                    },
+                    {
+                        "question": "Finnish 'O' is classified as:",
+                        "options": [
+                            "A front vowel",
+                            "A back vowel",
+                            "A neutral vowel",
+                            "Not a vowel"
+                        ],
+                        "correct_answer": "A back vowel",
+                        "explanation": "'O' is a back vowel (along with 'A' and 'U'). It affects vowel harmony in words."
+                    },
+                    {
+                        "question": "In 'koira' (dog), how is 'O' pronounced?",
+                        "options": [
+                            "Like 'o' in 'hot'",
+                            "As part of diphthong 'oi', like 'oy' in 'boy'",
+                            "Like 'oo' in 'food'",
+                            "Silently"
+                        ],
+                        "correct_answer": "As part of diphthong 'oi', like 'oy' in 'boy'",
+                        "explanation": "'koira' = KOY-ra. The 'oi' is a diphthong that sounds like 'oy'."
+                    },
+                    {
+                        "question": "In 'yksi, kaksi, kolme', the 'O' in 'kolme' is:",
+                        "options": [
+                            "Like 'o' in 'go' (diphthong)",
+                            "A pure, short 'o' sound (rounded back vowel)",
+                            "Silent",
+                            "Like 'a'"
+                        ],
+                        "correct_answer": "A pure, short 'o' sound (rounded back vowel)",
+                        "explanation": "'kolme' = KOL-me, with a pure, short 'o' (not sliding to another vowel like English 'go')."
+                    },
+                    {
+                        "question": "The Finnish letter 'P' is pronounced:",
+                        "options": [
+                            "With a puff of air (aspirated) like English 'P' in 'pie'",
+                            "Without a puff of air (unaspirated) like 'P' in 'spy'",
+                            "Like 'B'",
+                            "Silently before 'T'"
+                        ],
+                        "correct_answer": "Without a puff of air (unaspirated) like 'P' in 'spy'",
+                        "explanation": "Finnish 'P' is unaspirated - no puff of air. Like the 'P' in English 'spy' or 'spot'."
+                    },
+                    {
+                        "question": "To practice Finnish 'P', you should:",
+                        "options": [
+                            "Say English 'P' with extra force",
+                            "Say 'spy' and notice the 'P' has no puff of air",
+                            "Say 'P' like 'B'",
+                            "Add an 'H' sound after it"
+                        ],
+                        "correct_answer": "Say 'spy' and notice the 'P' has no puff of air",
+                        "explanation": "Hold paper in front of mouth: 'pie' = paper moves, 'spy' = paper stays still. Finnish P = 'spy'."
+                    },
+                    {
+                        "question": "How is 'PP' in 'pappi' (priest) pronounced?",
+                        "options": [
+                            "Like a single 'P'",
+                            "With longer lip closure before releasing",
+                            "Like 'BB'",
+                            "Silently"
+                        ],
+                        "correct_answer": "With longer lip closure before releasing",
+                        "explanation": "'PP' = lips stay closed longer before the release. 'pappi' = PAP-pi."
+                    },
+                    {
+                        "question": "'P' is common in native Finnish words. TRUE or FALSE?",
+                        "options": [
+                            "TRUE - P is very common",
+                            "FALSE - P is only in loanwords",
+                            "P doesn't exist in Finnish",
+                            "P is only at the start of words"
+                        ],
+                        "correct_answer": "TRUE - P is very common",
+                        "explanation": "'P' is common: pallo, päivä, perhe, pieni, punainen, etc."
+                    },
+                    {
+                        "question": "The Finnish letter 'Q' is:",
+                        "options": [
+                            "Common in Finnish words",
+                            "Only used in foreign names and some loanwords",
+                            "Pronounced like 'G'",
+                            "A vowel"
+                        ],
+                        "correct_answer": "Only used in foreign names and some loanwords",
+                        "explanation": "'Q' is not used in native Finnish. It only appears in foreign names and loanwords."
+                    },
+                    {
+                        "question": "How is 'Q' pronounced in Finnish when it appears?",
+                        "options": [
+                            "Like Finnish 'K'",
+                            "Like 'KV' combination",
+                            "Silently",
+                            "Like 'CH'"
+                        ],
+                        "correct_answer": "Like Finnish 'K'",
+                        "explanation": "'Q' is typically pronounced like 'K'. Finnish often replaces 'QU' with 'KV' in adapted words."
+                    },
+                    {
+                        "question": "The word 'quality' in Finnish becomes:",
+                        "options": [
+                            "quality (unchanged)",
+                            "kvaliteetti (Q→KV)",
+                            "qvaliteetti",
+                            "cuality"
+                        ],
+                        "correct_answer": "kvaliteetti (Q→KV)",
+                        "explanation": "Finnish adapts 'QU' to 'KV': quality → kvaliteetti. This reflects the actual sounds."
+                    },
+                    {
+                        "question": "Where might you see 'Q' in Finnish text?",
+                        "options": [
+                            "Common everyday words",
+                            "Foreign names and unadapted loanwords",
+                            "All words with /kv/ sound",
+                            "Never - Finnish doesn't use Q"
+                        ],
+                        "correct_answer": "Foreign names and unadapted loanwords",
+                        "explanation": "'Q' appears in names like 'Qatar' or 'Quincy' when written in their original form."
+                    },
+                    {
+                        "question": "The Finnish letter 'R' is pronounced:",
+                        "options": [
+                            "Like American English 'R' (tongue curled back)",
+                            "Like French 'R' (throat/uvular)",
+                            "Rolled/trilled (tip of tongue vibrates)",
+                            "Silently"
+                        ],
+                        "correct_answer": "Rolled/trilled (tip of tongue vibrates)",
+                        "explanation": "Finnish 'R' is an alveolar trill - the tongue tip vibrates against the ridge behind the teeth."
+                    },
+                    {
+                        "question": "Finnish 'R' is similar to:",
+                        "options": [
+                            "American English 'R'",
+                            "Spanish 'R' in 'perro'",
+                            "French 'R'",
+                            "Silent English 'R' in 'car' (British)"
+                        ],
+                        "correct_answer": "Spanish 'R' in 'perro'",
+                        "explanation": "Finnish 'R' is a rolled/trilled R, very similar to Spanish 'rr' or Italian 'R'."
+                    },
+                    {
+                        "question": "In 'koira' (dog), how is 'R' pronounced?",
+                        "options": [
+                            "Like American 'R'",
+                            "With a short tongue tap or trill",
+                            "Silently",
+                            "Like 'L'"
+                        ],
+                        "correct_answer": "With a short tongue tap or trill",
+                        "explanation": "'koira' = KOY-ra, with the 'R' as a short tap or trill of the tongue tip."
+                    },
+                    {
+                        "question": "How is 'RR' in 'porra' (step) pronounced?",
+                        "options": [
+                            "Like a single tap",
+                            "With a longer, more pronounced trill",
+                            "Like American 'R'",
+                            "Silently"
+                        ],
+                        "correct_answer": "With a longer, more pronounced trill",
+                        "explanation": "'RR' is a longer trill - the tongue vibrates for more beats than single 'R'."
+                    },
+                    {
+                        "question": "If you can't roll your R yet, what's a good start?",
+                        "options": [
+                            "Use American English R",
+                            "Practice a single tongue tap (like 'tt' in American 'butter')",
+                            "Skip the R entirely",
+                            "Use French R instead"
+                        ],
+                        "correct_answer": "Practice a single tongue tap (like 'tt' in American 'butter')",
+                        "explanation": "The tongue tap in American 'butter/better' is close to a single Finnish R tap. Build from there!"
+                    },
+                    {
+                        "question": "The Finnish letter 'S' is always pronounced:",
+                        "options": [
+                            "Like 'Z' between vowels",
+                            "Like 'SH'",
+                            "As a voiceless 'S' (like 'ss' in 'hiss')",
+                            "Silently at the end of words"
+                        ],
+                        "correct_answer": "As a voiceless 'S' (like 'ss' in 'hiss')",
+                        "explanation": "Finnish 'S' is ALWAYS voiceless (sharp 'sss'), never like 'Z' even between vowels."
+                    },
+                    {
+                        "question": "Unlike English, Finnish 'S':",
+                        "options": [
+                            "Sometimes sounds like 'Z' between vowels (like 'rose')",
+                            "Never sounds like 'Z' - always sharp 'S'",
+                            "Sometimes sounds like 'SH'",
+                            "Is often silent"
+                        ],
+                        "correct_answer": "Never sounds like 'Z' - always sharp 'S'",
+                        "explanation": "English 'rose' has 'Z' sound, but Finnish 'S' is always sharp: 'iso' = 'I-so' (not 'I-zo')."
+                    },
+                    {
+                        "question": "In 'kissa' (cat), how is 'SS' pronounced?",
+                        "options": [
+                            "Like a single short 'S'",
+                            "As a longer, extended 'S' sound",
+                            "Like 'Z'",
+                            "Like 'SH'"
+                        ],
+                        "correct_answer": "As a longer, extended 'S' sound",
+                        "explanation": "'SS' is held for twice the duration: 'kissa' = KIS-sa (long 'sss' sound)."
+                    },
+                    {
+                        "question": "The word 'iso' (big) is pronounced:",
+                        "options": [
+                            "EE-zo (with Z sound)",
+                            "EE-so (with sharp S sound)",
+                            "EYE-so",
+                            "ISS-o"
+                        ],
+                        "correct_answer": "EE-so (with sharp S sound)",
+                        "explanation": "Finnish 'S' between vowels stays as 'S', not 'Z'. 'iso' = EE-so."
+                    },
+                    {
+                        "question": "The Finnish letter 'T' is pronounced:",
+                        "options": [
+                            "With a puff of air (aspirated) like English 'T' in 'top'",
+                            "Without a puff of air (unaspirated) like 'T' in 'stop'",
+                            "Like 'D'",
+                            "Like 'TH' in 'think'"
+                        ],
+                        "correct_answer": "Without a puff of air (unaspirated) like 'T' in 'stop'",
+                        "explanation": "Finnish 'T' is unaspirated - no puff of air. Like the 'T' in English 'stop' or 'star'."
+                    },
+                    {
+                        "question": "Finnish 'T' is also:",
+                        "options": [
+                            "Made with tongue between teeth (like 'TH')",
+                            "Made with tongue tip touching the teeth (dental)",
+                            "Made at the back of the mouth",
+                            "Silent before vowels"
+                        ],
+                        "correct_answer": "Made with tongue tip touching the teeth (dental)",
+                        "explanation": "Finnish 'T' is dental - tongue touches upper teeth. English 'T' is slightly further back (alveolar)."
+                    },
+                    {
+                        "question": "How is 'TT' in 'matto' (rug) pronounced?",
+                        "options": [
+                            "Like a single 'T'",
+                            "With tongue held against teeth longer before release",
+                            "Like 'D'",
+                            "Silently"
+                        ],
+                        "correct_answer": "With tongue held against teeth longer before release",
+                        "explanation": "'TT' = longer closure. 'matto' = MAT-to, with clear pause before the second syllable."
+                    },
+                    {
+                        "question": "'T' is common in Finnish. Which words contain it?",
+                        "options": [
+                            "Only loanwords",
+                            "talo, tie, tuli, kiitos, auto - many common words",
+                            "Only at word endings",
+                            "T is rare in Finnish"
+                        ],
+                        "correct_answer": "talo, tie, tuli, kiitos, auto - many common words",
+                        "explanation": "'T' is one of the most common consonants in Finnish."
+                    },
+                    {
+                        "question": "The Finnish letter 'U' sounds like:",
+                        "options": [
+                            "'u' in English 'cup' or 'but'",
+                            "'u' in English 'put' or 'book'",
+                            "'oo' in English 'food' or 'moon'",
+                            "'u' in English 'tube' (with 'y' sound)"
+                        ],
+                        "correct_answer": "'oo' in English 'food' or 'moon'",
+                        "explanation": "Finnish 'U' is a close back rounded vowel, like 'oo' in 'food'. It's never like 'cup'."
+                    },
+                    {
+                        "question": "Finnish 'U' is classified as:",
+                        "options": [
+                            "A front vowel",
+                            "A back vowel",
+                            "A neutral vowel",
+                            "Not a vowel"
+                        ],
+                        "correct_answer": "A back vowel",
+                        "explanation": "'U' is a back vowel (with 'A' and 'O'). It cannot appear in words with front vowels (ä, ö, y)."
+                    },
+                    {
+                        "question": "In 'bussi' (bus), how is 'U' pronounced?",
+                        "options": [
+                            "Like 'u' in 'bus' (English)",
+                            "Like 'oo' in 'book' or 'foot'",
+                            "Like 'oo' in 'food' (but short)",
+                            "Silently"
+                        ],
+                        "correct_answer": "Like 'oo' in 'book' or 'foot'",
+                        "explanation": "'bussi' = BOOS-si (short 'oo'). Finnish 'U' is always rounded like 'oo'."
+                    },
+                    {
+                        "question": "How is 'UU' in 'kuu' (moon) pronounced?",
+                        "options": [
+                            "Like a short 'oo'",
+                            "Like a long 'oo' held twice as long",
+                            "Like 'ew' in 'few'",
+                            "Like 'you'"
+                        ],
+                        "correct_answer": "Like a long 'oo' held twice as long",
+                        "explanation": "'kuu' = KOOO (long 'oo'). Double vowel = twice the length."
+                    },
+                    {
+                        "question": "The Finnish letter 'V' sounds like:",
+                        "options": [
+                            "Like English 'W' in 'water'",
+                            "Like English 'V' in 'very'",
+                            "Like 'B'",
+                            "Like 'F'"
+                        ],
+                        "correct_answer": "Like English 'V' in 'very'",
+                        "explanation": "Finnish 'V' = English 'V'. It's a voiced labiodental fricative (teeth touch lip)."
+                    },
+                    {
+                        "question": "Finnish 'V' is never pronounced like:",
+                        "options": [
+                            "English 'V'",
+                            "English 'W'",
+                            "German 'W'",
+                            "Both English W and German W"
+                        ],
+                        "correct_answer": "Both English W and German W",
+                        "explanation": "Finnish 'V' is always 'V' (teeth on lip), never 'W' (lips rounded). No 'W' sound exists in Finnish."
+                    },
+                    {
+                        "question": "In 'viisi' (five), how is 'V' pronounced?",
+                        "options": [
+                            "Like 'W' in 'we'",
+                            "Like 'V' in 'very'",
+                            "Like 'F'",
+                            "Silently"
+                        ],
+                        "correct_answer": "Like 'V' in 'very'",
+                        "explanation": "'viisi' = VEE-see (with clear 'V' sound, not 'W')."
+                    },
+                    {
+                        "question": "In 'kahvi' (coffee), how is 'V' pronounced?",
+                        "options": [
+                            "Like 'W'",
+                            "Like 'V' in 'very'",
+                            "Like 'F'",
+                            "Silently"
+                        ],
+                        "correct_answer": "Like 'V' in 'very'",
+                        "explanation": "'kahvi' = KAH-vi, with a clear 'V' sound."
+                    },
+                    {
+                        "question": "The Finnish letter 'W' is:",
+                        "options": [
+                            "Common in Finnish words",
+                            "Only used in foreign names and some loanwords",
+                            "Pronounced like 'U'",
+                            "A vowel"
+                        ],
+                        "correct_answer": "Only used in foreign names and some loanwords",
+                        "explanation": "'W' doesn't exist in native Finnish. It appears only in foreign names and loanwords."
+                    },
+                    {
+                        "question": "How is 'W' typically pronounced in Finnish?",
+                        "options": [
+                            "Like English 'W' in 'water'",
+                            "Like Finnish 'V' (same sound)",
+                            "Silently",
+                            "Like 'U'"
+                        ],
+                        "correct_answer": "Like Finnish 'V' (same sound)",
+                        "explanation": "In Finnish, 'W' is typically pronounced like 'V'. The 'W' sound doesn't exist in Finnish."
+                    },
+                    {
+                        "question": "The name 'William' in Finnish is often pronounced:",
+                        "options": [
+                            "With English 'W' sound",
+                            "VILL-i-am (with V sound)",
+                            "OO-ill-i-am",
+                            "Will-i-am (same as English)"
+                        ],
+                        "correct_answer": "VILL-i-am (with V sound)",
+                        "explanation": "Finns typically substitute 'V' for 'W' since the 'W' sound doesn't exist in Finnish phonology."
+                    },
+                    {
+                        "question": "In older Finnish texts, 'W' was sometimes used for:",
+                        "options": [
+                            "The 'W' sound",
+                            "The 'V' sound (same letter, different style)",
+                            "The 'U' sound",
+                            "Silent letters"
+                        ],
+                        "correct_answer": "The 'V' sound (same letter, different style)",
+                        "explanation": "Historically, 'W' and 'V' were interchangeable in Finnish writing. 'W' represented the same 'V' sound."
+                    },
+                    {
+                        "question": "The Finnish letter 'X' is:",
+                        "options": [
+                            "Common in Finnish words",
+                            "Only used in foreign words and names",
+                            "Pronounced like 'S'",
+                            "A vowel"
+                        ],
+                        "correct_answer": "Only used in foreign words and names",
+                        "explanation": "'X' doesn't exist in native Finnish. It appears only in loanwords and foreign names."
+                    },
+                    {
+                        "question": "How is 'X' pronounced in Finnish loanwords?",
+                        "options": [
+                            "Like 'Z'",
+                            "Like 'KS' combination",
+                            "Silently",
+                            "Like 'SH'"
+                        ],
+                        "correct_answer": "Like 'KS' combination",
+                        "explanation": "'X' in Finnish is pronounced as 'KS'. Native Finnish spells this out: 'taksi' not 'taxi'."
+                    },
+                    {
+                        "question": "The English word 'taxi' in Finnish becomes:",
+                        "options": [
+                            "taxi (unchanged)",
+                            "taksi (X→KS)",
+                            "taxii",
+                            "tacsi"
+                        ],
+                        "correct_answer": "taksi (X→KS)",
+                        "explanation": "Finnish adapts 'X' to 'KS': taxi → taksi. The pronunciation is the same, but spelling matches Finnish patterns."
+                    },
+                    {
+                        "question": "Where might you see 'X' in Finnish text?",
+                        "options": [
+                            "Common everyday words",
+                            "Foreign names, scientific terms, unadapted loanwords",
+                            "All words with /ks/ sound",
+                            "Never - Finnish doesn't use X"
+                        ],
+                        "correct_answer": "Foreign names, scientific terms, unadapted loanwords",
+                        "explanation": "'X' appears in names (Max, Alex), scientific terms, and words not yet adapted to Finnish spelling."
+                    },
+                    {
+                        "question": "The Finnish letter 'Y' is:",
+                        "options": [
+                            "A consonant like English 'Y' in 'yes'",
+                            "A vowel - the rounded front close vowel",
+                            "Rare in Finnish",
+                            "Pronounced like 'I'"
+                        ],
+                        "correct_answer": "A vowel - the rounded front close vowel",
+                        "explanation": "Finnish 'Y' is a VOWEL, not a consonant! It's like German 'ü' or French 'u'."
+                    },
+                    {
+                        "question": "Finnish 'Y' sounds like:",
+                        "options": [
+                            "English 'Y' in 'yes'",
+                            "English 'Y' in 'my'",
+                            "Say 'EE' but round your lips like 'OO'",
+                            "English 'I' in 'bit'"
+                        ],
+                        "correct_answer": "Say 'EE' but round your lips like 'OO'",
+                        "explanation": "To make Finnish 'Y': position for 'EE' (like 'see'), but round your lips like saying 'OO'."
+                    },
+                    {
+                        "question": "Finnish 'Y' is classified as:",
+                        "options": [
+                            "A back vowel",
+                            "A front vowel",
+                            "A neutral vowel",
+                            "A consonant"
+                        ],
+                        "correct_answer": "A front vowel",
+                        "explanation": "'Y' is a front vowel (with 'Ä' and 'Ö'). It only appears in words with other front vowels."
+                    },
+                    {
+                        "question": "In 'yksi' (one), how is 'Y' pronounced?",
+                        "options": [
+                            "Like 'Y' in 'yes'",
+                            "Like rounded 'EE' (German 'ü')",
+                            "Like 'OO'",
+                            "Like 'I' in 'bit'"
+                        ],
+                        "correct_answer": "Like rounded 'EE' (German 'ü')",
+                        "explanation": "'yksi' = ÜK-si. The 'Y' is a rounded front vowel, not like any English sound."
+                    },
+                    {
+                        "question": "In 'yö' (night), how is 'Y' pronounced?",
+                        "options": [
+                            "Like 'Y' in 'yo'",
+                            "Rounded 'EE' gliding to 'Ö'",
+                            "Like 'OO'",
+                            "Silently"
+                        ],
+                        "correct_answer": "Rounded 'EE' gliding to 'Ö'",
+                        "explanation": "'yö' is a diphthong of two rounded front vowels: 'Y' (rounded ee) to 'Ö'."
+                    },
+                    {
+                        "question": "Common mistake: English speakers often pronounce Finnish 'Y' as:",
+                        "options": [
+                            "'OO' sound",
+                            "English consonant 'Y' (as in 'yes')",
+                            "'AH' sound",
+                            "'EE' sound (unrounded)"
+                        ],
+                        "correct_answer": "English consonant 'Y' (as in 'yes')",
+                        "explanation": "Remember: Finnish 'Y' is a VOWEL (like German ü), NOT a consonant like English 'Y'!"
+                    },
+                    {
+                        "question": "The Finnish letter 'Z' is:",
+                        "options": [
+                            "Common in Finnish words",
+                            "Only used in foreign words and names",
+                            "Pronounced like 'S'",
+                            "A vowel"
+                        ],
+                        "correct_answer": "Only used in foreign words and names",
+                        "explanation": "'Z' doesn't exist in native Finnish. It appears only in loanwords and foreign names."
+                    },
+                    {
+                        "question": "How is 'Z' typically pronounced in Finnish?",
+                        "options": [
+                            "Like English 'Z' (voiced 'zzz')",
+                            "Often like 'TS' or just 'S'",
+                            "Like 'SH'",
+                            "Silently"
+                        ],
+                        "correct_answer": "Often like 'TS' or just 'S'",
+                        "explanation": "Finns often pronounce 'Z' as 'TS' or 'S' since the voiced 'Z' sound is foreign to Finnish."
+                    },
+                    {
+                        "question": "The word 'pizza' in Finnish is pronounced:",
+                        "options": [
+                            "PEET-za (with Z sound)",
+                            "PIT-sa or PEET-sa (with TS sound)",
+                            "PEEZ-za",
+                            "PISH-sha"
+                        ],
+                        "correct_answer": "PIT-sa or PEET-sa (with TS sound)",
+                        "explanation": "Many Finns say 'pitsa' - the 'ZZ' becomes 'TS'. Some maintain the 'Z' sound in loanwords."
+                    },
+                    {
+                        "question": "Native Finnish spelling often replaces 'Z' with:",
+                        "options": [
+                            "S alone",
+                            "TS combination",
+                            "Either S or TS depending on the word",
+                            "Z is never replaced"
+                        ],
+                        "correct_answer": "Either S or TS depending on the word",
+                        "explanation": "Finnish adapts foreign 'Z' to native sounds: 'zone' might become 'sooni' or stay 'zone' in casual use."
+                    },
+                    {
+                        "question": "The Finnish letter 'Å' is:",
+                        "options": [
+                            "A native Finnish letter",
+                            "Borrowed from Swedish, used only in Swedish names/words",
+                            "Pronounced like 'A'",
+                            "Very common in Finnish"
+                        ],
+                        "correct_answer": "Borrowed from Swedish, used only in Swedish names/words",
+                        "explanation": "'Å' comes from Swedish. It appears in names (Åland) and Swedish loanwords, not native Finnish."
+                    },
+                    {
+                        "question": "How is 'Å' pronounced?",
+                        "options": [
+                            "Like Finnish 'A'",
+                            "Like Finnish 'O' or 'AW' in 'law'",
+                            "Like Finnish 'Ä'",
+                            "Silently"
+                        ],
+                        "correct_answer": "Like Finnish 'O' or 'AW' in 'law'",
+                        "explanation": "'Å' sounds like 'O' in 'or' or 'AW' in 'law'. It's essentially the Swedish 'Å' sound."
+                    },
+                    {
+                        "question": "'Åland' (Finnish autonomous region) is pronounced:",
+                        "options": [
+                            "AH-land",
+                            "AW-land or OH-land",
+                            "Ä-land",
+                            "A-land"
+                        ],
+                        "correct_answer": "AW-land or OH-land",
+                        "explanation": "'Åland' = OH-land. The 'Å' has the rounded 'O' sound."
+                    },
+                    {
+                        "question": "In the Finnish alphabet, 'Å' comes:",
+                        "options": [
+                            "Before 'A'",
+                            "After 'Z', before 'Ä'",
+                            "Between 'A' and 'B'",
+                            "It's not in the Finnish alphabet"
+                        ],
+                        "correct_answer": "After 'Z', before 'Ä'",
+                        "explanation": "The Finnish alphabet ends: ...X, Y, Z, Å, Ä, Ö. The Scandinavian letters come after Z."
+                    },
+                    {
+                        "question": "The Finnish letter 'Ä' sounds like:",
+                        "options": [
+                            "'a' in English 'father'",
+                            "'a' in English 'cat' or 'hat'",
+                            "'e' in English 'bed'",
+                            "'a' in English 'cake'"
+                        ],
+                        "correct_answer": "'a' in English 'cat' or 'hat'",
+                        "explanation": "Finnish 'Ä' is an open front vowel, like 'a' in 'cat', 'hat', or 'bad'."
+                    },
+                    {
+                        "question": "The difference between 'A' and 'Ä' is:",
+                        "options": [
+                            "'Ä' is just a longer 'A'",
+                            "'A' is a back vowel, 'Ä' is a front vowel - different sounds",
+                            "They sound the same",
+                            "'Ä' is silent"
+                        ],
+                        "correct_answer": "'A' is a back vowel, 'Ä' is a front vowel - different sounds",
+                        "explanation": "'A' = 'father' (back), 'Ä' = 'cat' (front). They are DIFFERENT vowels, not variants!"
+                    },
+                    {
+                        "question": "Finnish 'Ä' is classified as:",
+                        "options": [
+                            "A back vowel",
+                            "A front vowel",
+                            "A neutral vowel",
+                            "A consonant"
+                        ],
+                        "correct_answer": "A front vowel",
+                        "explanation": "'Ä' is a front vowel (with 'Ö' and 'Y'). It cannot appear in words with back vowels (a, o, u)."
+                    },
+                    {
+                        "question": "In 'äiti' (mother), how is 'Ä' pronounced?",
+                        "options": [
+                            "Like 'a' in 'father'",
+                            "Like 'a' in 'cat'",
+                            "Like 'e' in 'bed'",
+                            "Silently"
+                        ],
+                        "correct_answer": "Like 'a' in 'cat'",
+                        "explanation": "'äiti' = ÄI-ti, with 'Ä' as in 'cat'. The 'äi' diphthong sounds like 'a' (cat) + 'ee'."
+                    },
+                    {
+                        "question": "In 'pää' (head), how is 'ÄÄ' pronounced?",
+                        "options": [
+                            "Like short 'a' in 'cat'",
+                            "Like long 'a' in 'cat' held twice as long",
+                            "Like 'ay' in 'say'",
+                            "Like 'a' in 'father'"
+                        ],
+                        "correct_answer": "Like long 'a' in 'cat' held twice as long",
+                        "explanation": "'pää' = PÄÄH (long). Double 'ÄÄ' is held for twice the duration."
+                    },
+                    {
+                        "question": "'Ä' is important for vowel harmony because:",
+                        "options": [
+                            "It can appear with any vowels",
+                            "It only appears with other front vowels (ö, y) or neutral vowels (e, i)",
+                            "It only appears at the start of words",
+                            "It replaces 'A' in long words"
+                        ],
+                        "correct_answer": "It only appears with other front vowels (ö, y) or neutral vowels (e, i)",
+                        "explanation": "Words have either back vowels (a, o, u) OR front vowels (ä, ö, y). 'Ä' signals front vowel harmony."
+                    },
+                    {
+                        "question": "The Finnish letter 'Ö' sounds like:",
+                        "options": [
+                            "'o' in English 'go'",
+                            "Say 'E' (as in 'bed') but round your lips",
+                            "'oo' in English 'food'",
+                            "'o' in English 'hot'"
+                        ],
+                        "correct_answer": "Say 'E' (as in 'bed') but round your lips",
+                        "explanation": "Finnish 'Ö' = German 'ö'. Make an 'E' sound (bed) but round your lips like for 'O'."
+                    },
+                    {
+                        "question": "Finnish 'Ö' is similar to:",
+                        "options": [
+                            "English 'O'",
+                            "German 'ö' or the vowel in British 'bird'",
+                            "English 'OO'",
+                            "English 'AW'"
+                        ],
+                        "correct_answer": "German 'ö' or the vowel in British 'bird'",
+                        "explanation": "'Ö' is like German 'ö' or approximately like 'i' in British 'bird' (RP pronunciation)."
+                    },
+                    {
+                        "question": "The difference between 'O' and 'Ö' is:",
+                        "options": [
+                            "'Ö' is just a longer 'O'",
+                            "'O' is a back vowel, 'Ö' is a front vowel - different sounds",
+                            "They sound the same",
+                            "'Ö' is silent"
+                        ],
+                        "correct_answer": "'O' is a back vowel, 'Ö' is a front vowel - different sounds",
+                        "explanation": "'O' = back, rounded (like 'or'). 'Ö' = front, rounded (unique sound). Different vowels!"
+                    },
+                    {
+                        "question": "Finnish 'Ö' is classified as:",
+                        "options": [
+                            "A back vowel",
+                            "A front vowel",
+                            "A neutral vowel",
+                            "A consonant"
+                        ],
+                        "correct_answer": "A front vowel",
+                        "explanation": "'Ö' is a front vowel (with 'Ä' and 'Y'). It cannot appear with back vowels (a, o, u)."
+                    },
+                    {
+                        "question": "In 'yö' (night), how is 'Ö' pronounced?",
+                        "options": [
+                            "Like 'O' in 'go'",
+                            "Rounded front vowel (lips rounded, tongue front)",
+                            "Like 'AW' in 'law'",
+                            "Silently"
+                        ],
+                        "correct_answer": "Rounded front vowel (lips rounded, tongue front)",
+                        "explanation": "'yö' = two front rounded vowels: 'Y' (rounded ee) gliding to 'Ö' (rounded eh)."
+                    },
+                    {
+                        "question": "In 'pöytä' (table), how is 'Ö' pronounced?",
+                        "options": [
+                            "Like 'O' in 'go'",
+                            "Rounded front vowel as part of diphthong 'ÖY'",
+                            "Like 'OO' in 'food'",
+                            "Silently"
+                        ],
+                        "correct_answer": "Rounded front vowel as part of diphthong 'ÖY'",
+                        "explanation": "'pöytä' has diphthong 'öy' (ö gliding to y) - both are rounded front vowels."
+                    },
+                    {
+                        "question": "To practice 'Ö', you should:",
+                        "options": [
+                            "Say 'O' and smile",
+                            "Say 'E' (as in 'bed') and round your lips like for 'O'",
+                            "Say 'OO' quickly",
+                            "Say 'A' and round your lips"
+                        ],
+                        "correct_answer": "Say 'E' (as in 'bed') and round your lips like for 'O'",
+                        "explanation": "'Ö' = front tongue position (like 'E') + rounded lips (like 'O'). Practice slowly!"
+                    }
+                ]
+            },
+            {
+                "title": "Greetings & Manners",
+                "order": 2,
+                "content": "Common Greetings:\n- Hei / Moi = Hello / Hi\n- Huomenta = Good morning\n- Kiitos = Thank you\n- Anteeksi = Sorry / Excuse me\n- Kyllä = Yes\n- Ei = No",
+                "exercises": [
+                    {
+                        "question": "How do you say 'Thank you' in Finnish?",
+                        "options": [
+                            "Moi",
+                            "Kiitos",
+                            "Ei",
+                            "Anteeksi"
+                        ],
+                        "correct_answer": "Kiitos"
+                    },
+                    {
+                        "question": "What does 'Ei' mean?",
+                        "options": [
+                            "Yes",
+                            "No",
+                            "Hello",
+                            "Bye"
+                        ],
+                        "correct_answer": "No"
+                    }
+                ]
+            },
+            {
+                "title": "Numbers (0-10) & Colors",
+                "order": 3,
+                "content": "Numbers:\n0 = nolla\n1 = yksi\n2 = kaksi\n3 = kolme\n4 = neljä\n5 = viisi\n\nColors:\n- Sininen = Blue\n- Punainen = Red\n- Vihreä = Green",
+                "exercises": [
+                    {
+                        "question": "What number is 'kolme'?",
+                        "options": [
+                            "1",
+                            "2",
+                            "3",
+                            "4"
+                        ],
+                        "correct_answer": "3"
+                    },
+                    {
+                        "question": "What color is 'Sininen'?",
+                        "options": [
+                            "Red",
+                            "Blue",
+                            "Green",
+                            "Yellow"
+                        ],
+                        "correct_answer": "Blue"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "level": "A1",
+        "lessons": [
+            {
+                "title": "Introductions",
+                "order": 1,
+                "content": "Asking names and origin:\n- Mikä sinun nimi on? = What is your name?\n- Minun nimeni on... = My name is...\n- Mistä olet kotoisin? = Where are you from?",
+                "exercises": [
+                    {
+                        "question": "Translate: 'My name is Matti'",
+                        "options": [
+                            "Minä nimi Matti",
+                            "Minun nimeni on Matti",
+                            "Minun on Matti"
+                        ],
+                        "correct_answer": "Minun nimeni on Matti"
+                    }
+                ]
+            },
+            {
+                "title": "My Life (Family)",
+                "order": 2,
+                "content": "Family vocabulary:\n- äiti (mother)\n- isä (father)\n- perhe (family)\n\nPossession:\n- Minulla on... = I have...\n- Minulla on sisko. = I have a sister.",
+                "exercises": [
+                    {
+                        "question": "How do you say 'I have'?",
+                        "options": [
+                            "Minä olen",
+                            "Minulla on",
+                            "Minun on"
+                        ],
+                        "correct_answer": "Minulla on"
+                    }
+                ]
+            },
+            {
+                "title": "Food & Shopping",
+                "order": 3,
+                "content": "Ordering basics:\n- Haluaisin kahvia. = I would like coffee. (Partitive 'kahvia')\n- Paljonko se maksaa? = How much does it cost?",
+                "exercises": [
+                    {
+                        "question": "What case is used for 'coffee' in 'Haluaisin kahvia'?",
+                        "options": [
+                            "Nominative",
+                            "Genitive",
+                            "Partitive"
+                        ],
+                        "correct_answer": "Partitive"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "level": "A2",
+        "lessons": [
+            {
+                "title": "Daily Routine",
+                "order": 1,
+                "content": "Verbs in present tense:\n- Herään klo 7. = I wake up at 7.\n- Menen töihin. = I go to work.\n- Syön aamupalaa. = I eat breakfast.",
+                "exercises": [
+                    {
+                        "question": "I go to work.",
+                        "options": [
+                            "Menen töihin",
+                            "Tulen töistä",
+                            "Olen töissä"
+                        ],
+                        "correct_answer": "Menen töihin"
+                    }
+                ]
+            },
+            {
+                "title": "Travel & Directions",
+                "order": 2,
+                "content": "Directions:\n- Missä on asema? = Where is the station?\n- Käänny oikealle. = Turn right.\n- Käänny vasemmalle. = Turn left.",
+                "exercises": [
+                    {
+                        "question": "Translate: 'Turn left'",
+                        "options": [
+                            "Käänny oikealle",
+                            "Käänny vasemmalle",
+                            "Mene suoraan"
+                        ],
+                        "correct_answer": "Käänny vasemmalle"
+                    }
+                ]
+            }
+        ]
+    }
+]

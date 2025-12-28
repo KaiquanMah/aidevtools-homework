@@ -1,0 +1,26 @@
+{
+    "title": "Past Tense (Imperfect)",
+    "content": "Talking about the past.\n\n**Marker:** usually 'i'\n\n**Examples (puhua - to speak):**\n- minä puhuin = I spoke\n- sinä puhuit = You spoke\n- hän puhui = He/She spoke\n\nIf the verb stem ends in a vowel, changes may happen (e.g., a -> i).",
+    "exercises": [
+        {
+            "question": "Translate: 'Minä puhuin'",
+            "options": [
+                "I command",
+                "I speak",
+                "I spoke",
+                "I will speak"
+            ],
+            "correct_answer": "I spoke"
+        },
+        {
+            "question": "Which letter is the marker for past tense?",
+            "options": [
+                "t",
+                "n",
+                "i",
+                "s"
+            ],
+            "correct_answer": "i"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "title": "Basic Questions",
+    "content": "Asking who, what, where.\n\n**Question words:**\n- Kuka? = Who?\n- Mikä? = What?\n- Missä? = Where?\n- Mistä? = Where from?\n- Mihin? = Where to?\n\n**Examples:**\n- Kuka sinä olet? = Who are you?\n- Missä sinä asut? = Where do you live?\n- Mikä tämä on? = What is this?",
+    "exercises": [
+        {
+            "question": "Translate 'Where?'",
+            "options": [
+                "Kuka",
+                "Mikä",
+                "Missä",
+                "Miksi"
+            ],
+            "correct_answer": "Missä"
+        },
+        {
+            "question": "'Kuka sinä olet?' means:",
+            "options": [
+                "How are you?",
+                "Who are you?",
+                "Where are you?",
+                "What is this?"
+            ],
+            "correct_answer": "Who are you?"
+        }
+    ]
+}

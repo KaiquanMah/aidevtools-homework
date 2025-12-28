@@ -1,0 +1,46 @@
+{
+    "title": "Numbers 1-10 & Colors",
+    "content": "Let's learn numbers and colors.\n\n**Numbers 1-10:**\n1 - yksi\n2 - kaksi\n3 - kolme\n4 - neljä\n5 - viisi\n6 - kuusi\n7 - seitsemän\n8 - kahdeksan\n9 - yhdeksän\n10 - kymmenen\n\n**Colors:**\n- punainen = red\n- sininen = blue\n- vihreä = green\n- keltainen = yellow\n- musta = black\n- valkoinen = white",
+    "exercises": [
+        {
+            "question": "What is '5' in Finnish?",
+            "options": [
+                "yksi",
+                "kolme",
+                "viisi",
+                "kymmenen"
+            ],
+            "correct_answer": "viisi"
+        },
+        {
+            "question": "Solve: kaksi + kaksi = ?",
+            "options": [
+                "yksi",
+                "kolme",
+                "neljä",
+                "viisi"
+            ],
+            "correct_answer": "neljä"
+        },
+        {
+            "question": "What number is 'kolme'?",
+            "options": [
+                "1",
+                "2",
+                "3",
+                "4"
+            ],
+            "correct_answer": "3"
+        },
+        {
+            "question": "What color is 'Sininen'?",
+            "options": [
+                "Red",
+                "Blue",
+                "Green",
+                "Yellow"
+            ],
+            "correct_answer": "Blue"
+        }
+    ]
+}

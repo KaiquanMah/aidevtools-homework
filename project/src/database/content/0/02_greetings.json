@@ -1,0 +1,56 @@
+{
+    "title": "Greetings",
+    "content": "Common greetings in Finnish are often informal.\n\n**Common Greetings:**\n- Hei / Moi / Terve = Hello / Hi\n- Hyvää huomenta = Good morning\n- Hyvää päivää = Good afternoon (lit. Good day)\n- Hyvää iltaa = Good evening\n- Hyvää yötä = Good night\n\n**Goodbyes:**\n- Hei hei / Moi moi = Bye\n- Nähdään = See you\n- Hyvästi = Goodbye (very formal/final)\n\n**Phrases:**\n- Mitä kuuluu? = How are you?\n- Kiitos, hyvää. = Good, thank you.\n- Anteeksi = Sorry / Excuse me\n- Kiitos = Thank you",
+    "exercises": [
+        {
+            "question": "How do you say 'Good morning'?",
+            "options": [
+                "Hyvää yötä",
+                "Hyvää huomenta",
+                "Moi",
+                "Kiitos"
+            ],
+            "correct_answer": "Hyvää huomenta"
+        },
+        {
+            "question": "What is a common informal way to say 'Hello'?",
+            "options": [
+                "Hyvästi",
+                "Anteeksi",
+                "Moi",
+                "Hyvää päivää"
+            ],
+            "correct_answer": "Moi"
+        },
+        {
+            "question": "Translate: 'Mitä kuuluu?'",
+            "options": [
+                "Who are you?",
+                "How are you?",
+                "Where are you?",
+                "What is that?"
+            ],
+            "correct_answer": "How are you?"
+        },
+        {
+            "question": "How do you say 'Thank you' in Finnish?",
+            "options": [
+                "Moi",
+                "Kiitos",
+                "Ei",
+                "Anteeksi"
+            ],
+            "correct_answer": "Kiitos"
+        },
+        {
+            "question": "What does 'Ei' mean?",
+            "options": [
+                "Yes",
+                "No",
+                "Hello",
+                "Bye"
+            ],
+            "correct_answer": "No"
+        }
+    ]
+}
