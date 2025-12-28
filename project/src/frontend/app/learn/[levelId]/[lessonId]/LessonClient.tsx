@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import api from '@/utils/api';
 import { useRouter } from 'next/navigation';
+import SpeechPractice from '@/components/SpeechPractice';
 
 interface Exercise {
     id: number;
@@ -20,15 +21,52 @@ interface LessonDetail {
     exercises: Exercise[];
 }
 
+interface VocabularyWord {
+    finnish: string;
+    english: string;
+    pronunciation: string;
+}
+
+interface VocabularyData {
+    lesson_id: number;
+    lesson_title: string;
+    vocabulary: VocabularyWord[];
+}
+
 const QUESTIONS_PER_SET = 10;
 
 export default function LessonClient({ params }: { params: { levelId: string; lessonId: string } }) {
     const [lesson, setLesson] = useState<LessonDetail | null>(null);
-    const [currentStep, setCurrentStep] = useState<'content' | 'quiz'>('content');
+    const [currentStep, setCurrentStep] = useState<'content' | 'quiz' | 'speaking'>('content');
     const [currentSetIndex, setCurrentSetIndex] = useState(0);
     const [answeredQuestions, setAnsweredQuestions] = useState<Record<number, { selected: string, correct: boolean }>>({});
     const [quizComplete, setQuizComplete] = useState(false);
+    const [vocabulary, setVocabulary] = useState<VocabularyData | null>(null);
     const router = useRouter();
+
+    useEffect(() => {
+        const fetchLesson = async () => {
+            try {
+                const response = await api.get(`/lessons/${params.lessonId}`);
+                setLesson(response.data);
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        const fetchVocabulary = async () => {
+            try {
+                // Determine lesson order within level (simplified: use lessonId as order for now)
+                const response = await api.get(`/practice/vocabulary/${params.levelId}/${params.lessonId}`);
+                setVocabulary(response.data);
+            } catch (err) {
+                console.error('Vocabulary not available for this lesson');
+            }
+        };
+
+        fetchLesson();
+        fetchVocabulary();
+    }, [params.lessonId, params.levelId]);
 
     useEffect(() => {
         const fetchLesson = async () => {
@@ -102,21 +140,52 @@ export default function LessonClient({ params }: { params: { levelId: string; le
                             <div className="prose max-w-none mb-8 whitespace-pre-line">
                                 {lesson.content}
                             </div>
-                            {lesson.exercises.length > 0 ? (
-                                <button
-                                    onClick={() => setCurrentStep('quiz')}
-                                    className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-500 w-full md:w-auto"
-                                >
-                                    Start Quiz ({totalQuestions} questions, {totalSets} set{totalSets > 1 ? 's' : ''})
-                                </button>
-                            ) : (
-                                <div className="text-gray-500 italic">No quiz available for this lesson.</div>
+
+                            {/* Action Buttons */}
+                            <div className="flex flex-col md:flex-row gap-4 mb-8">
+                                {lesson.exercises.length > 0 && (
+                                    <button
+                                        onClick={() => setCurrentStep('quiz')}
+                                        className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-500 flex-1"
+                                    >
+                                        📝 Start Quiz ({totalQuestions} questions)
+                                    </button>
+                                )}
+
+                                {vocabulary && vocabulary.vocabulary.length > 0 && (
+                                    <button
+                                        onClick={() => setCurrentStep('speaking')}
+                                        className="bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-500 flex-1"
+                                    >
+                                        🎤 Practice Speaking ({vocabulary.vocabulary.length} words)
+                                    </button>
+                                )}
+                            </div>
+
+                            {!lesson.exercises.length && !vocabulary && (
+                                <div className="text-gray-500 italic">No activities available for this lesson yet.</div>
                             )}
 
                             <div className="mt-8 p-4 bg-blue-50 rounded border border-blue-200">
                                 <h3 className="font-bold text-blue-800 mb-2">🎧 Podcast AI (Coming Soon)</h3>
                                 <p className="text-sm text-blue-700">Listen to an AI-generated conversation about this lesson.</p>
                             </div>
+                        </div>
+                    )}
+
+                    {/* Speaking Practice Mode */}
+                    {currentStep === 'speaking' && vocabulary && (
+                        <div>
+                            <button
+                                onClick={() => setCurrentStep('content')}
+                                className="mb-6 text-gray-600 hover:text-gray-800 flex items-center"
+                            >
+                                ← Back to Lesson
+                            </button>
+                            <SpeechPractice
+                                vocabulary={vocabulary.vocabulary}
+                                lessonTitle={lesson.title}
+                            />
                         </div>
                     )}
 

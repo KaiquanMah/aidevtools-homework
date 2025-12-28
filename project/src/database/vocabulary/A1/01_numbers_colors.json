@@ -1,0 +1,56 @@
+{
+    "lesson_id": 4,
+    "lesson_title": "Numbers & Colors (A1)",
+    "vocabulary": [
+        {
+            "finnish": "kuusi",
+            "english": "six",
+            "pronunciation": "KUU-si"
+        },
+        {
+            "finnish": "seitsemän",
+            "english": "seven",
+            "pronunciation": "SEIT-se-män"
+        },
+        {
+            "finnish": "kahdeksan",
+            "english": "eight",
+            "pronunciation": "KAH-dek-san"
+        },
+        {
+            "finnish": "yhdeksän",
+            "english": "nine",
+            "pronunciation": "ÜH-dek-sän"
+        },
+        {
+            "finnish": "kymmenen",
+            "english": "ten",
+            "pronunciation": "KÜM-me-nen"
+        },
+        {
+            "finnish": "valkoinen",
+            "english": "white",
+            "pronunciation": "VAL-koi-nen"
+        },
+        {
+            "finnish": "harmaa",
+            "english": "gray",
+            "pronunciation": "HAR-maa"
+        },
+        {
+            "finnish": "oranssi",
+            "english": "orange",
+            "pronunciation": "O-rans-si"
+        },
+        {
+            "finnish": "ruskea",
+            "english": "brown",
+            "pronunciation": "RUS-ke-a"
+        },
+        {
+            "finnish": "violetti",
+            "english": "purple",
+            "pronunciation": "VI-o-let-ti"
+        }
+    ]
+}

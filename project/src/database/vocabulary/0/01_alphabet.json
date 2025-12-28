@@ -1,0 +1,56 @@
+{
+    "lesson_id": 1,
+    "lesson_title": "Alphabet & Pronunciation",
+    "vocabulary": [
+        {
+            "finnish": "kissa",
+            "english": "cat",
+            "pronunciation": "KIS-sa"
+        },
+        {
+            "finnish": "koira",
+            "english": "dog",
+            "pronunciation": "KOI-ra"
+        },
+        {
+            "finnish": "talo",
+            "english": "house",
+            "pronunciation": "TA-lo"
+        },
+        {
+            "finnish": "auto",
+            "english": "car",
+            "pronunciation": "OW-to"
+        },
+        {
+            "finnish": "päivä",
+            "english": "day",
+            "pronunciation": "PÄI-vä"
+        },
+        {
+            "finnish": "yö",
+            "english": "night",
+            "pronunciation": "ÜÖ"
+        },
+        {
+            "finnish": "vesi",
+            "english": "water",
+            "pronunciation": "VE-si"
+        },
+        {
+            "finnish": "maa",
+            "english": "land/country",
+            "pronunciation": "MAA (long 'a')"
+        },
+        {
+            "finnish": "äiti",
+            "english": "mother",
+            "pronunciation": "ÄI-ti"
+        },
+        {
+            "finnish": "isä",
+            "english": "father",
+            "pronunciation": "I-sä"
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+{
+    "lesson_id": 7,
+    "lesson_title": "Partitive Case",
+    "vocabulary": [
+        {
+            "finnish": "kahvia",
+            "english": "coffee (partitive)",
+            "pronunciation": "KAH-vi-a"
+        },
+        {
+            "finnish": "maitoa",
+            "english": "milk (partitive)",
+            "pronunciation": "MAI-to-a"
+        },
+        {
+            "finnish": "leipää",
+            "english": "bread (partitive)",
+            "pronunciation": "LEI-pää"
+        },
+        {
+            "finnish": "vettä",
+            "english": "water (partitive)",
+            "pronunciation": "VET-tä"
+        },
+        {
+            "finnish": "ruokaa",
+            "english": "food (partitive)",
+            "pronunciation": "RUO-kaa"
+        },
+        {
+            "finnish": "haluan",
+            "english": "I want",
+            "pronunciation": "HA-lu-an"
+        },
+        {
+            "finnish": "ostan",
+            "english": "I buy",
+            "pronunciation": "OS-tan"
+        },
+        {
+            "finnish": "syön",
+            "english": "I eat",
+            "pronunciation": "SÜÖN"
+        },
+        {
+            "finnish": "juon",
+            "english": "I drink",
+            "pronunciation": "JU-on"
+        },
+        {
+            "finnish": "paljon",
+            "english": "a lot",
+            "pronunciation": "PAL-jon"
+        }
+    ]
+}

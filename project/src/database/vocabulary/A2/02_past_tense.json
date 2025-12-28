@@ -1,0 +1,56 @@
+{
+    "lesson_id": 8,
+    "lesson_title": "Past Tense",
+    "vocabulary": [
+        {
+            "finnish": "olin",
+            "english": "I was",
+            "pronunciation": "O-lin"
+        },
+        {
+            "finnish": "söin",
+            "english": "I ate",
+            "pronunciation": "SÖIN"
+        },
+        {
+            "finnish": "join",
+            "english": "I drank",
+            "pronunciation": "JOIN"
+        },
+        {
+            "finnish": "menin",
+            "english": "I went",
+            "pronunciation": "ME-nin"
+        },
+        {
+            "finnish": "tulin",
+            "english": "I came",
+            "pronunciation": "TU-lin"
+        },
+        {
+            "finnish": "tein",
+            "english": "I did/made",
+            "pronunciation": "TEIN"
+        },
+        {
+            "finnish": "sanoin",
+            "english": "I said",
+            "pronunciation": "SA-noin"
+        },
+        {
+            "finnish": "näin",
+            "english": "I saw",
+            "pronunciation": "NÄIN"
+        },
+        {
+            "finnish": "eilen",
+            "english": "yesterday",
+            "pronunciation": "EI-len"
+        },
+        {
+            "finnish": "viime viikolla",
+            "english": "last week",
+            "pronunciation": "VII-me VIIK-kol-la"
+        }
+    ]
+}

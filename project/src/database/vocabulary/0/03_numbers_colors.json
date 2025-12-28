@@ -1,0 +1,56 @@
+{
+    "lesson_id": 3,
+    "lesson_title": "Numbers & Colors",
+    "vocabulary": [
+        {
+            "finnish": "yksi",
+            "english": "one",
+            "pronunciation": "ÜK-si"
+        },
+        {
+            "finnish": "kaksi",
+            "english": "two",
+            "pronunciation": "KAK-si"
+        },
+        {
+            "finnish": "kolme",
+            "english": "three",
+            "pronunciation": "KOL-me"
+        },
+        {
+            "finnish": "neljä",
+            "english": "four",
+            "pronunciation": "NEL-jä"
+        },
+        {
+            "finnish": "viisi",
+            "english": "five",
+            "pronunciation": "VII-si"
+        },
+        {
+            "finnish": "punainen",
+            "english": "red",
+            "pronunciation": "PU-nai-nen"
+        },
+        {
+            "finnish": "sininen",
+            "english": "blue",
+            "pronunciation": "SI-ni-nen"
+        },
+        {
+            "finnish": "vihreä",
+            "english": "green",
+            "pronunciation": "VIH-re-ä"
+        },
+        {
+            "finnish": "keltainen",
+            "english": "yellow",
+            "pronunciation": "KEL-tai-nen"
+        },
+        {
+            "finnish": "musta",
+            "english": "black",
+            "pronunciation": "MUS-ta"
+        }
+    ]
+}

@@ -4,7 +4,7 @@ from fastapi.staticfiles import StaticFiles
 import os
 
 from database import engine, Base
-from routers import auth, content, users
+from routers import auth, content, users, practice
 
 # Create tables on startup (simplest for this homework, though migrations prefered in prod)
 Base.metadata.create_all(bind=engine)
@@ -19,7 +19,7 @@ origins = [
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"], # Allow all origins to prevent CORS/405 issues on local network/127.0.0.1
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -29,6 +29,7 @@ app.add_middleware(
 app.include_router(auth.router)
 app.include_router(content.router)
 app.include_router(users.router)
+app.include_router(practice.router)
 
 # Serve Static Files (Frontend)
 # In production single-container mode, frontend built files will be in 'static/'

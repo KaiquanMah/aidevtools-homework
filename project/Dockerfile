@@ -38,6 +38,9 @@ COPY src/backend /app
 # Copy content for seeding
 COPY src/database/content /app/src/database/content
 
+# Copy vocabulary for speaking practice
+COPY src/database/vocabulary /app/src/database/vocabulary
+
 # Copy built frontend from Stage 1 to backend static folder
 # We need to ensure the static directory exists or is created by COPY
 # FastAPI (in main.py) should be configured to serve from "static"

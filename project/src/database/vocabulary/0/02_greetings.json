@@ -1,0 +1,56 @@
+{
+    "lesson_id": 2,
+    "lesson_title": "Greetings & Introductions",
+    "vocabulary": [
+        {
+            "finnish": "hei",
+            "english": "hi",
+            "pronunciation": "HEI"
+        },
+        {
+            "finnish": "moi",
+            "english": "hi (informal)",
+            "pronunciation": "MOI"
+        },
+        {
+            "finnish": "terve",
+            "english": "hello",
+            "pronunciation": "TER-ve"
+        },
+        {
+            "finnish": "kiitos",
+            "english": "thank you",
+            "pronunciation": "KII-tos"
+        },
+        {
+            "finnish": "anteeksi",
+            "english": "excuse me/sorry",
+            "pronunciation": "AN-teek-si"
+        },
+        {
+            "finnish": "huomenta",
+            "english": "good morning",
+            "pronunciation": "HUO-men-ta"
+        },
+        {
+            "finnish": "iltaa",
+            "english": "good evening",
+            "pronunciation": "IL-taa"
+        },
+        {
+            "finnish": "näkemiin",
+            "english": "goodbye",
+            "pronunciation": "NÄ-ke-miin"
+        },
+        {
+            "finnish": "ole hyvä",
+            "english": "you're welcome",
+            "pronunciation": "O-le HÜ-vä"
+        },
+        {
+            "finnish": "kyllä",
+            "english": "yes",
+            "pronunciation": "KÜL-lä"
+        }
+    ]
+}

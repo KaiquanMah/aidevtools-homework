@@ -1,0 +1,56 @@
+{
+    "lesson_id": 5,
+    "lesson_title": "Verb 'olla' (to be)",
+    "vocabulary": [
+        {
+            "finnish": "minä olen",
+            "english": "I am",
+            "pronunciation": "MI-nä O-len"
+        },
+        {
+            "finnish": "sinä olet",
+            "english": "you are",
+            "pronunciation": "SI-nä O-let"
+        },
+        {
+            "finnish": "hän on",
+            "english": "he/she is",
+            "pronunciation": "HÄN ON"
+        },
+        {
+            "finnish": "me olemme",
+            "english": "we are",
+            "pronunciation": "ME O-lem-me"
+        },
+        {
+            "finnish": "te olette",
+            "english": "you (pl) are",
+            "pronunciation": "TE O-let-te"
+        },
+        {
+            "finnish": "he ovat",
+            "english": "they are",
+            "pronunciation": "HE O-vat"
+        },
+        {
+            "finnish": "onnellinen",
+            "english": "happy",
+            "pronunciation": "ON-nel-li-nen"
+        },
+        {
+            "finnish": "surullinen",
+            "english": "sad",
+            "pronunciation": "SU-rul-li-nen"
+        },
+        {
+            "finnish": "väsynyt",
+            "english": "tired",
+            "pronunciation": "VÄ-sü-nüt"
+        },
+        {
+            "finnish": "nälkäinen",
+            "english": "hungry",
+            "pronunciation": "NÄL-käi-nen"
+        }
+    ]
+}

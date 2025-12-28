@@ -1,0 +1,56 @@
+{
+    "lesson_id": 6,
+    "lesson_title": "Questions",
+    "vocabulary": [
+        {
+            "finnish": "mikä",
+            "english": "what",
+            "pronunciation": "MI-kä"
+        },
+        {
+            "finnish": "kuka",
+            "english": "who",
+            "pronunciation": "KU-ka"
+        },
+        {
+            "finnish": "missä",
+            "english": "where",
+            "pronunciation": "MIS-sä"
+        },
+        {
+            "finnish": "milloin",
+            "english": "when",
+            "pronunciation": "MIL-loin"
+        },
+        {
+            "finnish": "miksi",
+            "english": "why",
+            "pronunciation": "MIK-si"
+        },
+        {
+            "finnish": "miten",
+            "english": "how",
+            "pronunciation": "MI-ten"
+        },
+        {
+            "finnish": "paljonko",
+            "english": "how much",
+            "pronunciation": "PAL-jon-ko"
+        },
+        {
+            "finnish": "kumpi",
+            "english": "which (of two)",
+            "pronunciation": "KUM-pi"
+        },
+        {
+            "finnish": "montako",
+            "english": "how many",
+            "pronunciation": "MON-ta-ko"
+        },
+        {
+            "finnish": "millainen",
+            "english": "what kind",
+            "pronunciation": "MIL-lai-nen"
+        }
+    ]
+}
