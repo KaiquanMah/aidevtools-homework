@@ -1,0 +1,131 @@
+time="2025-12-28T16:36:18+08:00" level=warning msg="The \"SECRET_KEY\" variable is not set. Defaulting to a blank string."
+#1 [internal] load local bake definitions
+#1 reading from stdin 556B 0.1s done
+#1 DONE 0.1s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.39kB 0.0s done
+#2 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 2)
+#2 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 20)
+#2 DONE 0.0s
+
+#3 [auth] library/python:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#4 [auth] library/node:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#5 [internal] load metadata for docker.io/library/python:3.11-slim
+#5 ...
+
+#6 [internal] load metadata for docker.io/library/node:18-alpine
+#6 DONE 2.2s
+
+#5 [internal] load metadata for docker.io/library/python:3.11-slim
+#5 DONE 2.4s
+
+#7 [internal] load .dockerignore
+#7 transferring context: 148B done
+#7 DONE 0.0s
+
+#8 [backend 1/8] FROM docker.io/library/python:3.11-slim@sha256:158caf0e080e2cd74ef2879ed3c4e697792ee65251c8208b7afb56683c32ea6c
+#8 resolve docker.io/library/python:3.11-slim@sha256:158caf0e080e2cd74ef2879ed3c4e697792ee65251c8208b7afb56683c32ea6c 0.0s done
+#8 DONE 0.0s
+
+#9 [frontend-builder 1/6] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e
+#9 resolve docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e 0.0s done
+#9 DONE 0.0s
+
+#10 [internal] load build context
+#10 transferring context: 14.01kB 0.0s done
+#10 DONE 0.0s
+
+#11 [backend 2/8] WORKDIR /app
+#11 CACHED
+
+#12 [backend 4/8] COPY src/backend/requirements.txt .
+#12 CACHED
+
+#13 [backend 3/8] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential     && rm -rf /var/lib/apt/lists/*
+#13 CACHED
+
+#14 [backend 5/8] RUN pip install --no-cache-dir -r requirements.txt
+#14 CACHED
+
+#15 [backend 6/8] COPY src/backend /app
+#15 CACHED
+
+#16 [backend 7/8] COPY src/database/content /app/src/database/content
+#16 CACHED
+
+#17 [frontend-builder 2/6] WORKDIR /app/frontend
+#17 CACHED
+
+#18 [frontend-builder 3/6] COPY src/frontend/package.json src/frontend/package-lock.json* ./
+#18 CACHED
+
+#19 [frontend-builder 4/6] RUN npm install
+#19 CACHED
+
+#20 [frontend-builder 5/6] COPY src/frontend ./
+#20 DONE 0.0s
+
+#21 [frontend-builder 6/6] RUN npm run build
+#21 0.565 
+#21 0.565 > finnish-learner-frontend@0.1.0 build
+#21 0.565 > next build
+#21 0.565 
+#21 1.299 Attention: Next.js now collects completely anonymous telemetry regarding usage.
+#21 1.299 This information is used to shape Next.js' roadmap and prioritize features.
+#21 1.299 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+#21 1.299 https://nextjs.org/telemetry
+#21 1.300 
+#21 1.424    ▲ Next.js 14.1.0
+#21 1.424 
+#21 1.531    Creating an optimized production build ...
+#21 2.378 
+#21 2.378 > Build error occurred
+#21 2.381 Error: Page "/learn/[levelId]/page" cannot use both "use client" and export function "generateStaticParams()".
+#21 2.381     at getPageStaticInfo (/app/frontend/node_modules/next/dist/build/analysis/get-page-static-info.js:463:19)
+#21 2.381     at async getStaticInfoIncludingLayouts (/app/frontend/node_modules/next/dist/build/entries.js:104:28)
+#21 2.381     at async /app/frontend/node_modules/next/dist/build/entries.js:402:32
+#21 2.381     at async Promise.all (index 3)
+#21 2.381     at async Promise.all (index 0)
+#21 2.381     at async createEntrypoints (/app/frontend/node_modules/next/dist/build/entries.js:533:5)
+#21 2.381     at async Span.traceAsyncFn (/app/frontend/node_modules/next/dist/trace/trace.js:151:20)
+#21 2.381     at async webpackBuildImpl (/app/frontend/node_modules/next/dist/build/webpack-build/impl.js:102:25)
+#21 2.381     at async Object.workerMain (/app/frontend/node_modules/next/dist/build/webpack-build/impl.js:313:20) {
+#21 2.381   type: 'Error'
+#21 2.381 }
+#21 ERROR: process "/bin/sh -c npm run build" did not complete successfully: exit code: 1
+------
+ > [frontend-builder 6/6] RUN npm run build:
+2.381     at async getStaticInfoIncludingLayouts (/app/frontend/node_modules/next/dist/build/entries.js:104:28)
+2.381     at async /app/frontend/node_modules/next/dist/build/entries.js:402:32
+2.381     at async Promise.all (index 3)
+2.381     at async Promise.all (index 0)
+2.381     at async createEntrypoints (/app/frontend/node_modules/next/dist/build/entries.js:533:5)
+2.381     at async Span.traceAsyncFn (/app/frontend/node_modules/next/dist/trace/trace.js:151:20)
+2.381     at async webpackBuildImpl (/app/frontend/node_modules/next/dist/build/webpack-build/impl.js:102:25)
+2.381     at async Object.workerMain (/app/frontend/node_modules/next/dist/build/webpack-build/impl.js:313:20) {
+2.381   type: 'Error'
+2.381 }
+------
+Dockerfile:16
+
+--------------------
+
+  14 |     
+
+  15 |     # Build static site (output to /app/frontend/out)
+
+  16 | >>> RUN npm run build
+
+  17 |     
+
+  18 |     
+
+--------------------
+
+failed to solve: process "/bin/sh -c npm run build" did not complete successfully: exit code: 1
+

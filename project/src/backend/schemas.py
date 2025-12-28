@@ -4,16 +4,16 @@ from datetime import datetime
 
 # Auth Schemas
 class UserCreate(BaseModel):
-    username: String
-    password: String
+    username: str
+    password: str
 
 class UserLogin(BaseModel):
-    username: String
-    password: String
+    username: str
+    password: str
 
 class Token(BaseModel):
-    access_token: String
-    token_type: String
+    access_token: str
+    token_type: str
 
 class TokenData(BaseModel):
     username: Optional[str] = None
@@ -23,6 +23,8 @@ class ExerciseBase(BaseModel):
     id: int
     question: str
     options: List[str] # Will need to parse JSON string from DB
+    correct_answer: str
+    explanation: Optional[str] = None
     
     class Config:
         from_attributes = True

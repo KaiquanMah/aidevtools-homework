@@ -26,11 +26,12 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
         data={"sub": new_user.username}, expires_delta=access_token_expires
     )
     return {"access_token": access_token, "token_type": "bearer"}
+from fastapi.security import OAuth2PasswordRequestForm
 
 @router.post("/login", response_model=Token)
-def login(user: UserLogin, db: Session = Depends(get_db)):
-    db_user = db.query(User).filter(User.username == user.username).first()
-    if not db_user or not verify_password(user.password, db_user.hashed_password):
+def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
+    db_user = db.query(User).filter(User.username == form_data.username).first()
+    if not db_user or not verify_password(form_data.password, db_user.hashed_password):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Incorrect username or password",

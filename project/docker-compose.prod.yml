@@ -1,0 +1,20 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - SECRET_KEY=${SECRET_KEY}
+      # Database URL for SQLite in the container
+      - DATABASE_URL=sqlite:///./finnish_app.db
+    volumes:
+      # Persist the sqlite database
+      - app_data:/app/data
+      # Mount content for easier updates if needed, though COPY is used in Dockerfile
+      # - ./src/database/content:/app/src/database/content
+
+volumes:
+  app_data:

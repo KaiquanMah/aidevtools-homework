@@ -1,0 +1,120 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.39kB 0.0s done
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 2)
+#1 WARN: FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 20)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.11-slim
+#2 DONE 0.4s
+
+#3 [internal] load metadata for docker.io/library/node:18-alpine
+#3 DONE 0.4s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#6 [backend 1/8] FROM docker.io/library/python:3.11-slim@sha256:158caf0e080e2cd74ef2879ed3c4e697792ee65251c8208b7afb56683c32ea6c
+#6 resolve docker.io/library/python:3.11-slim@sha256:158caf0e080e2cd74ef2879ed3c4e697792ee65251c8208b7afb56683c32ea6c 0.1s done
+#6 DONE 0.1s
+
+#7 [frontend-builder 1/6] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e
+#7 resolve docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e 0.1s done
+#7 DONE 0.1s
+
+#5 [internal] load build context
+#5 transferring context: 2.54kB 0.0s done
+#5 DONE 0.0s
+
+#8 [frontend-builder 2/6] WORKDIR /app/frontend
+#8 CACHED
+
+#9 [frontend-builder 4/6] RUN npm install
+#9 CACHED
+
+#10 [frontend-builder 3/6] COPY src/frontend/package.json src/frontend/package-lock.json* ./
+#10 CACHED
+
+#11 [backend 6/8] COPY src/backend /app
+#11 CACHED
+
+#12 [backend 5/8] RUN pip install --no-cache-dir -r requirements.txt
+#12 CACHED
+
+#13 [backend 4/8] COPY src/backend/requirements.txt .
+#13 CACHED
+
+#14 [backend 2/8] WORKDIR /app
+#14 CACHED
+
+#15 [backend 3/8] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential     && rm -rf /var/lib/apt/lists/*
+#15 CACHED
+
+#16 [frontend-builder 5/6] COPY src/frontend ./
+#16 CACHED
+
+#17 [backend 7/8] COPY src/database/content /app/src/database/content
+#17 CACHED
+
+#18 [frontend-builder 6/6] RUN npm run build
+#18 0.625 
+#18 0.625 > finnish-learner-frontend@0.1.0 build
+#18 0.625 > next build
+#18 0.625 
+#18 1.364 Attention: Next.js now collects completely anonymous telemetry regarding usage.
+#18 1.365 This information is used to shape Next.js' roadmap and prioritize features.
+#18 1.365 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+#18 1.365 https://nextjs.org/telemetry
+#18 1.365 
+#18 1.495    ▲ Next.js 14.1.0
+#18 1.495 
+#18 1.601    Creating an optimized production build ...
+#18 16.52  ✓ Compiled successfully
+#18 16.52    Skipping validation of types
+#18 16.53    Skipping linting
+#18 16.91    Collecting page data ...
+#18 17.68 
+#18 17.68 > Build error occurred
+#18 17.68 Error: Page "/learn/[levelId]/[lessonId]" is missing "generateStaticParams()" so it cannot be used with "output: export" config.
+#18 17.68     at /app/frontend/node_modules/next/dist/build/index.js:1102:59
+#18 17.68     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+#18 17.68     at async Span.traceAsyncFn (/app/frontend/node_modules/next/dist/trace/trace.js:151:20)
+#18 17.68     at async Promise.all (index 5)
+#18 17.68     at async /app/frontend/node_modules/next/dist/build/index.js:981:17
+#18 17.68     at async Span.traceAsyncFn (/app/frontend/node_modules/next/dist/trace/trace.js:151:20)
+#18 17.68     at async /app/frontend/node_modules/next/dist/build/index.js:918:124
+#18 17.68     at async Span.traceAsyncFn (/app/frontend/node_modules/next/dist/trace/trace.js:151:20)
+#18 17.68     at async build (/app/frontend/node_modules/next/dist/build/index.js:374:9)
+#18 17.68     at async main (/app/frontend/node_modules/next/dist/bin/next:155:5)
+#18 ERROR: process "/bin/sh -c npm run build" did not complete successfully: exit code: 1
+------
+ > [frontend-builder 6/6] RUN npm run build:
+17.68     at /app/frontend/node_modules/next/dist/build/index.js:1102:59
+17.68     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+17.68     at async Span.traceAsyncFn (/app/frontend/node_modules/next/dist/trace/trace.js:151:20)
+17.68     at async Promise.all (index 5)
+17.68     at async /app/frontend/node_modules/next/dist/build/index.js:981:17
+17.68     at async Span.traceAsyncFn (/app/frontend/node_modules/next/dist/trace/trace.js:151:20)
+17.68     at async /app/frontend/node_modules/next/dist/build/index.js:918:124
+17.68     at async Span.traceAsyncFn (/app/frontend/node_modules/next/dist/trace/trace.js:151:20)
+17.68     at async build (/app/frontend/node_modules/next/dist/build/index.js:374:9)
+17.68     at async main (/app/frontend/node_modules/next/dist/bin/next:155:5)
+------
+
+ [33m2 warnings found (use docker --debug to expand):
+[0m - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 2)
+ - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 20)
+Dockerfile:16
+--------------------
+  14 |     
+  15 |     # Build static site (output to /app/frontend/out)
+  16 | >>> RUN npm run build
+  17 |     
+  18 |     
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c npm run build" did not complete successfully: exit code: 1

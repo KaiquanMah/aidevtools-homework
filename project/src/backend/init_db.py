@@ -99,7 +99,8 @@ def seed_data():
                     lesson_id=lesson.id,
                     question=ex_data['question'],
                     options=json.dumps(ex_data['options']),
-                    correct_answer=ex_data['correct_answer']
+                    correct_answer=ex_data['correct_answer'],
+                    explanation=ex_data.get('explanation')  # Optional field
                 )
                 db.add(exercise)
         

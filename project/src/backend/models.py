@@ -44,6 +44,7 @@ class Exercise(Base):
     question = Column(String)
     options = Column(Text) # JSON string of options lists
     correct_answer = Column(String)
+    explanation = Column(Text, nullable=True)  # Optional explanation
 
     lesson = relationship("Lesson", back_populates="exercises")
 
