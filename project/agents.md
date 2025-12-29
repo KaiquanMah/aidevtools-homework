@@ -17,6 +17,7 @@
 - LLMs if needed
   - For speech to text and text to speech: gemini-2.5-flash-native-audio-dialog (live API)
   - For normal text to text: gemma-3-27b
+  - GOOGLE_API_KEY is in .env file - please do not share it with anyone else or commit it to GitHub
 
 ---
 

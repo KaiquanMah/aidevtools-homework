@@ -124,12 +124,12 @@ This is what you need to do for each project:
 - Integration tests exist but are limited or not clearly separated from unit tests. (1 point)
 - Integration tests are clearly separated, cover key workflows (including database interactions), and are documented. (2 points)
 
-10. Deployment - skip for now
+10. Deployment
 - Application is not deployed. (0 points)
 - Deployment steps are described, but no working deployment is shown. (1 point)
 - Application is deployed to the cloud with a working URL or clear proof of deployment. (2 points)
 
-11. CI/CD pipeline - skip for now, not sure how to implement
+11. CI/CD pipeline
 - No CI/CD pipeline. (0 points)
 - CI pipeline runs tests automatically. (1 point)
 - CI/CD pipeline runs tests and deploys the application when tests pass. (2 points)
