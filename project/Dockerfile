@@ -51,4 +51,9 @@ EXPOSE 8000
 
 # Command to run the application
 # We need to run init_db first, then start the server
-CMD ["sh", "-c", "python init_db.py && uvicorn main:app --host 0.0.0.0 --port 8000"]
+# CMD ["sh", "-c", "python init_db.py && uvicorn main:app --host 0.0.0.0 --port 8000"]
+# to be more robust
+# "Look for an environment variable named PORT.
+#   If it exists, use it.
+#  If it's missing or empty (which is true for your local dev environment), use 8000 as the fallback default ':-'
+CMD ["sh", "-c", "python init_db.py && uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}"]
