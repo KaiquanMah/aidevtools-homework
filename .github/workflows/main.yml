@@ -29,6 +29,7 @@ jobs:
       - name: Run Tests
         run: |
           cd project/src/backend
+          export PYTHONPATH=$PYTHONPATH:.
           pytest tests/
 
   test-frontend:
@@ -40,13 +41,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
-          cache-dependency-path: project/src/frontend/package-lock.json
           
       - name: Install dependencies
         run: |
           cd project/src/frontend
-          npm ci
+          npm install
           
       - name: Lint
         run: |
