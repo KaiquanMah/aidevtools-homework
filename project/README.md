@@ -22,12 +22,13 @@
 - **Styling**: Tailwind CSS
 - **Package Manager**: npm
 - **Docker**: yes
+- **Final Deployment**: Render (serving our full frontend AND backend as a Single-Container Microservice)
 - **Microphone Integration**: Client-side Web Speech API for transcription.
 - **LLMs if needed**
   - For speech to text: Google SpeechRecognition API
     - During the implementation, we discovered that the "gemini-2.5-flash-native-audio-dialog live API" is not compatible with the browser's webm audio format. To fix this by converting PCM (Pulse Code Modulation) format to webm format, it might complicate our build, which is not the intention of this prototype. This prototype is intended to be a simple implementation of the required functionalities and technical components.
   - For normal text to text: gemma-3-27b
-  - GOOGLE_API_KEY is in .env file - please do not share it with anyone else or commit it to GitHub
+  - GOOGLE_API_KEY is in .env file - Please do not share it with anyone else or commit it to GitHub. It is required for speech practices and grading.
 
 ### Architecture Diagram
 ```mermaid
@@ -669,16 +670,38 @@ The project now includes a comprehensive E2E testing suite using **Playwright**,
 #### How to Run E2E Tests:
 Ensure the main application is running (`docker compose up -d`), then execute:
 ```bash
-# Run all E2E tests across the Docker network
 docker compose -f docker-compose.yml -f docker-compose.e2e.yml up --build --exit-code-from e2e-runner
 ```
+
+### 5. Running All Tests (Tiered Strategy)
+To verify the entire system, run the tests in this order:
+1. **Frontend Unit**: `cd src/frontend && npm run test`
+2. **Backend Integration**: `docker compose run --rm backend env MSYS_NO_PATHCONV=1 PYTHONPATH=. VOCAB_DIR=//data/vocabulary pytest`
+3. **Full Stack E2E**: `docker compose -f docker-compose.yml -f docker-compose.e2e.yml up --build --exit-code-from e2e-runner`
 
 
 ---
 
 ## Deployment
-TODO ADD DOCUMENTATION: Application is deployed to the cloud with a working URL or clear proof of deployment. (2 points)
-WITH STEPS
+
+The application is designed to be deployed as a single Docker container.
+
+### Step-by-Step Render Deployment:
+1. **New Web Service**: Connect your GitHub repository to Render.
+2. **Docker Environment**: Select **Docker** as the runtime.
+3. **Root Directory**: Set to `project/`.
+4. **Environment Variables**:
+   - `GOOGLE_API_KEY`: Your key for speech grading.
+   - `PORT`: (Optional) Render sets this automatically.
+5. **Auto-Initialization**: The container automatically runs `init_db.py` on startup to seed the curriculum.
+6. **Unified Entry Point**: Both the API and Frontend are served on the same port (default 8000).
+
+### Proof of deployment
+TO ADD Screenshots
+
+### Working URL
+https://aidevtools-homework.onrender.com
+
 
 ---
 
@@ -694,7 +717,18 @@ The project features a CI/CD pipeline implemented via **GitHub Actions** (`.gith
 ---
 
 ## Reproducibility
-TODO ADD DOCUMENTATION: Clear instructions exist to set up, run, test, and deploy the system end-to-end. (2 points)
+### Local Quick Start
+1. **Setup**: Clone the repo and add `GOOGLE_API_KEY` to `project/.env`.
+2. **Launch**:
+   - **Development Mode**: `cd project && docker compose up -d`
+     - *Explore at `http://localhost:3000` (with hot-reload)*
+   - **Production Preview**: `cd project && docker compose -f docker-compose.prod.yml up -d`
+     - *Explore at `http://localhost:8000` (unified single-container)*
+
+> [!TIP]
+> Use the `--build` flag (e.g., `docker compose up --build -d`) if you have modified the code or Dockerfiles and want to force a fresh build.
+3. **Finish**:
+   - The database is automatically initialized and seeded with the curriculum data on its first startup iteration.
 
 
 ---
