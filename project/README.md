@@ -103,8 +103,27 @@ project/
 ---
 
 ## Frontend
-TODO ADD DOCUMENTATION: Front-end is functional, well-structured, and includes tests covering core logic, with clear instructions on how to run them. (3 points)
 
+- covering core logic, with clear instructions on how to run them. (3 points)
+
+- **Overview**: Next.js 14 (App Router) based application.
+- **Key Features**:
+  - Quizzes and interactive vocabulary speech practices to learn Finnish
+  - Speech practice with real-time feedback using the SpeechRecognition API and backend grading
+- **Tech Stack Details**: React, TypeScript, Tailwind CSS, Axios
+- **Directory Structure**:
+  - `src/frontend/app`: Next.js pages and layouts (using App Router).
+  - `src/frontend/components`: Reusable UI components (e.g., `SpeechPractice`).
+  - `src/frontend/__tests__`: Frontend unit tests.
+- **Core Component - `SpeechPractice.tsx`**:
+  - Manages the speech recording lifecycle.
+  - Interfaces with the backend `/practice/grade-speech` endpoint.
+  - Displays score-based feedback with visual cues.
+- **Development & Testing**:
+  - Run development server: `npm run dev`
+  - Run tests: `npm run test`
+  - Build for production: `npm run build`
+  
 
 ---
 
