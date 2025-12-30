@@ -58,7 +58,7 @@ describe('DashboardPage', () => {
         render(<DashboardPage />)
 
         expect(await screen.findByText('TestUser')).toBeInTheDocument()
-        expect(await screen.findByText('Level 1')).toBeInTheDocument()
+        expect(await screen.findByRole('heading', { name: 'Level 1' })).toBeInTheDocument()
         expect(screen.getByText('Basics')).toBeInTheDocument()
     })
 
