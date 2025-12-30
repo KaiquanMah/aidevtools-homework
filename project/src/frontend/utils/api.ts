@@ -1,19 +1,24 @@
 import axios from 'axios';
 
 const getBaseURL = () => {
-    if (typeof window !== 'undefined') {
-        const hostname = window.location.hostname;
-        console.log('API Client: detected hostname:', hostname);
-        // In local Docker network, hostname might be 'frontend', 'finnish-frontend', or even an IP
-        if (hostname.includes('frontend') || hostname === 'e2e-runner') {
-            const dockerURL = 'http://finnish-backend:8000';
-            console.log('API Client: using Docker internal URL:', dockerURL);
-            return dockerURL;
-        }
+    // If NEXT_PUBLIC_API_URL is set (e.g. in local dev), use it.
+    // Otherwise, default to empty string for same-origin relative requests.
+    // This fixed the "Local Network" permission popup on mobile/modern browsers
+    // by avoiding internal Docker hostnames like 'finnish-backend'.
+    const envURL = process.env.NEXT_PUBLIC_API_URL;
+
+    if (envURL) {
+        console.log('API Client: using configured API URL:', envURL);
+        return envURL;
     }
-    const envURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
-    console.log('API Client: falling back to URL:', envURL);
-    return envURL;
+
+    // In production (Render), frontend and backend are on the same host.
+    // In local dev without the env var, fallback to localhost:8000
+    if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
+        return 'http://localhost:8000';
+    }
+
+    return ''; // Relative to same origin
 };
 
 const api = axios.create({
