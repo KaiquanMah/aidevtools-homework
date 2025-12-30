@@ -97,7 +97,7 @@ describe('LessonClient', () => {
         expect(screen.getByText('🎉 Passed!')).toBeInTheDocument()
 
         // Verify Progress Saved
-        expect(api.post).toHaveBeenCalledWith('/users/progress/1', { is_completed: true })
+        expect(api.post).toHaveBeenCalledWith('/users/progress/1', { completed: true, score: 100 })
     })
 
     it('does not save progress if score is low', async () => {
