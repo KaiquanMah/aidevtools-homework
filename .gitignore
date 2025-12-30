@@ -1,66 +1,48 @@
-# Python
+```
+# Dependencies
+node_modules/
+
+# Test coverage and build artifacts
+coverage/
+.nyc_output/
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
+*.pyc
+*.pyo
+*.pyd
+*.log
 
-# Django
-# *.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+# Environment
+.env
+.env.local
+.env.*
+!.env.example
 
-# Virtual Environment
-venv/
-env/
-ENV/
-.venv/
-.env/
-
-# IDE
+# Editors
 .vscode/
 .idea/
 *.swp
 *.swo
+*.tmp
 
-# OS
+# OS generated files
 .DS_Store
 Thumbs.db
 
-# Node.js
-node_modules/
-.next/
-out/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Environment Variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# Build outputs
+dist/
+build/
+target/
+*.min.js
+*.min.css
+bundle.js
 
 # Testing
-htmlcov/
-.coverage
-.coverage.*
-.pytest_cache/
-reports/
+.jest/
+jest-coverage/
+coverage/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+__tests__/
+```
