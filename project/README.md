@@ -155,8 +155,8 @@ The frontend repository includes a robust suite of Unit and Integration tests us
 Overall there are 5 frontend test files
 - `LoginPage.test.tsx`: Covers auth flows and edge cases.
 - `RegisterPage.test.tsx`: Verifies registration UI rendering.
-- `DashboardPage.test.tsx`: Verifies session management.
-- `LessonClient.test.tsx`: Tests complex quiz and progress logic.
+- `DashboardPage.test.tsx`: Verifies session management and token-based protection.
+- `LessonClient.test.tsx`: Tests complex quiz logic and schema-aligned progress persistence.
 - `SpeechPractice.test.tsx`: Validates speech interaction and fallbacks.
 
 In Detail
@@ -166,8 +166,9 @@ In Detail
     - **Error Handling**: Tests response to invalid credentials (401) and ensures appropriate user-facing error messages.
     - **Form Validation**: Verifies that fields are required and validated before submission.
 2.  **Dashboard (`DashboardPage.test.tsx`)**:
-    - **Protected Routes**: Ensures that users without a JWT are automatically redirected to the login page.
-    - **Robust Element Selection**: Uses specific ARIA roles (e.g., `findByRole('heading', { name: 'Level 1' })`) to distinguish between similar text elements (headings vs. badges).
+    - **Token-Based Protection**: Ensures that users without a valid JWT are immediately redirected to `/login`, even if background data endpoints are public.
+    - **Environment Compatibility**: Tests handle async state updates and polyfill browser APIs (like `atob`/`btoa`) for the Node environment.
+    - **Robust Element Selection**: Uses specific ARIA roles (e.g., `findByRole('heading', { name: /Level 1/i })`) to distinguish between title headings and level badges.
     - **Session Lifecycle**: Tests the "Sign Out" flow, verifying that local storage is cleared and the user is redirected.
 3.  **Lesson Logic (`LessonClient.test.tsx`)**:
     - **Comprehensive Quiz Flow**: Validates question navigation, correct/incorrect answer feedback, and the final scoring screen.
@@ -636,8 +637,9 @@ Testing in this project is categorized into component-level unit tests and syste
 ### 1. Backend Integration Tests
 We have implemented a suite of **22 integration tests** using `pytest`. These tests validate the entire lifecycle of an API request, including:
 - **Authentication**: Registration, JWT issuance, and protected route access.
-- **Content Flow**: Database querying for levels/lessons and fallback logic for AI services.
-- **Data Persistence**: Ensuring user progress is correctly saved and retrieved from the SQLite store.
+- **Optional Auth & Context**: Verifies that content endpoints (`/levels`, `/lessons`) remain public while still providing user-specific progress context when a token is present.
+- **Content Flow**: Database querying for curriculum data and fallback logic for AI services.
+- **Data Persistence**: Ensuring user progress is correctly saved and retrieved from the SQLite store using the updated progress schema.
 
 ### 2. Testing Infrastructure
 - **`pytest`**: The core testing framework used for discovery and execution.
@@ -650,8 +652,27 @@ Tests should be executed within the backend container to ensure the correct envi
 docker compose run --rm backend env MSYS_NO_PATHCONV=1 PYTHONPATH=. VOCABULARY_DIR=//data/vocabulary pytest -v tests/
 ```
 
-### 4. Future Roadmap: End-to-End (E2E) Testing
-While the current suite provides high coverage for the backend and frontend components in isolation, full-stack **End-to-End (E2E) tests** (using tools like Playwright or Cypress) are planned for the next iteration. These will bridge the gap by simulating real user interactions across the entire Dockerized stack.
+### 4. End-to-End (E2E) Testing
+The project now includes a comprehensive E2E testing suite using **Playwright**, providing full-stack verification of the user journey within the Dockerized environment.
+
+#### What is Tested:
+1.  **Authentication Flow**: Verifies registration, login, session persistence, and automatic redirection of unauthenticated users from protected routes (e.g., `/dashboard`).
+2.  **Learning Journey**: Simulates a student selecting a level, starting a lesson, answering quiz questions (both correctly and incorrectly), and passing the lesson.
+3.  **Speech Practice**: Verifies the integration of the Web Speech API and backend grading. It mocks the browser's speech recognition to test grading feedback and score visualization.
+4.  **Database Sync Integrity**: Confirms that lesson completion status correctly persists in the database and is accurately reflected on the dashboard after a page reload.
+
+#### How it is Tested:
+- **Containerization**: Tests run inside a specialized `e2e-runner` container (`Dockerfile.e2e`) to ensure environment consistency (Headless Chromium, Node.js, Playwright).
+- **Service Orchestration**: Uses `docker-compose.e2e.yml` to link the runner with the running `frontend` and `backend` services.
+- **Mocking**: The Web Speech API is mocked at the browser level to allow for deterministic testing of speech and pronunciation logic without requiring actual audio hardware.
+
+#### How to Run E2E Tests:
+Ensure the main application is running (`docker compose up -d`), then execute:
+```bash
+# Run all E2E tests across the Docker network
+docker compose -f docker-compose.yml -f docker-compose.e2e.yml up --build --exit-code-from e2e-runner
+```
+
 
 ---
 
@@ -662,7 +683,13 @@ WITH STEPS
 ---
 
 ## CI/CD pipeline
-TODO ADD DOCUMENTATION: CI/CD pipeline runs tests and deploys the application when tests pass. (2 points)
+The project features a CI/CD pipeline implemented via **GitHub Actions** (`.github/workflows/main.yml`). 
+
+- **Automated Verification**: On every push to `main`, the pipeline executes:
+  1.  **Backend Unit Tests** (Pytest)
+  2.  **Frontend Unit Tests** (Jest)
+  3.  **Full-Stack E2E Tests** (Playwright via Docker Compose)
+- **Safe Deployment**: Only when all tests pass does the pipeline trigger a deployment hook to the production environment (e.g., Render).
 
 ---
 
