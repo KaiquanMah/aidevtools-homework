@@ -21,13 +21,16 @@ export default function DashboardPage() {
     useEffect(() => {
         // Get username from JWT token
         const token = localStorage.getItem('token');
-        if (token) {
-            try {
-                const payload = JSON.parse(atob(token.split('.')[1]));
-                setUsername(payload.sub || 'User');
-            } catch {
-                setUsername('User');
-            }
+        if (!token) {
+            router.push('/login');
+            return;
+        }
+
+        try {
+            const payload = JSON.parse(atob(token.split('.')[1]));
+            setUsername(payload.sub || 'User');
+        } catch {
+            setUsername('User');
         }
 
         const fetchLevels = async () => {
