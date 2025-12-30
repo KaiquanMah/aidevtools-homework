@@ -522,14 +522,62 @@ components:
 ---
 
 ## Backend
-TODO ADD DOCUMENTATION: Back-end is well-structured, follows the OpenAPI specifications, and includes tests covering core functionality, clearly documented. (3 points)
+The backend is a high-performance Python application built with the **FastAPI** framework. It handles the core business logic, user authentication, content retrieval, and Gemma-backed speech grading.
+
+### 1. Core Architecture
+- **FastAPI**: Provides a modern, asynchronous web framework with automatic OpenAPI/Swagger documentation.
+- **Pydantic**: Used for strict data validation and serialization via shared schemas (`schemas.py`).
+- **SQLAlchemy ORM**: Handles abstract database interactions with the SQLite engine.
+- **Dependency Injection**: Extensively used for managing database sessions and user authentication (`Depends(get_db)`, `Depends(get_current_user)`).
+
+### 2. API Services & Routers
+The application is logically organized into dedicated routers:
+- **Authentication (`/auth`)**: Manages user registration and JWT-based login flows with password hashing (`passlib`).
+- **Content (`/levels`, `/lessons`)**: Dynamically serves the Finnish curriculum and interactive exercises.
+- **User Progress (`/users`)**: Persists learning milestones and quiz scores, restricted to authenticated users.
+- **Speech Practice (`/practice`)**: The primary interface for pronunciation grading.
+
+### 3. AI Services (Gemma 3)
+The backend uses the **Gemma 3 - 27b** model for its language features:
+- **Speech Grading**: Evaluates transcribed text from the Web Speech API, providing a score (0-100) and specific feedback on pronunciation issues.
+- **Lesson Explanations**: Generates encouraging, LLM-powered context for Finnish lessons on-demand.
+- **Fallback Logic**: Implements robust error handling that falls back to deterministic text matching if the LLM service is unavailable.
+
+### 4. Code Structure
+- `src/backend/main.py`: Application entry point and router mounting.
+- `src/backend/routers/`: Individual route handlers for specific features.
+- `src/backend/services/`: Reusable business logic (e.g., LLM orchestration).
+- `src/backend/models.py` & `schemas.py`: Data layer definitions.
+- `src/backend/auth.py`: Security and JWT logic.
+
+> [!NOTE]
+> The backend is governed by a strict OpenAPI contract, which can be reviewed in the section above. For details on how the backend is verified, see the [Backend Integration Testing](#integration-testing) section.
+
 
 
 ---
 
 ## Database
+The data layer is managed using **SQLAlchemy**, providing an Object-Relational Mapping (ORM) that facilitates interactions between FastAPI and the underlying **SQLite** database.
 
-TODO ADD DOCUMENTATION: Database layer is properly integrated, supports different environments (e.g. SQLite and Postgres), and is documented. (2 points)
+### 1. Data Models
+The application uses the following core entities:
+- **`User`**: Handles authentication credentials and account metadata.
+- **`Level`**: Defines the curriculum hierarchy (0, A1, A2).
+- **`Lesson`**: Contains educational content and is linked to a specific level.
+- **`Exercise`**: Interactive quiz questions (Multiple Choice) associated with lessons.
+- **`UserProgress`**: A junction table tracking lesson completion and scores for each user.
+
+### 2. Relationship Mapping
+- **Levels <-> Lessons**: One-to-Many relationship (each level contains multiple lessons).
+- **Lessons <-> Exercises**: One-to-Many relationship (each lesson has nested quiz items).
+- **Users <-> Progress <-> Lessons**: Many-to-Many relationship enabled via `UserProgress`, allowing the UI to track individual learning paths.
+
+### 3. Database Initialization & Seeding
+The system includes an automated seeding utility to populate the curriculum from JSON definitions found in `src/database/content/`.
+- **Script**: `src/backend/init_db.py`
+- **Execution**: `docker compose run --rm backend python init_db.py`
+- **Behavior**: The script creates all necessary tables and avoids duplicate seeding by checking for existing data records.
 
 > [!NOTE]
 > * **Database Persistence**: The SQLite database (`finnish_app.db`) is stored in the `/data` directory inside the backend container. In `docker-compose.yml`, this is mapped to `./src/database` on your local machine.
@@ -548,14 +596,62 @@ TODO ADD DOCUMENTATION: Database layer is properly integrated, supports differen
 ---
 
 ## Containerization
-TODO ADD DOCUMENTATION: The entire system runs via Docker or docker-compose with clear instructions. (2 points)
+The system is fully containerized using **Docker**, ensuring consistency between development and production environments.
+
+### 1. Multi-Stage Builds
+The project utilizes optimized multi-stage `Dockerfiles` for both tiers:
+- **`Dockerfile.backend`**: Installs Python dependencies, sets up the volume for the SQLite database, and exposes the FastAPI server on port `8000`.
+- **`Dockerfile.frontend`**: Performs a Next.js production build and serves the application via a Node.js runtime on port `3000`.
+- **Dockerfile**: Multi-stage install for the frontend AND backend.
+
+### 2. Docker Compose Workflows
+- **Development (`docker-compose.yml`)**: 
+    - Spawns two separate containers: `finnish-frontend` and `finnish-backend`.
+    - Supports hot-reloading for the frontend and mounts the local `database` folder for easy data inspection.
+- **Production (`docker-compose.prod.yml`)**: 
+    - Designed for cloud deployments (e.g., Render, Fly.io).
+    - Can be configured to serve the built frontend via the backend container's static file handler for maximum server efficiency.
+
+### 3. Execution Commands
+
+#### Development Mode (Frontend + Backend)
+Ideal for active development with hot-reloading:
+- **Start**: `docker compose up -d`
+- **Stop**: `docker compose down`
+- **Rebuild**: `docker compose build`
+
+#### Production Mode (Single Container)
+Ideal for testing final builds or hosting:
+- **Start**: `docker compose -f docker-compose.prod.yml up -d`
+- **Stop**: `docker compose -f docker-compose.prod.yml down`
+- **Rebuild**: `docker compose -f docker-compose.prod.yml build`
 
 
 
 ---
 
 ## Integration testing
-TODO ADD DOCUMENTATION: Integration tests are clearly separated, cover key workflows (including database interactions), and are documented. (2 points)
+Testing in this project is categorized into component-level unit tests and system-level integration tests. The primary focus is on ensuring that the backend logic and database interactions work seamlessly together.
+
+### 1. Backend Integration Tests
+We have implemented a suite of **22 integration tests** using `pytest`. These tests validate the entire lifecycle of an API request, including:
+- **Authentication**: Registration, JWT issuance, and protected route access.
+- **Content Flow**: Database querying for levels/lessons and fallback logic for AI services.
+- **Data Persistence**: Ensuring user progress is correctly saved and retrieved from the SQLite store.
+
+### 2. Testing Infrastructure
+- **`pytest`**: The core testing framework used for discovery and execution.
+- **Centralized Setup (`conftest.py`)**: Manages the test database lifecycle. It ensures that tables are created/dropped for the session and provides isolated transactions for every single test case.
+- **Mocking**: External services like the Google Gemini API are mocked during tests to ensure reliability and avoid API quota issues.
+
+### 3. How to Run Backend Tests
+Tests should be executed within the backend container to ensure the correct environment:
+```bash
+docker compose run --rm backend env MSYS_NO_PATHCONV=1 PYTHONPATH=. VOCABULARY_DIR=//data/vocabulary pytest -v tests/
+```
+
+### 4. Future Roadmap: End-to-End (E2E) Testing
+While the current suite provides high coverage for the backend and frontend components in isolation, full-stack **End-to-End (E2E) tests** (using tools like Playwright or Cypress) are planned for the next iteration. These will bridge the gap by simulating real user interactions across the entire Dockerized stack.
 
 ---
 
