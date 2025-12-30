@@ -13,12 +13,22 @@ const mockStart = jest.fn()
 const mockStop = jest.fn()
 
 class MockSpeechRecognition {
-    start = mockStart
-    stop = mockStop
-    onstart = jest.fn()
-    onend = jest.fn()
-    onresult = jest.fn()
-    onerror = jest.fn()
+    onstart: (() => void) | null = null
+    onend: (() => void) | null = null
+
+    start = jest.fn(() => {
+        mockStart()
+        if (this.onstart) this.onstart()
+    })
+
+    stop = jest.fn(() => {
+        mockStop()
+        if (this.onend) this.onend()
+    })
+
+    abort = jest.fn()
+    onresult = null
+    onerror = null
 }
 
 // Attach to window
@@ -76,9 +86,10 @@ describe('SpeechPractice', () => {
         // Remove mock temporarily
         const originalSpeech = window.SpeechRecognition
         // @ts-ignore
-        Object.defineProperty(window, 'SpeechRecognition', { value: undefined, writable: true })
         // @ts-ignore
-        Object.defineProperty(window, 'webkitSpeechRecognition', { value: undefined, writable: true })
+        window.SpeechRecognition = undefined
+        // @ts-ignore
+        window.webkitSpeechRecognition = undefined
 
         render(<SpeechPractice vocabulary={mockVocabulary} lessonTitle="Animals" />)
 
