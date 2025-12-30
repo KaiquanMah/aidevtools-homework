@@ -614,7 +614,7 @@ The project utilizes optimized multi-stage `Dockerfiles` for both tiers:
 
 ### 3. Execution Commands
 
-#### Development Mode (Frontend + Backend)
+#### Development Mode (Frontend + Backend at the same time)
 Ideal for active development with hot-reloading:
 - **Start**: `docker compose up -d`
 - **Stop**: `docker compose down`
