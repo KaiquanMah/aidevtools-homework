@@ -1,0 +1,3 @@
+DEBUG: Validation error on POST http://finnish-backend:8000/users/progress/3
+DEBUG: Error details: [{'type': 'missing', 'loc': ('body', 'score'), 'msg': 'Field required', 'input': {'is_completed': True}, 'url': 'https://errors.pydantic.dev/2.5/v/missing'}]
+DEBUG: Request body attempted: {'is_completed': True}

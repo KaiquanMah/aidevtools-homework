@@ -115,7 +115,10 @@ export default function LessonClient({ params }: { params: { levelId: string; le
 
         if (passed && lesson) {
             try {
-                await api.post(`/users/progress/${lesson.id}`, { is_completed: true });
+                await api.post(`/users/progress/${lesson.id}`, {
+                    completed: true,
+                    score: Math.round(scorePercent)
+                });
             } catch (e) {
                 console.error("Failed to save progress", e);
             }

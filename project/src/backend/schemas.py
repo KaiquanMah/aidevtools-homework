@@ -37,6 +37,7 @@ class LessonBase(BaseModel):
     id: int
     title: str
     order: int
+    is_completed: bool = False
     
     class Config:
         from_attributes = True

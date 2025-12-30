@@ -1,0 +1,16 @@
+FROM mcr.microsoft.com/playwright:v1.50.1-jammy
+
+WORKDIR /app
+
+# Copy package files
+COPY src/frontend/package.json src/frontend/package-lock.json* ./
+
+# Install dependencies
+RUN npm install
+
+# Copy configuration and tests
+COPY src/frontend/playwright.config.mjs .
+COPY src/frontend/e2e ./e2e
+
+# Command to run tests
+CMD ["npx", "playwright", "test", "-c", "playwright.config.mjs"]

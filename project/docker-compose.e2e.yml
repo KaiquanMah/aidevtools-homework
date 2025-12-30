@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  e2e-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile.e2e
+    environment:
+      - BASE_URL=http://frontend:3000
+    volumes:
+      - ./src/frontend/e2e:/app/e2e
+      - ./src/frontend/playwright.config.mjs:/app/playwright.config.mjs
+      - ./src/frontend/test-results:/app/test-results
+    depends_on:
+      - frontend
+      - backend
+
+networks:
+  default:
+    external:
+      name: project_default

@@ -26,7 +26,8 @@ def seed_data():
     # 1. /app/content (Docker - we will mount or copy here)
     # 2. src/database/content (Local dev)
     base_paths = [
-        "/app/src/database/content", # Dockerfile copies src/backend -> /app, we need to adjust copy or path
+        "/app/src/database/content", 
+        "/data/content",
         os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "database", "content")
     ]
     
