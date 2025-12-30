@@ -21,36 +21,37 @@
 - **Database**: SQLite
 - **Styling**: Tailwind CSS
 - **Package Manager**: npm
-- Docker: yes
+- **Docker**: yes
+- **Microphone Integration**: Client-side Web Speech API for transcription.
 - **LLMs if needed**
   - For speech to text: Google SpeechRecognition API
     - During the implementation, we discovered that the "gemini-2.5-flash-native-audio-dialog live API" is not compatible with the browser's webm audio format. To fix this by converting PCM (Pulse Code Modulation) format to webm format, it might complicate our build, which is not the intention of this prototype. This prototype is intended to be a simple implementation of the required functionalities and technical components.
   - For normal text to text: gemma-3-27b
   - GOOGLE_API_KEY is in .env file - please do not share it with anyone else or commit it to GitHub
 
-
-**Architecture Diagram**
-- TO UPDATE
+### Architecture Diagram
 ```mermaid
-sequenceDiagram
-    participant User
-    participant Frontend
-    participant Backend
-    participant GeminiAPI
-
-    User->>Frontend: Click "Practice Speaking"
-    Frontend->>User: Show target word + "Record" button
-    User->>Frontend: Record audio (WebAudio API)
-    Frontend->>Backend: POST /practice/grade-speech (audio blob)
-    Backend->>GeminiAPI: Send audio + target text for transcription & grading
-    GeminiAPI->>Backend: Return transcription + pronunciation assessment
-    Backend->>Frontend: Return grade + feedback
-    Frontend->>User: Display results (score, what they said, tips)
+graph TD
+    User((User)) <--> Frontend["Next.js (Frontend)"]
+    
+    subgraph "Browser"
+        Frontend <--> WSA["Web Speech API (Transcription)"]
+    end
+    
+    Frontend <--> Backend["FastAPI (Backend)"]
+    
+    subgraph "Backend Services"
+        Backend <--> SQL[("SQLite (Database)")]
+        Backend <--> AI["LLM (Gemma 3 - Grading)"]
+    end
+    
+    style Frontend fill:#e1f5fe,stroke:#01579b
+    style Backend fill:#e8f5e9,stroke:#1b5e20
+    style AI fill:#fff3e0,stroke:#e65100
+    style SQL fill:#f3e5f5,stroke:#4a148c
 ```
 
-
 ---
-
 
 ## Readings in Other Markdown Files
 - agents.md
@@ -200,7 +201,323 @@ In Detail
 
 ## API contract (OpenAPI specifications)
 
-TODO ADD DOCUMENTATION: OpenAPI specification fully reflects front-end requirements and is used as the contract for backend development. (2 points)
+The Finnish Learner API strictly follows the OpenAPI 3.0.0 specification. This contract ensures seamless integration between the Next.js frontend and the FastAPI backend.
+
+```yaml
+openapi: 3.0.0
+info:
+  title: Finnish Language Learner API
+  description: API for learning Finnish with curriculum levels, quizzes, and speech practice.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000
+    description: Local development server
+
+paths:
+  /auth/register:
+    post:
+      tags: [auth]
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreate'
+      responses:
+        '200':
+          description: Successful registration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+        '400':
+          description: Username already registered
+
+  /auth/login:
+    post:
+      tags: [auth]
+      summary: Login for access token
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                username: {type: string}
+                password: {type: string}
+              required: [username, password]
+      responses:
+        '200':
+          description: Successful login
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+        '401':
+          description: Incorrect username or password
+
+  /levels:
+    get:
+      tags: [content]
+      summary: Get all proficiency levels
+      responses:
+        '200':
+          description: List of levels
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LevelBase'
+
+  /levels/{level_id}:
+    get:
+      tags: [content]
+      summary: Get level details with lessons
+      parameters:
+        - name: level_id
+          in: path
+          required: true
+          schema: {type: integer}
+      responses:
+        '200':
+          description: Level details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LevelDetail'
+        '404':
+          description: Level not found
+
+  /lessons/{lesson_id}:
+    get:
+      tags: [content]
+      summary: Get lesson details with exercises
+      parameters:
+        - name: lesson_id
+          in: path
+          required: true
+          schema: {type: integer}
+      responses:
+        '200':
+          description: Lesson details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LessonDetail'
+        '404':
+          description: Lesson not found
+
+  /lessons/{lesson_id}/explain:
+    post:
+      tags: [content]
+      summary: Get an AI-generated explanation for a lesson
+      parameters:
+        - name: lesson_id
+          in: path
+          required: true
+          schema: {type: integer}
+      responses:
+        '200':
+          description: Lesson explanation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  explanation: {type: string}
+
+  /users/me:
+    get:
+      tags: [users]
+      summary: Get current user profile
+      security:
+        - OAuth2PasswordBearer: []
+      responses:
+        '200':
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+        '401':
+          description: Unauthorized
+
+  /users/progress/{lesson_id}:
+    post:
+      tags: [users]
+      summary: Update user progress for a lesson
+      security:
+        - OAuth2PasswordBearer: []
+      parameters:
+        - name: lesson_id
+          in: path
+          required: true
+          schema: {type: integer}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProgressUpdate'
+      responses:
+        '200':
+          description: Progress updated
+        '404':
+          description: Lesson not found
+
+  /practice/vocabulary/{level_id}/{lesson_order}:
+    get:
+      tags: [practice]
+      summary: Get vocabulary for speech practice
+      parameters:
+        - name: level_id
+          in: path
+          required: true
+          schema: {type: integer}
+        - name: lesson_order
+          in: path
+          required: true
+          schema: {type: integer}
+      responses:
+        '200':
+          description: Vocabulary data
+        '404':
+          description: Vocabulary not found
+
+  /practice/grade-text:
+    post:
+      tags: [practice]
+      summary: Grade pronunciation based on text transcript
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GradeTextRequest'
+      responses:
+        '200':
+          description: Grading result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GradeResult'
+
+components:
+  securitySchemes:
+    OAuth2PasswordBearer:
+      type: oauth2
+      flows:
+        password:
+          tokenUrl: /auth/login
+          scopes: {}
+
+  schemas:
+    UserCreate:
+      type: object
+      properties:
+        username: {type: string}
+        password: {type: string}
+      required: [username, password]
+
+    Token:
+      type: object
+      properties:
+        access_token: {type: string}
+        token_type: {type: string}
+
+    LevelBase:
+      type: object
+      properties:
+        id: {type: integer}
+        name: {type: string}
+        description: {type: string}
+
+    LevelDetail:
+      allOf:
+        - $ref: '#/components/schemas/LevelBase'
+        - type: object
+          properties:
+            lessons:
+              type: array
+              items:
+                $ref: '#/components/schemas/LessonBase'
+
+    LessonBase:
+      type: object
+      properties:
+        id: {type: integer}
+        title: {type: string}
+        order: {type: integer}
+
+    LessonDetail:
+      allOf:
+        - $ref: '#/components/schemas/LessonBase'
+        - type: object
+          properties:
+            content: {type: string}
+            exercises:
+              type: array
+              items:
+                $ref: '#/components/schemas/ExerciseBase'
+
+    ExerciseBase:
+      type: object
+      properties:
+        id: {type: integer}
+        question: {type: string}
+        options:
+          type: array
+          items: {type: string}
+        correct_answer: {type: string}
+        explanation: {type: string, nullable: true}
+
+    UserProfile:
+      type: object
+      properties:
+        id: {type: integer}
+        username: {type: string}
+        created_at: {type: string, format: date-time}
+        progress:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserProgress'
+
+    UserProgress:
+      type: object
+      properties:
+        lesson_id: {type: integer}
+        completed: {type: boolean}
+        score: {type: integer}
+        completed_at: {type: string, format: date-time}
+
+    ProgressUpdate:
+      type: object
+      properties:
+        score: {type: integer}
+        completed: {type: boolean}
+      required: [score]
+
+    GradeTextRequest:
+      type: object
+      properties:
+        spoken_text: {type: string}
+        target_text: {type: string}
+      required: [spoken_text, target_text]
+
+    GradeResult:
+      type: object
+      properties:
+        transcription: {type: string}
+        score: {type: integer}
+        issues:
+          type: array
+          items: {type: string}
+        feedback: {type: string}
+        correct: {type: boolean}
+```
 
 ---
 
