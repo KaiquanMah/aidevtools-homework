@@ -145,7 +145,30 @@ The frontend is a modern, responsive web application built with Next.js 14 using
 - **Production Build**: `npm run build` (Generates an optimized production build)
 - **Start Production Server**: `npm run start`
 
-### 5. Complete Frontend Directory Map
+### 5. Comprehensive Testing Strategy
+The frontend repository includes a robust suite of Unit and Integration tests using **Jest** and **React Testing Library**.
+
+- **Run All Tests**: `npm run test` (from `project/src/frontend`)
+
+#### Test Coverage:
+1.  **Authentication (`LoginPage.test.tsx`)**:
+    - Verifies successful login and token storage.
+    - Tests error handling for invalid credentials and network failures.
+    - Validates "Register -> Login" integration logic validity.
+2.  **Dashboard (`DashboardPage.test.tsx`)**:
+    - Ensures protected route security (redirects unauthenticated users).
+    - Verifies correct data rendering for user profiles and level lists.
+    - Tests the "Sign Out" functionality.
+3.  **Lesson Logic (`LessonClient.test.tsx`)**:
+    - Validates the entire quiz flow: navigation, answer selection, and scoring.
+    - Tests logic for saving progress (only on passing score >70%).
+    - Verifies mode switching between Content, Quiz, and Speaking.
+4.  **Speech Practice (`SpeechPractice.test.tsx`)**:
+    - Mocks the `SpeechRecognition` browser API to test environment compatibility.
+    - Verifies interaction states (Start/Stop listening).
+    - Handles edge cases like missing browser support.
+
+### 6. Complete Frontend Directory Map
 - `src/frontend/`
     - `app/`: Next.js App Router root.
         - `layout.tsx`: Root layout with global styles and structure.
