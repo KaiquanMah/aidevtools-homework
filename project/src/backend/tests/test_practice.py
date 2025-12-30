@@ -2,6 +2,7 @@ import json
 import pytest
 from unittest.mock import patch, MagicMock
 from fastapi.testclient import TestClient
+import models
 from main import app
 from pathlib import Path
 

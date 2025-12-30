@@ -1,38 +1,24 @@
 import json
 from fastapi.testclient import TestClient
 from main import app
-from database import Base, engine, get_db
+from database import Base, get_db
+import models
 from models import Level, Lesson, Exercise
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 import pytest
-import os
 
-# Use an in-memory SQLite database for testing
-SQLALCHEMY_DATABASE_URL = "sqlite:///./test_content.db"
-
-engine_test = create_engine(
-    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
-)
-TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine_test)
-
-def override_get_db():
-    try:
-        db = TestingSessionLocal()
-        yield db
-    finally:
-        db.close()
-
-app.dependency_overrides[get_db] = override_get_db
-
+# Database setup is now handled in conftest.py
 client = TestClient(app)
 
-@pytest.fixture(scope="module", autouse=True)
-def setup_database():
-    Base.metadata.create_all(bind=engine_test)
-    db = TestingSessionLocal()
+@pytest.fixture(autouse=True)
+def setup_database(db_session):
+    # Seed data using the session provided by conftest
+    db = db_session
     
-    # Seed data
+    # Check if already seeded (module scope fixture might run multiple times if not careful, 
+    # but here scope='module' for this file is fine)
+    if db.query(Level).filter(Level.id == 1).first():
+        return
+
     level1 = Level(id=1, name="Level 1", description="Intro", order=1)
     db.add(level1)
     db.commit()
@@ -62,12 +48,6 @@ def setup_database():
     db.add(ex1)
     db.add(ex2)
     db.commit()
-    db.close()
-    
-    yield
-    Base.metadata.drop_all(bind=engine_test)
-    if os.path.exists("./test_content.db"):
-        os.remove("./test_content.db")
 
 def test_get_levels():
     response = client.get("/levels")

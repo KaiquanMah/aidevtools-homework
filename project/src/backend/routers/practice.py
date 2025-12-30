@@ -14,7 +14,8 @@ from services.speech_service import grade_pronunciation_text
 router = APIRouter(prefix="/practice", tags=["practice"])
 
 # Path to vocabulary files
-VOCABULARY_DIR = Path(os.getenv("VOCABULARY_DIR", "/app/src/database/vocabulary"))
+default_vocab_dir = Path(__file__).parent.parent.parent / "database" / "vocabulary"
+VOCABULARY_DIR = Path(os.getenv("VOCABULARY_DIR", str(default_vocab_dir)))
 
 
 class GradeTextRequest(BaseModel):
