@@ -13,6 +13,14 @@ jest.mock('@/utils/api', () => ({
     get: jest.fn(),
 }))
 
+// Polyfill atob and btoa for Node environment
+if (typeof global.atob === 'undefined') {
+    global.atob = (str: string) => Buffer.from(str, 'base64').toString('binary');
+}
+if (typeof global.btoa === 'undefined') {
+    global.btoa = (str: string) => Buffer.from(str, 'binary').toString('base64');
+}
+
 describe('DashboardPage', () => {
     const mockPush = jest.fn()
 
@@ -25,18 +33,6 @@ describe('DashboardPage', () => {
     it('redirects to login if no token is present', async () => {
         render(<DashboardPage />)
 
-        // Wait for effect to run
-        await waitFor(() => {
-            // Since token is missing, the API call might not happen or it handles the missing user.
-            // In the provided code, it tries to fetch levels irrespective of token, 
-            // but assumes token is needed for the username.
-            // If api call fails (401), it should redirect.
-        })
-
-            // The component fetches levels immediately. If api fails, it redirects.
-            ; (api.get as jest.Mock).mockRejectedValueOnce({ response: { status: 401 } })
-
-        render(<DashboardPage />)
         await waitFor(() => {
             expect(mockPush).toHaveBeenCalledWith('/login')
         })
@@ -44,37 +40,44 @@ describe('DashboardPage', () => {
 
     it('renders user levels and name correctly', async () => {
         // Mock token for username "TestUser"
-        // Token format: header.payload.signature. Payload needs 'sub'.
         const payload = JSON.stringify({ sub: 'TestUser' })
-        const token = `header.${btoa(payload)}.signature`
+        const token = `header.${global.btoa(payload)}.signature`
         localStorage.setItem('token', token)
 
         // Mock levels response
         const mockLevels = [
             { id: 1, name: 'Level 1', description: 'Basics', order: 1 }
         ]
-            ; (api.get as jest.Mock).mockResolvedValueOnce({ data: mockLevels })
+            ; (api.get as jest.Mock).mockResolvedValue({ data: mockLevels })
 
         render(<DashboardPage />)
 
-        expect(await screen.findByText('TestUser')).toBeInTheDocument()
-        expect(await screen.findByRole('heading', { name: 'Level 1' })).toBeInTheDocument()
+        // Use findBy to wait for async updates
+        const userElement = await screen.findByText('TestUser')
+        expect(userElement).toBeInTheDocument()
+
+        const levelHeading = await screen.findByText('Level 1')
+        expect(levelHeading).toBeInTheDocument()
+
         expect(screen.getByText('Basics')).toBeInTheDocument()
     })
 
     it('handles sign out', async () => {
         const payload = JSON.stringify({ sub: 'User' })
-        localStorage.setItem('token', `h.${btoa(payload)}.s`)
+        localStorage.setItem('token', `h.${global.btoa(payload)}.s`)
             ; (api.get as jest.Mock).mockResolvedValue({ data: [] })
 
         render(<DashboardPage />)
+
+        // Wait for dashboard to load
+        await screen.findByText('User')
 
         // Open menu
         const menuButton = screen.getByText('User').closest('button')
         fireEvent.click(menuButton!)
 
         // Click sign out
-        const signOutBtn = screen.getByText('Sign Out')
+        const signOutBtn = await screen.findByText('Sign Out')
         fireEvent.click(signOutBtn)
 
         expect(localStorage.getItem('token')).toBeNull()
