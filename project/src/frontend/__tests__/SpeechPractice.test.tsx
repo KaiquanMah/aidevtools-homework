@@ -56,18 +56,15 @@ describe('SpeechPractice', () => {
 
         const btn = screen.getByRole('button', { name: /start speaking/i })
 
-        // Simulate Mouse Down (Start Listening)
-        fireEvent.mouseDown(btn)
+        // Simulate Click (Start Listening)
+        fireEvent.click(btn)
         expect(mockStart).toHaveBeenCalled()
 
-        // Simulate Speech Result
-        // We need to access the instance created by the component. 
-        // Since we can't easily access the internal instance, we rely on the fact that functionality is triggered by events.
-        // However, JSDOM doesn't emit the 'result' event natively from the mock.
-        // We'll trust the component logic calls start(), which we verified.
+        // Wait for state update and Find Stop Button
+        const stopBtn = await screen.findByRole('button', { name: /stop & grade/i })
 
-        // Simulate Mouse Up (Stop Listening)
-        fireEvent.mouseUp(btn)
+        // Simulate Click (Stop Listening)
+        fireEvent.click(stopBtn)
         expect(mockStop).toHaveBeenCalled()
 
         // NOTE: In a real integration test, we would need to trigger the 'onresult' callback 
@@ -85,7 +82,7 @@ describe('SpeechPractice', () => {
 
         render(<SpeechPractice vocabulary={mockVocabulary} lessonTitle="Animals" />)
 
-        expect(screen.getByText(/browser does not support speech recognition/i)).toBeInTheDocument()
+        expect(screen.getByText(/Browser Not Supported/i)).toBeInTheDocument()
 
         // Restore
         window.SpeechRecognition = originalSpeech
