@@ -56,7 +56,7 @@ describe('DashboardPage', () => {
         const userElement = await screen.findByText('TestUser')
         expect(userElement).toBeInTheDocument()
 
-        const levelHeading = await screen.findByText('Level 1')
+        const levelHeading = await screen.findByRole('heading', { name: /Level 1/i })
         expect(levelHeading).toBeInTheDocument()
 
         expect(screen.getByText('Basics')).toBeInTheDocument()
