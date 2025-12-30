@@ -17,6 +17,9 @@ COPY src/backend /app
 # Copy content for seeding
 COPY src/database/content /app/src/database/content
 
+# Copy vocabulary for speaking practice
+COPY src/database/vocabulary /app/src/database/vocabulary
+
 # Expose port
 EXPOSE 8000
 

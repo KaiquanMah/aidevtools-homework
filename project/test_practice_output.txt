@@ -1,0 +1,42 @@
+time="2025-12-30T13:23:43+08:00" level=warning msg="C:\\Users\\kaiqu\\Downloads\\aidevtools-homework\\project\\docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2025-12-30T13:23:43+08:00" level=warning msg="Found orphan containers ([project-app-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+============================= test session starts ==============================
+platform linux -- Python 3.11.14, pytest-7.4.4, pluggy-1.6.0 -- /usr/local/bin/python3.11
+cachedir: .pytest_cache
+rootdir: /app
+plugins: anyio-4.12.0
+collecting ... collected 5 items
+
+tests/test_practice.py::test_get_vocabulary_success FAILED               [ 20%]
+tests/test_practice.py::test_get_vocabulary_not_found PASSED             [ 40%]
+tests/test_practice.py::test_grade_text_llm_success PASSED               [ 60%]
+tests/test_practice.py::test_grade_text_llm_fallback PASSED              [ 80%]
+tests/test_practice.py::test_grade_text_empty_input PASSED               [100%]
+
+=================================== FAILURES ===================================
+_________________________ test_get_vocabulary_success __________________________
+tests/test_practice.py:29: in test_get_vocabulary_success
+    assert "words" in data
+E   AssertionError: assert 'words' in {'lesson_id': 1, 'lesson_title': 'Alphabet & Pronunciation', 'vocabulary': [{'english': 'cat', 'finnish': 'kissa', 'pronunciation': 'KIS-sa'}, {'english': 'dog', 'finnish': 'koira', 'pronunciation': 'KOI-ra'}, {'english': 'house', 'finnish': 'talo', 'pronunciation': 'TA-lo'}, {'english': 'car', 'finnish': 'auto', 'pronunciation': 'OW-to'}, {'english': 'day', 'finnish': 'päivä', 'pronunciation': 'PÄI-vä'}, {'english': 'night', 'finnish': 'yö', 'pronunciation': 'ÜÖ'}, ...]}
+=============================== warnings summary ===============================
+database.py:22
+  /app/database.py:22: MovedIn20Warning: The ``declarative_base()`` function is now available as sqlalchemy.orm.declarative_base(). (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+    Base = declarative_base()
+
+../usr/local/lib/python3.11/site-packages/pydantic/_internal/_config.py:271
+../usr/local/lib/python3.11/site-packages/pydantic/_internal/_config.py:271
+../usr/local/lib/python3.11/site-packages/pydantic/_internal/_config.py:271
+../usr/local/lib/python3.11/site-packages/pydantic/_internal/_config.py:271
+../usr/local/lib/python3.11/site-packages/pydantic/_internal/_config.py:271
+  /usr/local/lib/python3.11/site-packages/pydantic/_internal/_config.py:271: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.5/migration/
+    warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)
+
+../usr/local/lib/python3.11/site-packages/passlib/utils/__init__.py:854
+  /usr/local/lib/python3.11/site-packages/passlib/utils/__init__.py:854: DeprecationWarning: 'crypt' is deprecated and slated for removal in Python 3.13
+    from crypt import crypt as _crypt
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_practice.py::test_get_vocabulary_success - AssertionError: ...
+=================== 1 failed, 4 passed, 7 warnings in 2.25s ====================
+

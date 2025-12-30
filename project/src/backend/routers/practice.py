@@ -14,7 +14,7 @@ from services.speech_service import grade_pronunciation_text
 router = APIRouter(prefix="/practice", tags=["practice"])
 
 # Path to vocabulary files
-VOCABULARY_DIR = Path("/app/src/database/vocabulary")
+VOCABULARY_DIR = Path(os.getenv("VOCABULARY_DIR", "/app/src/database/vocabulary"))
 
 
 class GradeTextRequest(BaseModel):
@@ -26,7 +26,9 @@ class GradeTextRequest(BaseModel):
 def get_level_folder(level_id: int) -> str:
     """Map level ID to folder name."""
     level_map = {1: "0", 2: "A1", 3: "A2"}
-    return level_map.get(level_id, "0")
+    if level_id not in level_map:
+        raise HTTPException(status_code=404, detail="Level vocabulary not found")
+    return level_map.get(level_id)
 
 
 @router.get("/vocabulary/{level_id}/{lesson_order}")
