@@ -17,6 +17,7 @@ interface Exercise {
 interface LessonDetail {
     id: number;
     title: string;
+    order: number;
     content: string;
     exercises: Exercise[];
 }
@@ -45,40 +46,30 @@ export default function LessonClient({ params }: { params: { levelId: string; le
     const router = useRouter();
 
     useEffect(() => {
-        const fetchLesson = async () => {
+        const loadLessonData = async () => {
             try {
-                const response = await api.get(`/lessons/${params.lessonId}`);
-                setLesson(response.data);
+                // 1. Fetch Lesson Content
+                const lessonResponse = await api.get(`/lessons/${params.lessonId}`);
+                const lessonData: LessonDetail = lessonResponse.data;
+                setLesson(lessonData);
+
+                // 2. Fetch Vocabulary for Speaking Practice using lesson order
+                // The practice system expects the sequential order (1, 2, 3...) within the level
+                try {
+                    const vocabResponse = await api.get(`/practice/vocabulary/${params.levelId}/${lessonData.order}`);
+                    setVocabulary(vocabResponse.data);
+                } catch (err) {
+                    console.log(`Speaking practice not available for lesson order ${lessonData.order}`);
+                    setVocabulary(null);
+                }
             } catch (err) {
-                console.error(err);
+                console.error('Failed to load lesson data:', err);
+                router.push(`/learn/${params.levelId}`);
             }
         };
 
-        const fetchVocabulary = async () => {
-            try {
-                // Determine lesson order within level (simplified: use lessonId as order for now)
-                const response = await api.get(`/practice/vocabulary/${params.levelId}/${params.lessonId}`);
-                setVocabulary(response.data);
-            } catch (err) {
-                console.error('Vocabulary not available for this lesson');
-            }
-        };
-
-        fetchLesson();
-        fetchVocabulary();
-    }, [params.lessonId, params.levelId]);
-
-    useEffect(() => {
-        const fetchLesson = async () => {
-            try {
-                const response = await api.get(`/lessons/${params.lessonId}`);
-                setLesson(response.data);
-            } catch (err) {
-                console.error(err);
-            }
-        };
-        fetchLesson();
-    }, [params.lessonId]);
+        loadLessonData();
+    }, [params.lessonId, params.levelId, router]);
 
     // Calculate quiz sets
     const totalQuestions = lesson?.exercises.length || 0;
