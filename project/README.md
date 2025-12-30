@@ -102,27 +102,66 @@ project/
 
 ---
 
-## Frontend
+## Frontend (3 points)
 
-- covering core logic, with clear instructions on how to run them. (3 points)
+The frontend is a modern, responsive web application built with Next.js 14 using the App Router architecture. It provides an interactive interface for users to learn Finnish through quizzes and speech practice.
 
-- **Overview**: Next.js 14 (App Router) based application.
-- **Key Features**:
-  - Quizzes and interactive vocabulary speech practices to learn Finnish
-  - Speech practice with real-time feedback using the SpeechRecognition API and backend grading
-- **Tech Stack Details**: React, TypeScript, Tailwind CSS, Axios
-- **Directory Structure**:
-  - `src/frontend/app`: Next.js pages and layouts (using App Router).
-  - `src/frontend/components`: Reusable UI components (e.g., `SpeechPractice`).
-  - `src/frontend/__tests__`: Frontend unit tests.
-- **Core Component - `SpeechPractice.tsx`**:
-  - Manages the speech recording lifecycle.
-  - Interfaces with the backend `/practice/grade-speech` endpoint.
-  - Displays score-based feedback with visual cues.
-- **Development & Testing**:
-  - Run development server: `npm run dev`
-  - Run tests: `npm run test`
-  - Build for production: `npm run build`
+### 1. Core Pages & Functionality
+- **Registration (`/register`)**: 
+    - Allows new users to create accounts with a username and password.
+    - Interfaces with the `/auth/register` API.
+    - Handles validation for existing usernames and registration errors.
+- **Login (`/login`)**: 
+    - Authenticates users via the OAuth2 compatible `/auth/login` endpoint (form-data).
+    - Upon success, stores the JWT `access_token` in `localStorage` for session management.
+    - Automatically redirects authenticated users to the `/dashboard`.
+- **Dashboard (`/dashboard`)**: 
+    - The personalized landing page for authenticated users.
+    - Fetches the curriculum levels from the SQLite backend via `/levels`.
+    - Features a user menu with "Sign Out" functionality to clear local storage and session.
+- **Learning Path & Lessons**:
+    - **Level Browser**: `LevelClient.tsx` (`src/frontend/app/learn/[levelId]/LevelClient.tsx`) displays lessons filtered by the selected proficiency level.
+    - **Interactive Lessons**: `LessonClient.tsx` (`src/frontend/app/learn/[levelId]/[lessonId]/LessonClient.tsx`) is the core engine for the curriculum. It manages the quiz state, validates textual answers, and tracks user progress. **There can be more than 1 lesson/topic per level**
+
+### 2. Interactive Speech Practice
+- **Core Component**: `SpeechPractice.tsx` (`src/frontend/components/SpeechPractice.tsx`).
+- **Functionality**:
+    - Implements the browser's `SpeechRecognition` API for real-time user voice transcription.
+    - **Grading**: Transcription is proxied to the FastAPI backend, which leverages LLMs (Google Gemma) to grade pronunciation for the target Finnish word.
+    - **Visual Feedback**: Real-time score with color coding (green for correct, red for incorrect) and emojis to provide fast feedback.
+
+### 3. Core Logic & Architecture
+- **State Management**: Uses React Hooks (`useState`, `useEffect`, `useRef`) for local state and component-level logic.
+- **API Communication**: 
+    - Centralized Axios instance in `utils/api.ts`.
+    - Automatically injects the JWT `Bearer` token from `localStorage` into the headers of all outgoing requests.
+
+### 4. Execution Instructions
+> [!IMPORTANT]
+> All frontend commands must be executed from the `project/src/frontend` directory.
+
+- **Development Mode**: `npm run dev` (Starts the dev server at `http://localhost:3000`)
+- **Run Tests**: `npm run test` (Executes the Jest/React Testing Library suite)
+- **Production Build**: `npm run build` (Generates an optimized production build)
+- **Start Production Server**: `npm run start`
+
+### 5. Complete Frontend Directory Map
+- `src/frontend/`
+    - `app/`: Next.js App Router root.
+        - `layout.tsx`: Root layout with global styles and structure.
+        - `page.tsx`: Landing page.
+        - `dashboard/`: User progress and lesson selection.
+        - `learn/[levelId]/`: Path-based routing for proficiency levels.
+        - `learn/[levelId]/[lessonId]/`: Dynamic routes for specific lessons.
+        - `login/` & `register/`: Authentication pages.
+    - `components/`: Reusable UI components.
+        - `SpeechPractice.tsx`: The primary interface for speaking exercises.
+    - `utils/`: Helper utilities.
+        - `api.ts`: Configured Axios instance with interceptors for API communication.
+    - `__tests__/`: Unit and component tests ensuring front-end reliability.
+    - `lib/`: Configuration for external libraries.
+    - `globals.css`: Global Tailwind CSS styles.
+    - **Configuration Files**: `package.json`, `tailwind.config.ts`, `tsconfig.json`, `jest.config.mjs`, `next.config.js`.
   
 
 ---
