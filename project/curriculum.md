@@ -1,6 +1,6 @@
 # Finnish Language Curriculum (Levels 0 - A2)
 
-This curriculum is designed for English speakers learning Finnish, based on CEFR standards.
+This curriculum is designed for English speakers learning Finnish, based on CEFR (Common European Framework of Reference for Languages) standards.
 
 ## Level 0: The Absolute Basics
 **Goal**: Familiarization with sounds, alphabet, and very basic survival phrases.
@@ -83,6 +83,6 @@ This curriculum is designed for English speakers learning Finnish, based on CEFR
 ---
 
 ## Resources & References
-- **Kielibuusti**: CEFR Level breakdown.
-- **InfoFinland**: Learning materials directory.
-- **Uusi Kielemme**: Detailed grammar references.
+- **Kielibuusti**: CEFR Level breakdown (https://www.kielibuusti.fi/en/learn-finnish/language-tests-and-integration/language-skill-levels-a1-c2)
+- **InfoFinland**: Learning materials directory (https://www.infofinland.fi/en/finnish-and-swedish/finnish-online)
+- **Uusi Kielemme**: Detailed grammar references (https://uusikielemme.fi/finnish-grammar)
