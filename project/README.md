@@ -145,28 +145,37 @@ The frontend is a modern, responsive web application built with Next.js 14 using
 - **Production Build**: `npm run build` (Generates an optimized production build)
 - **Start Production Server**: `npm run start`
 
-### 5. Comprehensive Testing Strategy
+### 5. Comprehensive Testing Approach
 The frontend repository includes a robust suite of Unit and Integration tests using **Jest** and **React Testing Library**.
 
 - **Run All Tests**: `npm run test` (from `project/src/frontend`)
 
 #### Test Coverage:
-1.  **Authentication (`LoginPage.test.tsx`)**:
-    - Verifies successful login and token storage.
-    - Tests error handling for invalid credentials and network failures.
-    - Validates "Register -> Login" integration logic validity.
+Overall there are 5 frontend test files
+- `LoginPage.test.tsx`: Covers auth flows and edge cases.
+- `RegisterPage.test.tsx`: Verifies registration UI rendering.
+- `DashboardPage.test.tsx`: Verifies session management.
+- `LessonClient.test.tsx`: Tests complex quiz and progress logic.
+- `SpeechPractice.test.tsx`: Validates speech interaction and fallbacks.
+
+In Detail
+1.  **Authentication (`LoginPage.test.tsx` & `RegisterPage.test.tsx`)**:
+    - **Integration Flow Simulation**: Mocked successful registration followed by login to verify end-to-end token management.
+    - **Registration UI**: Verifies that the registration form renders all required fields (username, password).
+    - **Error Handling**: Tests response to invalid credentials (401) and ensures appropriate user-facing error messages.
+    - **Form Validation**: Verifies that fields are required and validated before submission.
 2.  **Dashboard (`DashboardPage.test.tsx`)**:
-    - Ensures protected route security (redirects unauthenticated users).
-    - Verifies correct data rendering for user profiles and level lists.
-    - Tests the "Sign Out" functionality.
+    - **Protected Routes**: Ensures that users without a JWT are automatically redirected to the login page.
+    - **Robust Element Selection**: Uses specific ARIA roles (e.g., `findByRole('heading', { name: 'Level 1' })`) to distinguish between similar text elements (headings vs. badges).
+    - **Session Lifecycle**: Tests the "Sign Out" flow, verifying that local storage is cleared and the user is redirected.
 3.  **Lesson Logic (`LessonClient.test.tsx`)**:
-    - Validates the entire quiz flow: navigation, answer selection, and scoring.
-    - Tests logic for saving progress (only on passing score >70%).
-    - Verifies mode switching between Content, Quiz, and Speaking.
+    - **Comprehensive Quiz Flow**: Validates question navigation, correct/incorrect answer feedback, and the final scoring screen.
+    - **Conditional Persistence**: Verifies that user progress is only saved to the backend API if the score exceeds the **70% passing threshold**.
+    - **Concurrent API Handling**: Robustly mocks concurrent calls for lesson content and vocabulary data to prevent race conditions during rendering.
 4.  **Speech Practice (`SpeechPractice.test.tsx`)**:
-    - Mocks the `SpeechRecognition` browser API to test environment compatibility.
-    - Verifies interaction states (Start/Stop listening).
-    - Handles edge cases like missing browser support.
+    - **Web Speech API Mocking**: Fully mocks the browser's `SpeechRecognition` API, including event listeners (`onstart`, `onend`, `onresult`).
+    - **Interaction States**: Verifies the click-to-toggle behavior (Start -> Stop & Grade) and ensuring UI elements like the "Listening..." indicator appear correctly.
+    - **Browser Compatibility**: Tests that the component gracefully displays "Browser Not Supported" messages in non-compatible environments by manipulating the global `window` object.
 
 ### 6. Complete Frontend Directory Map
 - `src/frontend/`
