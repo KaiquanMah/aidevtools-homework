@@ -101,7 +101,11 @@ describe('LessonClient', () => {
     })
 
     it('does not save progress if score is low', async () => {
-        (api.get as jest.Mock).mockResolvedValue({ data: mockLesson })
+        (api.get as jest.Mock).mockImplementation((url) => {
+            if (url.includes('/lessons/')) return Promise.resolve({ data: mockLesson })
+            if (url.includes('/vocabulary/')) return Promise.resolve({ data: mockVocabulary })
+            return Promise.reject(new Error('not found'))
+        })
 
         await act(async () => {
             render(<LessonClient params={{ levelId: '1', lessonId: '1' }} />)

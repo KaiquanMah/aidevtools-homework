@@ -38,7 +38,7 @@ describe('SpeechPractice', () => {
         render(<SpeechPractice vocabulary={mockVocabulary} lessonTitle="Animals" />)
         expect(screen.getByText('kissa')).toBeInTheDocument()
         expect(screen.getByText('cat')).toBeInTheDocument()
-        expect(screen.getByText('Hold to Speak')).toBeInTheDocument()
+        expect(screen.getByText('Start Speaking')).toBeInTheDocument()
     })
 
     it('handles speaking interaction and grading success', async () => {
@@ -54,7 +54,7 @@ describe('SpeechPractice', () => {
 
         render(<SpeechPractice vocabulary={mockVocabulary} lessonTitle="Animals" />)
 
-        const btn = screen.getByText('Hold to Speak')
+        const btn = screen.getByText('Start Speaking')
 
         // Simulate Mouse Down (Start Listening)
         fireEvent.mouseDown(btn)
@@ -79,9 +79,9 @@ describe('SpeechPractice', () => {
         // Remove mock temporarily
         const originalSpeech = window.SpeechRecognition
         // @ts-ignore
-        window.SpeechRecognition = undefined
+        Object.defineProperty(window, 'SpeechRecognition', { value: undefined, writable: true })
         // @ts-ignore
-        window.webkitSpeechRecognition = undefined
+        Object.defineProperty(window, 'webkitSpeechRecognition', { value: undefined, writable: true })
 
         render(<SpeechPractice vocabulary={mockVocabulary} lessonTitle="Animals" />)
 
