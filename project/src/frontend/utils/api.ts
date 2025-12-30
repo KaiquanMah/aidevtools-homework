@@ -1,24 +1,30 @@
 import axios from 'axios';
 
 const getBaseURL = () => {
-    // If NEXT_PUBLIC_API_URL is set (e.g. in local dev), use it.
-    // Otherwise, default to empty string for same-origin relative requests.
-    // This fixed the "Local Network" permission popup on mobile/modern browsers
-    // by avoiding internal Docker hostnames like 'finnish-backend'.
+    // 1. Explicit environment variable override (highest priority)
     const envURL = process.env.NEXT_PUBLIC_API_URL;
+    if (envURL) return envURL;
 
-    if (envURL) {
-        console.log('API Client: using configured API URL:', envURL);
-        return envURL;
+    if (typeof window !== 'undefined') {
+        const hostname = window.location.hostname;
+
+        // 2. Strict check for internal Docker hostnames used in E2E/Dev
+        // This prevents matching 'something-frontend.onrender.com' in production
+        if (hostname === 'frontend' || hostname === 'finnish-frontend' || hostname === 'e2e-runner') {
+            // Use the internal backend service name known to Docker
+            return 'http://backend:8000';
+        }
+
+        // 3. Local development (outside Docker)
+        if (hostname === 'localhost') {
+            return 'http://localhost:8000';
+        }
     }
 
-    // In production (Render), frontend and backend are on the same host.
-    // In local dev without the env var, fallback to localhost:8000
-    if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
-        return 'http://localhost:8000';
-    }
-
-    return ''; // Relative to same origin
+    // 4. Production (Render)
+    // Use relative paths since frontend and backend share the same origin
+    // This avoids "Local Network" permission popups.
+    return '';
 };
 
 const api = axios.create({
