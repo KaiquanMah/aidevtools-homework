@@ -22,8 +22,8 @@ class MockSpeechRecognition {
 }
 
 // Attach to window
-Object.defineProperty(window, 'SpeechRecognition', { value: MockSpeechRecognition })
-Object.defineProperty(window, 'webkitSpeechRecognition', { value: MockSpeechRecognition })
+Object.defineProperty(window, 'SpeechRecognition', { value: MockSpeechRecognition, writable: true, configurable: true })
+Object.defineProperty(window, 'webkitSpeechRecognition', { value: MockSpeechRecognition, writable: true, configurable: true })
 
 describe('SpeechPractice', () => {
     const mockVocabulary = [
@@ -38,7 +38,7 @@ describe('SpeechPractice', () => {
         render(<SpeechPractice vocabulary={mockVocabulary} lessonTitle="Animals" />)
         expect(screen.getByText('kissa')).toBeInTheDocument()
         expect(screen.getByText('cat')).toBeInTheDocument()
-        expect(screen.getByText('Start Speaking')).toBeInTheDocument()
+        expect(screen.getByRole('button', { name: /start speaking/i })).toBeInTheDocument()
     })
 
     it('handles speaking interaction and grading success', async () => {
@@ -54,7 +54,7 @@ describe('SpeechPractice', () => {
 
         render(<SpeechPractice vocabulary={mockVocabulary} lessonTitle="Animals" />)
 
-        const btn = screen.getByText('Start Speaking')
+        const btn = screen.getByRole('button', { name: /start speaking/i })
 
         // Simulate Mouse Down (Start Listening)
         fireEvent.mouseDown(btn)
