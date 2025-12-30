@@ -585,12 +585,14 @@ The system includes an automated seeding utility to populate the curriculum from
 > * **Database Persistence**: The SQLite database (`finnish_app.db`) is stored in the `/data` directory inside the backend container. In `docker-compose.yml`, this is mapped to `./src/database` on your local machine.
 
 ### How to verify database location:
-1. **On Local Machine**: Check if `project/src/database/finnish_app.db` exists after starting the containers.
-  * Launch full container: `cd project`, then `docker compose up -d`
-  * TO CHECK: `ls -lh project/src/database/finnish_app.db`
-2. **Inside Container**: Run `docker exec -it finnish-backend ls -lh /data/finnish_app.db`.
-  * TO CHECK: In the `project` folder, run `docker exec -it finnish-backend ls -lh /data/finnish_app.db`
-3. **Check Persistence**: Any changes to `finnish_app.db` on your local machine are reflected inside the container (and vice versa) because they are linked by the Docker volume. Note that if you deploy the container to a production environment or a new container, the database will be lost.
+1. **On Local Machine**: Check if the database file exists in the mapped volume.
+  * Ensure you are in the `project/` directory.
+  * TO CHECK: `ls -lh src/database/finnish_app.db`
+2. **Inside Container**: Run a command to list the file at the internal mount point.
+  * TO CHECK:
+    * Linux: `docker exec -it finnish-backend ls -lh /data/finnish_app.db`
+    * Windows: `docker exec -it finnish-backend ls -lh //data/finnish_app.db` (Use `//data` on Windows/Git Bash to prevent path expansion)
+3. **Check Persistence**: Any changes to `finnish_app.db` on your local machine are reflected inside the container (and vice versa) because they are linked by the Docker volume. Note that in production (Render), we use an internal persistent disk.
 
 
 
