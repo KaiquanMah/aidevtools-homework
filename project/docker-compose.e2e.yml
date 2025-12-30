@@ -14,8 +14,3 @@ services:
     depends_on:
       - frontend
       - backend
-
-networks:
-  default:
-    external:
-      name: project_default
