@@ -655,6 +655,7 @@ The system includes an automated seeding utility to populate the curriculum from
 > [!NOTE]
 > * **Database Persistence**: The SQLite database (`finnish_app.db`) is stored in the `/data` directory inside the backend container. In `docker-compose.yml`, this is mapped to `./src/database` on your local machine.
 
+
 ### How to verify database location:
 1. **On Local Machine**: Check if the database file exists in the mapped volume.
   * Ensure you are in the `project/` directory.
@@ -664,6 +665,7 @@ The system includes an automated seeding utility to populate the curriculum from
     * Linux: `docker exec -it finnish-backend ls -lh /data/finnish_app.db`
     * Windows: `docker exec -it finnish-backend ls -lh //data/finnish_app.db` (Use `//data` on Windows/Git Bash to prevent path expansion)
 3. **Check Persistence**: Any changes to `finnish_app.db` on your local machine are reflected inside the container (and vice versa) because they are linked by the Docker volume. Note that in production (Render), we use an internal persistent disk.
+<img width="1219" height="1034" alt="15-sqlite-db-local-n-container-proof-db-persists" src="https://github.com/user-attachments/assets/e2aa77a3-2398-445f-bc7f-c9abd756ced4" />
 
 
 
@@ -770,7 +772,7 @@ The application is designed to be deployed as a single Docker container.
 6. **Unified Entry Point**: Both the API and Frontend are served on the same port (default 8000).
 
 ### Proof of deployment
-TO ADD Screenshots
+<img width="3423" height="987" alt="14-cicd-deployment" src="https://github.com/user-attachments/assets/9387db43-2048-48f3-95cf-b2957c837069" />
 
 ### Working URL
 https://aidevtools-homework.onrender.com
@@ -805,9 +807,24 @@ TODO ADD SCREENSHOT OF DEPLOYMENT HOOK CONFIG HERE
 3. **Finish**:
    - The database is automatically initialized and seeded with the curriculum data on its first startup iteration.
 
+<img width="753" height="865" alt="7-hei" src="https://github.com/user-attachments/assets/cba301cb-924d-4b98-bf31-845003d653d3" />
 
 ### Cloud Deployment
 To avoid duplicating documentation, please refer to the "Deployment" section for instructions on how to deploy the application to Render.
+
+## Manual Exploration of Functionalities
+* Login (after registration)
+  <img width="1117" height="727" alt="10-deployed-login" src="https://github.com/user-attachments/assets/8cb8f3cf-9629-4eb7-a698-952e4f65ed80" />
+* Dashboard
+  <img width="1382" height="528" alt="11-deployed-dashboard" src="https://github.com/user-attachments/assets/088a03e7-178e-4c04-9704-73f23d6b4336" />
+* Quiz
+  <img width="1325" height="892" alt="12-deployed-qn" src="https://github.com/user-attachments/assets/f9472c02-50fc-4e26-9d11-8cea6a8000a8" />
+* Speech Practice
+  <img width="951" height="967" alt="6-koira" src="https://github.com/user-attachments/assets/2f2a8c53-7f7b-457e-a141-37eb8cf42fe9" />
+  <img width="753" height="865" alt="7-hei" src="https://github.com/user-attachments/assets/d4b4de4f-6dd1-408e-a01e-14185273952e" />
+  <img width="802" height="833" alt="8-kiitos" src="https://github.com/user-attachments/assets/a41b7634-36b9-4a34-ae85-da2ce6764d0d" />
+  <img width="792" height="885" alt="9-anteeksi excuse me" src="https://github.com/user-attachments/assets/c9bd2cbf-9473-4979-8ba8-943a1dfd266e" />
+  <img width="1211" height="935" alt="13-deployed-speech" src="https://github.com/user-attachments/assets/edf4e742-c77d-403d-990b-591ecb8cb3c6" />
 
 
 ---
