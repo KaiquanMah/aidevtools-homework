@@ -93,6 +93,7 @@ project/
 │   │   └── seed_data.json # initial seed data for the 'content' database ONLY (with the help of another Claude Opus LLM to research and generate "level0 - 01_alphabet questions", expanding from 2 questions to 75 questions)
 ├── Dockerfile            # Multi-stage Dockerfiles (frontend, backend, full frontend-backend)
 ├── docker-compose.yml    # Development Docker Compose (serve frontend, backend in 2 separate containers)
+├── docker-compose.e2e.yml    # E2E Testing Docker Compose (serve E2E end-to-end testing container)
 ├── docker-compose.prod.yml    # Production Docker Compose (serve frontend AND backend in 1 container)
 ├── README.md             # Finnish Learner Website documentation
 ├── agents.md # Antigravity IDE agent instructions
@@ -731,6 +732,10 @@ The project features a CI/CD pipeline implemented via **GitHub Actions** (`.gith
 > Use the `--build` flag (e.g., `docker compose up --build -d`) if you have modified the code or Dockerfiles and want to force a fresh build.
 3. **Finish**:
    - The database is automatically initialized and seeded with the curriculum data on its first startup iteration.
+
+
+### Cloud Deployment
+To avoid duplicating documentation, please refer to the "Deployment" section for instructions on how to deploy the application to Render.
 
 
 ---
