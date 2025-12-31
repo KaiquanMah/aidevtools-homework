@@ -38,10 +38,14 @@
 - **Final Deployment**: Render (serving our full frontend AND backend as a Single-Container Microservice)
 - **Microphone Integration**: Client-side Web Speech API for transcription.
 - **LLMs if needed**
-  - For speech to text: Google SpeechRecognition API
+  - For speech to text: `Google SpeechRecognition API`
+    - Note that the `Google Web Speech API` covers both (1) `SpeechRecognition` for speech to text, and (2) `SpeechSynthesis` for text to speech
     - During the implementation, we discovered that the "gemini-2.5-flash-native-audio-dialog live API" is not compatible with the browser's webm audio format. To fix this by converting PCM (Pulse Code Modulation) format to webm format, it might complicate our build, which is not the intention of this prototype. This prototype is intended to be a simple implementation of the required functionalities and technical components.
-  - For normal text to text: gemma-3-27b
-  - GOOGLE_API_KEY is in .env file - Please do not share it with anyone else or commit it to GitHub. It is required for speech practices and grading.
+    - Quota Efficiency: The `Google SpeechRecognition API` is available natively in browsers. It can handle complex audio processing internally. By letting the browser do the transcription, we do not need to send large audio files to Gemini (which was hitting "Resource Exhausted" 429 errors).
+    - We let the browser do the transcription and give us the final Finnish text output. Then we send it to the gemma-3-27b LLM for grading
+  - For normal text to text: `gemma-3-27b`
+  - `GOOGLE_API_KEY` is in .env file - Please do not share it with anyone else or commit it to GitHub. It is required for speech practices and grading.
+
 
 ### Architecture Diagram
 ```mermaid
@@ -49,19 +53,19 @@ graph TD
     User((User)) <--> Frontend["Next.js (Frontend)"]
     
     subgraph "Browser"
-        Frontend <--> WSA["Web Speech API (Transcription)"]
+        Frontend <--> WebSpeechAPI["Web Speech API (Transcription)"]
     end
     
     Frontend <--> Backend["FastAPI (Backend)"]
     
     subgraph "Backend Services"
         Backend <--> SQL[("SQLite (Database)")]
-        Backend <--> AI["LLM (Gemma 3 - Grading)"]
+        Backend <--> LLM["LLM (Gemma 3 - Grading)"]
     end
     
     style Frontend fill:#e1f5fe,stroke:#01579b
     style Backend fill:#e8f5e9,stroke:#1b5e20
-    style AI fill:#fff3e0,stroke:#e65100
+    style LLM fill:#fff3e0,stroke:#e65100
     style SQL fill:#f3e5f5,stroke:#4a148c
 ```
 
