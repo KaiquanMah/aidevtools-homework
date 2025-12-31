@@ -835,6 +835,8 @@ For screenshots of a successful CI/CD test and deployment, refer to the above 'P
 To avoid duplicating documentation, please refer to the "Deployment" section for instructions on how to deploy the application to Render.
 
 ## Manual Exploration of Functionalities
+* Register
+  <img width="1080" height="683" alt="register" src="https://github.com/user-attachments/assets/ea0fa7e4-b7a5-45db-a854-c1869ccdb6b2" />
 * Login (after registration)
   <img width="1117" height="727" alt="10-deployed-login" src="https://github.com/user-attachments/assets/8cb8f3cf-9629-4eb7-a698-952e4f65ed80" />
 * Dashboard
