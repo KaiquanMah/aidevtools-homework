@@ -90,7 +90,7 @@ project/
 │   └── database/         # Database seeding and vocabulary data
 │   │   ├── content/ # quiz content database (split by (1) proficiency levels, (2) topics, (3) sets of 10 questions per topic if there are more than 10 questions)
 │   │   ├── vocabulary/ # vocabulary speech practice database
-│   │   └── seed_data.json # initial seed data for the 'content' database ONLY (with the help of another Claude Opus LLM to research and generate "level0 - 01_alphabet questions", expanding from 2 questions to 75 questions)
+│   │   └── seed_data.json # initial seed data for the 'content' database ONLY (Gemini Pro 3 generated approx. 2 questions per lesson and exercise combination. With the help of another Claude Opus LLM, I got the LLM to research and generate additional "level0 - 01_alphabet questions", expanding from 2 questions to 75 questions, and with explanations in addition to correct answers where required to help improve understanding in students)
 ├── Dockerfile            # Multi-stage Dockerfiles (frontend, backend, full frontend-backend)
 ├── docker-compose.yml    # Development Docker Compose (serve frontend, backend in 2 separate containers)
 ├── docker-compose.e2e.yml    # E2E Testing Docker Compose (serve E2E end-to-end testing container)
@@ -139,7 +139,7 @@ The frontend is a modern, responsive web application built with Next.js 14 using
     - Centralized Axios instance in `utils/api.ts`.
     - Automatically injects the JWT `Bearer` token from `localStorage` into the headers of all outgoing requests.
 
-### 4. Execution Instructions
+### 4. Frontend Execution Instructions
 > [!IMPORTANT]
 > All frontend commands must be executed from the `project/src/frontend` directory.
 
@@ -679,7 +679,7 @@ The project utilizes optimized multi-stage `Dockerfiles` for both tiers:
 
 ### 3. Execution Commands
 
-#### Development Mode (Frontend + Backend at the same time)
+#### Development Mode (spin up separate Frontend Container + Backend Container at the same time)
 Ideal for active development with hot-reloading:
 - **Start**: `docker compose up -d`
 - **Stop**: `docker compose down`
@@ -776,6 +776,8 @@ The project features a CI/CD pipeline implemented via **GitHub Actions** (`.gith
   2.  **Frontend Unit Tests** (Jest)
   3.  **Full-Stack E2E Tests** (Playwright via Docker Compose)
 - **Safe Deployment**: Only when all tests pass does the pipeline trigger a deployment hook to the production environment (e.g., Render).
+
+TODO ADD SCREENSHOT OF DEPLOYMENT HOOK CONFIG HERE
 
 ---
 
