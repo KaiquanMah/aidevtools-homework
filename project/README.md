@@ -12,6 +12,16 @@
   - Antigravity IDE with Gemini 3 Pro High AND Claude Opus 4.5 Thinking (switching LLMs depending on available capacity relative to rate limits)
 - **MCP server**
   - Context7 documentation MCP server for LLM to retrieve the relevant documentation if it is unsure of a library's syntax
+  - Configured Context7 MCP server in Antigravity IDE
+    <img width="841" height="336" alt="mcp-server-config-file" src="https://github.com/user-attachments/assets/cb51be56-97be-403f-8240-5a5a1e32d407" />
+    <img width="894" height="609" alt="mcp-tool-discovered" src="https://github.com/user-attachments/assets/96bc683b-f2a3-4a37-b938-3f1a9e324b3a" />
+  - Gemini/Opus LLM in Antigravity IDE called Context7 MCP server to understand latest documentation
+    <img width="1581" height="1080" alt="1-mcp-tool-call" src="https://github.com/user-attachments/assets/cff76ecb-aae7-4992-9525-4f6f91de9bc7" />
+    <img width="402" height="551" alt="2-mcp" src="https://github.com/user-attachments/assets/c1a630e0-5dbc-467b-836e-271aedc0b93c" />
+    <img width="411" height="751" alt="3-mcp" src="https://github.com/user-attachments/assets/a094ba80-c101-4b5c-96db-31d07c12746e" />
+    <img width="419" height="1042" alt="4-results-aft-mcp" src="https://github.com/user-attachments/assets/1b640544-05c6-4a8f-bd0a-f6a787ef1a33" />
+    <img width="413" height="1039" alt="5-mcp-tool-call-round2" src="https://github.com/user-attachments/assets/05b8066f-3951-4a5c-9a71-74c7dfe0dad6" />
+
 
 ---
 
