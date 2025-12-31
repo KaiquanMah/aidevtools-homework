@@ -839,8 +839,12 @@ To avoid duplicating documentation, please refer to the "Deployment" section for
   <img width="1080" height="683" alt="register" src="https://github.com/user-attachments/assets/ea0fa7e4-b7a5-45db-a854-c1869ccdb6b2" />
 * Login (after registration)
   <img width="1117" height="727" alt="10-deployed-login" src="https://github.com/user-attachments/assets/8cb8f3cf-9629-4eb7-a698-952e4f65ed80" />
-* Dashboard
+* Dashboard showing different levels
   <img width="1382" height="528" alt="11-deployed-dashboard" src="https://github.com/user-attachments/assets/088a03e7-178e-4c04-9704-73f23d6b4336" />
+* Lesson topics within each level
+  <img width="917" height="447" alt="lessons" src="https://github.com/user-attachments/assets/dfca1e20-ea29-4a6b-9ae5-542377d84c1d" />
+* Choose between quiz or speech practice exercises
+  <img width="738" height="939" alt="choose-quiz-or-speech" src="https://github.com/user-attachments/assets/dd23f11c-bd83-4c52-b10a-8177b7e9ac1f" />
 * Quiz
   <img width="1325" height="892" alt="12-deployed-qn" src="https://github.com/user-attachments/assets/f9472c02-50fc-4e26-9d11-8cea6a8000a8" />
 * Speech Practice
