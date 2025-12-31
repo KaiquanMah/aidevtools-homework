@@ -576,7 +576,67 @@ The application uses the following core entities:
 - **Lessons <-> Exercises**: One-to-Many relationship (each lesson has nested quiz items).
 - **Users <-> Progress <-> Lessons**: Many-to-Many relationship enabled via `UserProgress`, allowing the UI to track individual learning paths.
 
-### 3. Database Initialization & Seeding
+### 3. Database Schema
+The database schema is defined in `src/backend/models.py` and `src/backend/schemas.py`.
+```mermaid
+erDiagram
+    USERS ||--o{ USER_PROGRESS : tracks
+    LEVELS ||--o{ LESSONS : contains
+    LESSONS ||--o{ EXERCISES : includes
+    LESSONS ||--o{ USER_PROGRESS : "records result"
+
+    USERS {
+        int id PK
+        string username UK
+        string hashed_password
+        datetime created_at
+    }
+
+    LEVELS {
+        int id PK
+        string name UK "e.g., '0', 'A1', 'A2'"
+        string description
+        int order
+    }
+
+    LESSONS {
+        int id PK
+        int level_id FK
+        string title
+        text content "Markdown"
+        int order
+    }
+
+    EXERCISES {
+        int id PK
+        int lesson_id FK
+        string question
+        text options "JSON list of strings"
+        string correct_answer
+        text explanation
+    }
+
+    USER_PROGRESS {
+        int id PK
+        int user_id FK
+        int lesson_id FK
+        boolean completed
+        int score
+        datetime completed_at
+    }
+```
+
+**Table Details**
+|Table	| Purpose	| Key Columns|
+|---|---|---|
+|users	| Identity	| username (unique), hashed_password|
+|levels	| Curriculum Root	| name (0, A1, A2), order (for dashboard sorting)|
+|lessons	| Educational Content	| level_id (parent), content (Markdown text)|
+|exercises	| Quizzes	| options (stored as JSON text), correct_answer|
+|user_progress	| Results	| score, completed (boolean), completed_at|
+
+
+### 4. Database Initialization & Seeding
 The system includes an automated seeding utility to populate the curriculum from JSON definitions found in `src/database/content/`.
 - **Script**: `src/backend/init_db.py`
 - **Execution**: `docker compose run --rm backend python init_db.py`
