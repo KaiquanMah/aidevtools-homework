@@ -4,6 +4,9 @@
 - **Name**: Finnish Language Learner
 - **Description**: A web application that helps English users learn and practice their reading, writing, listening and speaking Finnish language skills.
 - **Type**: Web App
+<img width="927" height="511" alt="finnish-learner" src="https://github.com/user-attachments/assets/259987db-1861-4e62-86e8-c3d2470ae84b" />
+
+  
 
 ---
 
@@ -771,8 +774,20 @@ The application is designed to be deployed as a single Docker container.
 5. **Auto-Initialization**: The container automatically runs `init_db.py` on startup to seed the curriculum.
 6. **Unified Entry Point**: Both the API and Frontend are served on the same port (default 8000).
 
+
 ### Proof of deployment
+* 2025.12.29 deployment with less tests
 <img width="3423" height="987" alt="14-cicd-deployment" src="https://github.com/user-attachments/assets/9387db43-2048-48f3-95cf-b2957c837069" />
+* 2025.12.31 deployment with more tests added to frontend, backend, end-to-end/e2e (and debugged)
+<img width="1516" height="945" alt="fixed-deployment-debugged" src="https://github.com/user-attachments/assets/9829b4ac-7804-48b3-b1ae-41f4a5437265" />
+<img width="991" height="512" alt="github-action" src="https://github.com/user-attachments/assets/d52be6bf-44a6-462a-b099-781becd32152" />
+<img width="926" height="607" alt="test-backend" src="https://github.com/user-attachments/assets/d5e14fff-efcb-47c0-9a16-a38963354614" />
+<img width="1441" height="845" alt="test-frontend" src="https://github.com/user-attachments/assets/5e46ffe3-b9fb-46c8-ae98-6fd3f43effa1" />
+<img width="1344" height="699" alt="test-e2e" src="https://github.com/user-attachments/assets/04e5638a-67c8-4ad7-a935-529dd0b1f796" />
+<img width="987" height="505" alt="github-actions-trigger-render" src="https://github.com/user-attachments/assets/9f8fd1e6-8875-474d-b981-63fe7a22d07f" />
+<img width="1834" height="901" alt="2025-12-31-deployed-on-render" src="https://github.com/user-attachments/assets/bc9e9076-4bd9-4636-90c6-044515a867d2" />
+<img width="1212" height="666" alt="finnish-learner-w-url" src="https://github.com/user-attachments/assets/11c69dfc-611d-4352-92bd-8ce88ba7ba1a" />
+
 
 ### Working URL
 https://aidevtools-homework.onrender.com
@@ -789,7 +804,15 @@ The project features a CI/CD pipeline implemented via **GitHub Actions** (`.gith
   3.  **Full-Stack E2E Tests** (Playwright via Docker Compose)
 - **Safe Deployment**: Only when all tests pass does the pipeline trigger a deployment hook to the production environment (e.g., Render).
 
-TODO ADD SCREENSHOT OF DEPLOYMENT HOOK CONFIG HERE
+For screenshots of a successful CI/CD test and deployment, refer to the above 'Proof of deployment' section.
+
+**Deployment Hook Config**
+* Get Deployment Hook URL from Render
+<img width="1606" height="242" alt="render-deployment-hook" src="https://github.com/user-attachments/assets/81aae9b1-9556-4581-9604-26f71c671daa" />
+* Add to GitHub repo config
+<img width="1093" height="812" alt="image" src="https://github.com/user-attachments/assets/cb7231a8-e153-4bf4-a46f-a06d6193d69c" />
+
+
 
 ---
 
@@ -807,7 +830,6 @@ TODO ADD SCREENSHOT OF DEPLOYMENT HOOK CONFIG HERE
 3. **Finish**:
    - The database is automatically initialized and seeded with the curriculum data on its first startup iteration.
 
-<img width="753" height="865" alt="7-hei" src="https://github.com/user-attachments/assets/cba301cb-924d-4b98-bf31-845003d653d3" />
 
 ### Cloud Deployment
 To avoid duplicating documentation, please refer to the "Deployment" section for instructions on how to deploy the application to Render.
